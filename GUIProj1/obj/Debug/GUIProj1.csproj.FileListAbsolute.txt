@@ -1,0 +1,12 @@
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\bin\Debug\GUIProj1.exe
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\bin\Debug\GUIProj1.pdb
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\ResolveAssemblyReference.cache
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\Window1.baml
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\Window1.g.cs
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\App.g.cs
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1_MarkupCompile.cache
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1.g.resources
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1.Properties.Resources.resources
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1.exe
+U:\Visual Studio 2008\Projects\GUIProj\GUIProj1\obj\Debug\GUIProj1.pdb
