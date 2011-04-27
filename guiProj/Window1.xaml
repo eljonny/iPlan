@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GUIProj1.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="iPlan" Height="465" Width="900">
+    Title="iPlan" Height="505" Width="968">
     <Grid>
         <Menu Height="29" Name="fileMenu" AllowDrop="True" FontFamily="Verdana" FontSize="18" FontWeight="bold" Width="48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0">File</Menu>
         <Menu Height="29" AllowDrop="True" Name="optionMenu" Width="48" FontFamily="Verdana" FontSize="18" FontWeight="bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61,5,0,0">Opt</Menu>
@@ -13,8 +13,11 @@
         <Label Height="25" Name="labelBtwnTimes" Width="30" Margin="0,10,95,0" VerticalAlignment="Top" HorizontalAlignment="Right"> to </Label>
         <TextBox Height="25" Name="EndTime" Width="80" Margin="0,10,25,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <StatusBar Height="20" Name="statusBar1" VerticalAlignment="Bottom" />
+        <ScrollBar Height="405" Width="20" HorizontalAlignment="Right" Margin="0,40,3,22"/>
         <Border Margin="-6,-12,-6,-4" Name="border1">
-            <UniformGrid Height="365" Name="uniformGrid1" Width="755" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,15,25" >
+            <UniformGrid Name="calDataGrid" Height="405" Width="805" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                         Margin="0,0,30,25" Binding.SourceUpdated="UniformGrid_SourceUpdated"
+                         Binding.TargetUpdated="UniformGrid_SourceUpdated">
                 
             </UniformGrid>
         </Border>

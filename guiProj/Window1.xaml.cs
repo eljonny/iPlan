@@ -19,9 +19,29 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
+        private gridObject[,] dataGrid;
         public Window1()
         {
             InitializeComponent();
+            dataGrid = new gridObject[48,7];
+            for(int i = 0;i<dataGrid.GetLength(0);i++)
+            {
+                for(int j = 0;j<dataGrid.GetLength(1);j++)
+                {
+
+                }
+            }
+
+        }
+        public gridObject[,] setArray(int x,int y)
+        {
+            dataGrid = new gridObject[x,y];
+            return dataGrid;
+        }
+
+        private void UniformGrid_SourceUpdated(object sender,DataTransferEventArgs e)
+        {
+            
         }
     }
 }
