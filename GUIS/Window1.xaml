@@ -1,9 +1,11 @@
 ﻿<Window x:Class="GUIProj1.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="iPlan" Height="505" Width="968" Name="iPlanMain" MaxHeight="Infinity"
-        WindowStartupLocation="CenterScreen" MinWidth="968" MinHeight="505">
-        <Grid Height="502" Width="965" HorizontalAlignment="Left"
+    Title="iPlan" Height="540" Width="955" Name="iPlanMain" MaxHeight="540"
+        WindowStartupLocation="CenterScreen" MinWidth="955" MinHeight="540"
+        MaxWidth="955">
+    <!-- Main window grid that holds buttons/text/calander grid/etc -->
+        <Grid Height="510" Width="950" HorizontalAlignment="Left" Margin="5"
               VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110*" />
@@ -44,24 +46,56 @@
             </Menu>
                 
             <Button Height="50" Name="saveCalButton" VerticalAlignment="Top"
-                    FontFamily="Verdana" FontSize="13" Margin="3,5.093,5,0"
+                    FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
                 Grid.Row="1">
-                Save Calendar
+            Save Calendar
+            </Button>
+            <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
+                    FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
+                    Grid.Row="1">
+                Properties
+            </Button>
+            <Button Height="50" Name="schedCalButton" VerticalAlignment="Top"
+                            FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
+                            Grid.Row="1">
+                Sched. Details
+            </Button>
+            <Button Height="50" Name="membersCalButton" VerticalAlignment="Top"
+                    FontFamily="Verdana" FontSize="13" Margin="3,170,5,0"
+                    Grid.Row="1">
+                Participants
+            </Button>
+            <Button Height="50" Name="notifyCalButton" VerticalAlignment="Top"
+                        FontFamily="Verdana" FontSize="13" Margin="3,225,5,0"
+                        Grid.Row="1">
+                Notifications
+            </Button>
+            <Button Height="50" Name="viewModeCalButton" VerticalAlignment="Top"
+                            FontFamily="Verdana" FontSize="13" Margin="3,280,5,0"
+                            Grid.Row="1">
+                View Mode
+            </Button>
+            <Button Height="50" Name="resetCalButton" VerticalAlignment="Top"
+                            FontFamily="Verdana" FontSize="13" Margin="3,335,5,0"
+                            Grid.Row="1">
+                Reset Values
             </Button>
             <Label Name="label2" Margin="0,10,210,0" Width="95"
                 HorizontalAlignment="Right" Grid.Column="1">
                 Times Available:
             </Label>
-            <TextBox Name="startTime" Width="80" Margin="648.964,10,0,12.885"
-                HorizontalAlignment="Left" Text="hh:mm" TextAlignment="Center" Grid.Column="1" />
-            <Label Name="labelBtwnTimes" Width="30" Margin="0,10,95,12.885"
-                HorizontalAlignment="Right" VerticalAlignment="Top"
-                    Grid.Column="1">
+            <TextBox Name="startTime" Width="80" Margin="0,11,128,12"
+                HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
+                     Grid.Column="1" Height="25" />
+            <Label Name="labelBtwnTimes" Width="30" Margin="0,10,98,12.885"
+                HorizontalAlignment="Right" Grid.Column="1">
                 to 
             </Label>
-            <TextBox Name="EndTime" Width="80" Margin="0,10,25,12.885"
-                HorizontalAlignment="Right" Text="hh:mm" VerticalAlignment="Top"
-                    TextAlignment="Center" Grid.Column="1" />
+            <TextBox Name="EndTime" Width="80" Margin="0,11,25,12"
+                HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
+                     Grid.Column="1" />
+            <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
+                HorizontalAlignment="Left" Width="2" />
         <ScrollViewer Name="calGridContainer" Grid.Column="1" Grid.Row="1"
                 Margin="0,3.208,25,51" Padding="1,1,1,1" CanContentScroll="True">
         <!--
@@ -69,7 +103,8 @@
                 HorizontalAlignment="Left" Width="2" />
             -->
             <Grid Focusable="True" ShowGridLines="True"
-                    Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                    Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
+                  Margin="15,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" Name="calGridLabels"
                             Focusable="False" />
@@ -216,10 +251,27 @@
                 <Label Grid.Row="25" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="14" Name="r25c0">24:00</Label>
+                <!--
+                    So this is the idea for calander content so far, where there
+                will be other properties associated with each time period; the editor/
+                administrator of the schedule will see the sliders (will have option to
+                see colors or hybrid too) and viewers will not see the sliders, will
+                just see color gradients for their scheduled time blocks. suggestions?
+                this slider is just an example to show what it'll potentially look like.
+                need to figure out how to import a 2D array of objects to define cell
+                contents. in the works.
+                    -jon
+                -->
                 <Slider Interval="5" Maximum="100" Minimum="0" Value="0" Grid.Column="1"
                         Grid.Row="1" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Width="100" Height="21"/>
+                        VerticalAlignment="Center" Width="100" Height="23"/>
             </Grid>
         </ScrollViewer>
+        <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" Height="25" Width="110"
+                   Margin="0,0,0,25" />
+        <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
+                Height="25"
+                   Margin="0,0,25,25" />
     </Grid>
 </Window>
