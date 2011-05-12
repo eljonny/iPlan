@@ -1,24 +1,27 @@
 ﻿<Window x:Class="GUIProj1.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="iPlan" Height="540" Width="955" Name="iPlanMain" MaxHeight="540"
-        WindowStartupLocation="CenterScreen" MinWidth="955" MinHeight="540"
-        MaxWidth="955">
+    Title="iPlan" Height="545" Width="955" Name="iPlanMain" MaxHeight="768"
+        WindowStartupLocation="CenterScreen" MinWidth="955" MinHeight="545"
+        MaxWidth="955" ToolTipService.HasDropShadow="True"
+        ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
-        <Grid Height="510" Width="950" HorizontalAlignment="Left" Margin="5"
-              VerticalAlignment="Top">
+        <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="3,5,3,0">
+        <!-- Dynamically sized grid cells -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110*" />
             <ColumnDefinition Width="846*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="45*" />
-            <RowDefinition Height="435*" />
+            <RowDefinition Height="37*" MinHeight="35" MaxHeight="39" />
+            <RowDefinition Height="448*" MaxHeight="729" />
         </Grid.RowDefinitions>
+        <!-- program menus -->
             <Menu Name="fileMenu"
                   AllowDrop="True" FontFamily="Verdana"
                   FontSize="18" FontWeight="bold" Width="50" HorizontalAlignment="Left"
-                  Margin="3,5,0,13.885">
+                  Margin="3,5,0,3" >
                 <MenuItem Header="_File">
                     <MenuItem Header="_New Calendar" />
                     <MenuItem Header="New _Team Member" />
@@ -31,9 +34,9 @@
                     <MenuItem Header="_Quit" Click="file_quit" />
                 </MenuItem>
             </Menu>
-            <Menu AllowDrop="True" IsMainMenu="True" Name="optionMenu"
+            <Menu AllowDrop="True" Name="optionMenu"
                   Width="50" FontFamily="Verdana" FontSize="18" FontWeight="bold"
-                  HorizontalAlignment="Right" Margin="0,5,3,13.885">
+                  HorizontalAlignment="Right" Margin="0,5,3,3">
                 <MenuItem Header="_Opt">
                     <MenuItem Header="_View Mode" />
                     <MenuItem Header="_Edit Mode" />
@@ -44,7 +47,11 @@
                     <MenuItem Header="C_ustomize" />
                 </MenuItem>            
             </Menu>
-                
+            <!-- program command buttons... suggestions for new command buttons?
+            Maybe add more and put them in a scrollviewer? There's enough space
+            on the left for a scrollbar I think.
+                -jon
+            -->
             <Button Height="50" Name="saveCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
                 Grid.Row="1">
@@ -80,176 +87,218 @@
                             Grid.Row="1">
                 Reset Values
             </Button>
-            <Label Name="label2" Margin="0,10,210,0" Width="95"
+            <Label Name="label2" Margin="0,1,210,0" Width="95"
                 HorizontalAlignment="Right" Grid.Column="1">
                 Times Available:
             </Label>
-            <TextBox Name="startTime" Width="80" Margin="0,11,128,12"
-                HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
-                     Grid.Column="1" Height="25" />
-            <Label Name="labelBtwnTimes" Width="30" Margin="0,10,98,12.885"
+            
+            <Label Name="labelBtwnTimes" Width="30" Margin="0,1,98,12.885"
                 HorizontalAlignment="Right" Grid.Column="1">
                 to 
             </Label>
-            <TextBox Name="EndTime" Width="80" Margin="0,11,25,12"
+            <TextBox Name="startTime" Width="80" Margin="0,3,128,12"
                 HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
                      Grid.Column="1" />
-            <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
-                HorizontalAlignment="Left" Width="2" />
-        <ScrollViewer Name="calGridContainer" Grid.Column="1" Grid.Row="1"
-                Margin="0,3.208,25,51" Padding="1,1,1,1" CanContentScroll="True">
-        <!--
+            <TextBox Name="EndTime" Width="80" Margin="0,3,25,12"
+                HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
+                     Grid.Column="1" />
+            <!-- calander grid border -->
+        <Border Margin="15,0,20,29" Focusable="False" MinHeight="416"
+                BorderThickness="2" Grid.Row="1" Height="auto" Width="803"
+                Grid.Column="1" MaxHeight="749" BorderBrush="DarkGray" 
+                Visibility="Visible" Opacity="85" HorizontalAlignment="Left"
+                VerticalAlignment="Stretch" Name="calGridBorder" />
+            <!-- calander grid container to control content overflow -->
+            <ScrollViewer Name="calGridContainer" Grid.Column="1" Grid.Row="1"
+                Margin="0,3,25,31" Padding="1,1,1,0" CanContentScroll="True"
+                      HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                      Cursor="Cross" VerticalScrollBarVisibility="Visible"
+                      VerticalContentAlignment="Stretch" MaxHeight="692">
+                <ScrollViewer.Content>
+                    <!-- not sure why this is still here haha.
             <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
                 HorizontalAlignment="Left" Width="2" />
             -->
-            <Grid Focusable="True" ShowGridLines="True"
+                    <!-- calander grid cell definitions -->
+                    <Grid Focusable="True" ShowGridLines="True"
                     Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
-                  Margin="15,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" Name="calGridLabels"
+                  Margin="15,0,0,0" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" Name="calGridLabels"
                             Focusable="False" />
-                    <RowDefinition Height="25" Name="hr0" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr1" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr2" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr3" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr4" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr5" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr6" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr7" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr8" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr9" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr10" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr11" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr12" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr13" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr14" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr15" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr16" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr17" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr18" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr19" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr20" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr21" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr22" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr23" Focusable="True" />
-                    <RowDefinition Height="25" Name="hr24" Focusable="True" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="61*" Name="timeLabels"
-                            Focusable="False" />
-                    <ColumnDefinition Width="106*" Name="monday" Focusable="True" />
-                    <ColumnDefinition Width="107*" Name="tuesday" Focusable="True" />
-                    <ColumnDefinition Width="109*" Name="wednesday" Focusable="True" />
-                    <ColumnDefinition Width="107*" Name="thursday" Focusable="True" />
-                    <ColumnDefinition Width="106*" Name="friday" Focusable="True" />
-                    <ColumnDefinition Width="107*" Name="saturday" Focusable="True" />
-                    <ColumnDefinition Width="106*" Name="sunday" Focusable="True" />
-                </Grid.ColumnDefinitions>
-                <!--
-                    <ScrollBar Grid.RowSpan="26"
-                            Grid.Column="7" Grid.ColumnSpan="2" HorizontalAlignment="Right"
-                            Width="25" Height="405" IsEnabled="True" Focusable="True"
-                                   Name="gridScroller" />
-                    -->
-                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
+                            <RowDefinition Height="25" Name="hr0" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr1" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr2" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr3" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr4" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr5" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr6" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr7" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr8" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr9" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr10" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr11" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr12" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr13" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr14" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr15" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr16" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr17" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr18" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr19" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr20" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr21" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr22" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr23" Focusable="True" />
+                            <RowDefinition Height="25" Name="hr24" Focusable="True" />
+                        </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*" Name="timeLabels"
+                                              Focusable="False" />
+                        <ColumnDefinition Width="106*" Name="monday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="tuesday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="109*" Name="wednesday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="thursday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="106*" Name="friday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="saturday"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="106*" Name="sunday"
+                                              Focusable="True" />
+                    </Grid.ColumnDefinitions>
+                    <!-- day labels for week view. will there ever be
+                        anything other than week view for this q? prob not haha.-->
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                         VerticalAlignment="Center" FontWeight="bold" FontSize="15"
                         FontFamily="Verdana" Name="r0c0">Times</Label>
-                <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c1">Monday</Label>
-                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c2">Tuesday</Label>
-                <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c3">Wednesday</Label>
-                <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c4">Thursday</Label>
-                <Label Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c5">Friday</Label>
-                <Label Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c6">Saturday</Label>
-                <Label Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center"
+                        <Label Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c7">Sunday</Label>
-                
-                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
+                        
+                        <!-- time labels. Static tooltips affect value of a
+                         time start/end text box, if one has focus. Automatically
+                        copies the time to the focused text box -->
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
-                        FontSize="14" Name="r1c0">00:00</Label>
-                <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
+                        FontSize="14" Name="r1c0" Focusable="False" ToolTip="Midnight"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">00:00</Label>
+                        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
-                        FontSize="14" Name="r2c0">01:00</Label>
-                <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontSize="14" Name="r2c0" ToolTip="One AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">01:00</Label>
+                        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r3c0">02:00</Label>
-                <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r4c0">03:00</Label>
-                <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r5c0">04:00</Label>
-                <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"  ToolTip="Five AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r6c0">05:00</Label>
-                <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r7c0">06:00</Label>
-                <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r8c0">07:00</Label>
-                <Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r9c0">08:00</Label>
-                <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r10c0">09:00</Label>
-                <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r11c0">10:00</Label>
-                <Label Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r12c0">11:00</Label>
-                <Label Grid.Row="13" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="13" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Noon"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r13c0">12:00</Label>
-                <Label Grid.Row="14" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="14" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="One PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r14c0">13:00</Label>
-                <Label Grid.Row="15" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="15" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r15c0">14:00</Label>
-                <Label Grid.Row="16" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="16" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r16c0">15:00</Label>
-                <Label Grid.Row="17" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="17" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r17c0">16:00</Label>
-                <Label Grid.Row="18" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="18" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Five PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r18c0">17:00</Label>
-                <Label Grid.Row="19" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="19" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r19c0">18:00</Label>
-                <Label Grid.Row="20" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="20" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r20c0">19:00</Label>
-                <Label Grid.Row="21" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="21" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r21c0">20:00</Label>
-                <Label Grid.Row="22" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="22" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r22c0">21:00</Label>
-                <Label Grid.Row="23" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="23" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r23c0">22:00</Label>
-                <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven PM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r24c0">23:00</Label>
-                <Label Grid.Row="25" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana"
+                        <Label Grid.Row="25" Grid.Column="0" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Midnight"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="14" Name="r25c0">24:00</Label>
                 <!--
                     So this is the idea for calander content so far, where there
@@ -258,20 +307,24 @@
                 see colors or hybrid too) and viewers will not see the sliders, will
                 just see color gradients for their scheduled time blocks. suggestions?
                 this slider is just an example to show what it'll potentially look like.
-                need to figure out how to import a 2D array of objects to define cell
-                contents. in the works.
+                need to figure out how to import a 2D array of grid objects to define cell
+                contents. in the works. Please provide some feedback and make modifications
+                wherever you see fit.
                     -jon
                 -->
-                <Slider Interval="5" Maximum="100" Minimum="0" Value="0" Grid.Column="1"
-                        Grid.Row="1" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Width="100" Height="23"/>
-            </Grid>
-        </ScrollViewer>
-        <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom" Height="25" Width="110"
-                   Margin="0,0,0,25" />
-        <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
-                Height="25"
-                   Margin="0,0,25,25" />
+                        <Slider Interval="5" Maximum="100" Minimum="0" Value="0"
+                                Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="100" Height="23" />
+                    </Grid>
+                </ScrollViewer.Content>
+            </ScrollViewer>
+            
+            <!-- maybe dynamically display some sort of useful information here -->
+            <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom" Height="20" Width="120"
+                   Margin="0,0,0,10" Grid.ColumnSpan="2"/>
+            <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
+                Height="20" Width="805" HorizontalAlignment="Left"
+                   Margin="14,0,5,10" />
     </Grid>
 </Window>

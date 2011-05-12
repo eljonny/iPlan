@@ -31,5 +31,13 @@ namespace GUIProj1
         {
             this.Close();
         }
+        private void labelTxtBoxFill(object sender,ToolTipEventArgs e)
+        {
+            Label clicked = (System.Windows.Controls.Label)sender;
+            if(startTime.IsFocused)
+                startTime.Text = clicked.Content.ToString();
+            else if(EndTime.IsFocused)
+                EndTime.Text = clicked.Content.ToString();
+        }
     }
 }
