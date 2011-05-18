@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace GUIProj1
 {
@@ -9,7 +10,8 @@ namespace GUIProj1
     {
         private int row, col;
         private double prob;
-        private string timeBeg, timeEnd, gObjCont;
+        private string timeBeg, timeEnd;
+        private string[] gObjCont = null;
         private bool isPopulated;
 
         public gridObject()
@@ -22,7 +24,8 @@ namespace GUIProj1
             isPopulated = false;
         }
         
-        public gridObject(int r,int c,string tb,string te,bool pop)
+        public gridObject(int r,int c,string tb,string te,
+            bool pop, string[] content)
         {
             prob = 0;
             row = r;
@@ -30,9 +33,10 @@ namespace GUIProj1
             timeBeg = tb;
             timeEnd = te;
             isPopulated = pop;
+            gObjCont = content;
         }
 
-        protected void setCoords(int r,int c)
+        protected void setCoords(int c, int r)
         {
             row = r;
             col = c;
@@ -44,35 +48,45 @@ namespace GUIProj1
             timeEnd = e;
         }
         
-        private void checkPop()
+        private bool checkPop()
         {
             if(timeBeg=="" || timeEnd=="")
-                isPopulated = false;
+                if(col == 0)
+                    if(prob == 0)
+                        if(gObjCont == null)
+                            isPopulated = false;
             else
                 isPopulated = true;
+            return isPopulated;
         }
 
-        protected int[] getRC()
+        public int getDayMo()
         {
-            int[] rc = { row,col };
-            return rc;
+            if(row==1)
+                return col;
+            else
+                return (col + (7*row));
+        }
+        public int getDayWk()
+        {
+            return col;
         }
 
-        protected string[] getTimeVals()
+        public string[] getTimeVals()
         {
             string[] begEndTimes = { timeBeg,timeEnd };
             return begEndTimes;
         }
 
-        public bool isPop()
-        {
-            this.checkPop();
-            return isPopulated;
-        }
-
         public void setProb(double d)
         {
             prob = d;
+        }
+
+        public string toString()
+        {
+            return gObjCont.ToString()+"\n"+col+"\n"
+                +prob+"\n"+timeBeg+"\n"+timeEnd;
         }
     }
 }

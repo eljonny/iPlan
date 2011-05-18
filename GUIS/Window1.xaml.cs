@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace GUIProj1
 {
@@ -19,18 +20,20 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
-        private gridObject[,] 
-            gridContents = new gridObject[48,7];
+        private ArrayList
+            gridContents = new ArrayList();
 
         public Window1()
         {
             InitializeComponent();
+            gridContents.Cast<gridObject>();
         }
 
         private void file_quit(object sender,EventArgs e)
         {
             this.Close();
         }
+
         private void labelTxtBoxFill(object sender,ToolTipEventArgs e)
         {
             Label clicked = (System.Windows.Controls.Label)sender;
@@ -38,6 +41,29 @@ namespace GUIProj1
                 startTime.Text = clicked.Content.ToString();
             else if(EndTime.IsFocused)
                 EndTime.Text = clicked.Content.ToString();
+        }
+
+        private void setObjSlotWk(gridObject o, ArrayList g)
+        {
+            g.Insert(o.getDayWk(), o);
+            g.RemoveAt(o.getDayWk() + 1);
+        }
+
+        private void setObjSlotMo(gridObject o, ArrayList g)
+        {
+            g.Insert(o.getDayMo(),o);
+            g.RemoveAt(o.getDayMo()+1);
+        }
+        
+        private void about_Click(object sender,RoutedEventArgs e)
+        {
+            iPlAbout aboutWin = new iPlAbout();
+            aboutWin.ShowDialog();
+        }
+
+        public string toString()
+        {
+            return gridContents.ToString();
         }
     }
 }
