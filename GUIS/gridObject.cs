@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
-
+//  Author Jonathan Hyry
 namespace GUIProj1
 {
     class gridObject
     {
         private int row, col;
         private double prob;
-        private string timeBeg, timeEnd;
+        private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
         private bool isPopulated;
 
@@ -25,7 +25,7 @@ namespace GUIProj1
         }
         
         public gridObject(int r,int c,string tb,string te,
-            bool pop, string[] content)
+            bool pop, string[] content, string t, string d)
         {
             prob = 0;
             row = r;
@@ -34,6 +34,8 @@ namespace GUIProj1
             timeEnd = te;
             isPopulated = pop;
             gObjCont = content;
+            type = t;
+            date = d;
         }
 
         protected void setCoords(int c, int r)
@@ -46,6 +48,16 @@ namespace GUIProj1
         {
             timeBeg = b;
             timeEnd = e;
+        }
+
+        public void setType(string t)
+        {
+            type = t;
+        }
+
+        public void setDate(string d)
+        {
+            date = d;
         }
         
         private bool checkPop()
@@ -60,16 +72,12 @@ namespace GUIProj1
             return isPopulated;
         }
 
-        public int getDayMo()
+        public int getDay()
         {
             if(row==1)
                 return col;
             else
                 return (col + (7*row));
-        }
-        public int getDayWk()
-        {
-            return col;
         }
 
         public string[] getTimeVals()

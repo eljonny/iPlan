@@ -12,7 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
-
+using System.Diagnostics;
+//   Author Jonathan Hyry & George Wanjiru
 namespace GUIProj1
 {
     /// <summary>
@@ -22,6 +23,7 @@ namespace GUIProj1
     {
         private ArrayList
             gridContents = new ArrayList();
+        private bool ed = true;
 
         public Window1()
         {
@@ -36,29 +38,57 @@ namespace GUIProj1
 
         private void labelTxtBoxFill(object sender,ToolTipEventArgs e)
         {
-            Label clicked = (System.Windows.Controls.Label)sender;
-            if(startTime.IsFocused)
-                startTime.Text = clicked.Content.ToString();
-            else if(EndTime.IsFocused)
-                EndTime.Text = clicked.Content.ToString();
+            if(ed)
+            {
+                Label clicked = (System.Windows.Controls.Label)sender;
+                if(startTime.IsFocused)
+                    startTime.Text = clicked.Content.ToString();
+                else if(EndTime.IsFocused)
+                    EndTime.Text = clicked.Content.ToString();
+            }
+            else if(ed == false &&(startTime.IsFocused || EndTime.IsFocused))
+                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
 
-        private void setObjSlotWk(gridObject o, ArrayList g)
+        private void setObjSlot(gridObject o, ArrayList g)
         {
-            g.Insert(o.getDayWk(), o);
-            g.RemoveAt(o.getDayWk() + 1);
-        }
-
-        private void setObjSlotMo(gridObject o, ArrayList g)
-        {
-            g.Insert(o.getDayMo(),o);
-            g.RemoveAt(o.getDayMo()+1);
+            if(ed)
+            {
+                g.Insert(o.getDay(), o);
+                g.RemoveAt(o.getDay() + 1);
+            }
+            else
+                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
         
         private void about_Click(object sender,RoutedEventArgs e)
         {
             iPlAbout aboutWin = new iPlAbout();
             aboutWin.ShowDialog();
+        }
+
+        private void chgViewMode(object sender,RoutedEventArgs e)
+        {
+            if(this.wkCalGridContainer.Visibility == Visibility.Visible)
+            {
+                this.wkCalGridContainer.Visibility = Visibility.Hidden;
+                this.moCalGridContainer.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.moCalGridContainer.Visibility = Visibility.Hidden;
+                this.wkCalGridContainer.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void enterOrLeaveEditMode(object sender,RoutedEventArgs e)
+        {
+            ed = !ed;
+        }
+
+        private void startEmail(object sender,RoutedEventArgs e)
+        {
+            Process.Start("mail.exe");
         }
 
         public string toString()

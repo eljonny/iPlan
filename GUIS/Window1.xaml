@@ -1,4 +1,5 @@
-﻿<Window x:Class="GUIProj1.Window1"
+﻿<!-- Author Jonathan Hyry & George Wanjiru -->
+<Window x:Class="GUIProj1.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="iPlan" Height="545" Width="955" Name="iPlanMain" MaxHeight="768"
@@ -22,7 +23,8 @@
                   AllowDrop="True" FontFamily="Verdana"
                   FontSize="18" FontWeight="bold" Width="50" HorizontalAlignment="Left"
                   Margin="3,5,0,3" >
-                <MenuItem Header="_File">
+                <MenuItem Header="_File"
+                          ToolTip="Make new, save, and open calendars and teams.">
                     <MenuItem Header="_New Calendar" />
                     <MenuItem Header="New _Team Member" />
                     <MenuItem Header="_Open Calendar" />
@@ -37,9 +39,10 @@
             <Menu AllowDrop="True" Name="optionMenu"
                   Width="50" FontFamily="Verdana" FontSize="18" FontWeight="bold"
                   HorizontalAlignment="Right" Margin="0,5,3,3">
-                <MenuItem Header="_Opt">
-                    <MenuItem Header="_View Mode" />
-                    <MenuItem Header="_Edit Mode" />
+                <MenuItem Header="_Opt"
+                  ToolTip="Change calendar properties, change view mode, enter/leave edit mode. Edit teams and team members.">
+                    <MenuItem Header="_View Mode" Click="chgViewMode" />
+                    <MenuItem Header="_Edit Mode" Click="enterOrLeaveEditMode"/>
                     <MenuItem Header="Edit _Team Member" />
                     <MenuItem Header="Team Member _Details" />
                     <MenuItem Header="Eve_nt Details" />
@@ -50,12 +53,104 @@
             <Menu AllowDrop="True" Name="helpMenu" Grid.Column="1"
                       Width="50" FontFamily="Verdana" FontSize="18" FontWeight="bold"
                       HorizontalAlignment="Left" Margin="0,5,0,3">
-                <MenuItem Header="_Hlp">
+                <MenuItem Header="_Hlp"
+                    ToolTip="Access help file contents, as well as version and author information.">
                     <MenuItem Header="_About" Click="about_Click"/>
                     <Separator />
                     <MenuItem Header="Help _Contents" />
                 </MenuItem>
             </Menu>
+        <Label VerticalAlignment="Center" Grid.Column="1" Width="65" FontFamily="Verdana"
+               HorizontalAlignment="Left" Margin="60,0,0,0" FontSize="15"
+               ToolTip="Change the current calendar schedule month of the year.">
+                    Month: </Label>
+        <ComboBox Grid.Column="1" Width="110" Height="27" HorizontalAlignment="Left"
+                  Margin="125,0,0,0" Text="Month" Name="moComboBox" FontFamily="Verdana"
+                  FontSize="15">
+            <ComboBoxItem Name="jan">
+                January
+            </ComboBoxItem>
+            <ComboBoxItem Name="feb">
+                February
+            </ComboBoxItem>
+            <ComboBoxItem Name="mar">
+                March
+            </ComboBoxItem>
+            <ComboBoxItem Name="apr">
+                April
+            </ComboBoxItem>
+            <ComboBoxItem Name="may">
+                May
+            </ComboBoxItem>
+            <ComboBoxItem Name="jun">
+                June
+            </ComboBoxItem>
+            <ComboBoxItem Name="jul">
+                July
+            </ComboBoxItem>
+            <ComboBoxItem Name="aug">
+                August
+            </ComboBoxItem>
+            <ComboBoxItem Name="sep">
+                September
+            </ComboBoxItem>
+            <ComboBoxItem Name="oct">
+                October
+            </ComboBoxItem>
+            <ComboBoxItem Name="nov">
+                November
+            </ComboBoxItem>
+            <ComboBoxItem Name="dec">
+                December
+            </ComboBoxItem>
+        </ComboBox>
+        <Label VerticalAlignment="Center" Grid.Column="1" Width="65" FontFamily="Verdana"
+               HorizontalAlignment="Left" Margin="250,0,0,0" FontSize="15"
+               ToolTip="Change the current calendar schedule week of the month.">
+                    Week:</Label>
+        <ComboBox Grid.Column="1" Width="35" Height="27" HorizontalAlignment="Left"
+                  Margin="310,0,0,0" Text="Month" Name="wkComboBox" FontFamily="Verdana"
+                  FontSize="15">
+            <ComboBoxItem Name="wk1">
+                1
+            </ComboBoxItem>
+            <ComboBoxItem Name="wk2">
+                2
+            </ComboBoxItem>
+            <ComboBoxItem Name="wk3">
+                3
+            </ComboBoxItem>
+            <ComboBoxItem Name="wk4">
+                4
+            </ComboBoxItem>
+            <ComboBoxItem Name="wk5">
+                5
+            </ComboBoxItem>
+        </ComboBox>
+            
+            <Label VerticalAlignment="Center" Grid.Column="1" Width="50"
+                   FontFamily="Verdana"
+                   ToolTip="Change the current calendar schedule year."
+               HorizontalAlignment="Left" Margin="365,0,0,0" FontSize="15">Year:</Label>
+            <ComboBox Grid.Column="1" Width="64" Height="27" HorizontalAlignment="Left"
+                  Margin="420,0,0,0" Text="Month" Name="yrComboBox" FontFamily="Verdana"
+                  FontSize="15">
+            <ComboBoxItem Name="yr1">
+                2009
+            </ComboBoxItem>
+            <ComboBoxItem Name="yr2">
+                2010
+            </ComboBoxItem>
+            <ComboBoxItem Name="yr3">
+                2011
+            </ComboBoxItem>
+            <ComboBoxItem Name="yr4">
+                2012
+            </ComboBoxItem>
+            <ComboBoxItem Name="yr5">
+                2013
+            </ComboBoxItem>
+        </ComboBox>
             <!-- program command buttons... suggestions for new command buttons?
             Maybe add more and put them in a scrollviewer? There's enough space
             on the left for a scrollbar I think.
@@ -63,67 +158,70 @@
             -->
             <Button Height="50" Name="saveCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
-                Grid.Row="1"
+                Grid.Row="1" ToolTip="Save the currently loaded calendar."
                 Foreground="Black">
             Save Calendar
             </Button>
             <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
-                    Grid.Row="1">
+                    Grid.Row="1" ToolTip="Change the properties of the currently loaded calendar.">
                 Properties
             </Button>
             <Button Height="50" Name="schedCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
-                            Grid.Row="1">
+                            Grid.Row="1" ToolTip="View schedule details for current month or week.">
                 Sched. Details
             </Button>
             <Button Height="50" Name="membersCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,170,5,0"
-                    Grid.Row="1">
+                    Grid.Row="1" ToolTip="View the currently participating team members.">
                 Participants
             </Button>
             <Button Height="50" Name="notifyCalButton" VerticalAlignment="Top"
                         FontFamily="Verdana" FontSize="13" Margin="3,225,5,0"
-                        Grid.Row="1">
+                        Grid.Row="1" ToolTip="Send notifications to team members."
+                        Click="startEmail">
                 Notifications
             </Button>
             <Button Height="50" Name="viewModeCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,280,5,0"
-                            Grid.Row="1">
+                            Grid.Row="1" Click="chgViewMode"
+                            ToolTip="Change the view mode of this calendar.">
                 View Mode
             </Button>
             <Button Height="50" Name="resetCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,335,5,0"
-                            Grid.Row="1">
+                            Grid.Row="1" ToolTip="Reset all the values of the currently visible scheduled time blocks back to default.">
                 Reset Values
             </Button>
-            <Label Name="label2" Margin="0,1,210,0" Width="95"
-                HorizontalAlignment="Right" Grid.Column="1">
+            <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
+                HorizontalAlignment="Right" Grid.Column="1"
+                   ToolTip="Please enter the time block, or click a text box and hover over a time.">
                 Times Available:
             </Label>
             
-            <Label Name="labelBtwnTimes" Width="30" Margin="0,1,98,12.885"
-                HorizontalAlignment="Right" Grid.Column="1">
+            <Label Name="labelBtwnTimes" Width="30" Margin="0,1,98,0"
+                HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Center">
                 to 
             </Label>
-            <TextBox Name="startTime" Width="80" Margin="0,3,128,12"
+            <TextBox Name="startTime" Width="80" Margin="0,3,128,0"
                 HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
-                     Grid.Column="1" />
-            <TextBox Name="EndTime" Width="80" Margin="0,3,25,12"
+                     Grid.Column="1" VerticalAlignment="Center" />
+            <TextBox Name="EndTime" Width="80" Margin="0,3,25,0"
                 HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
-                     Grid.Column="1" />
+                     Grid.Column="1" VerticalAlignment="Center" />
             <!-- calander grid border -->
-        <Border Margin="15,1,20,22" Focusable="False" MinHeight="416"
-                BorderThickness="2" Grid.Row="1" Height="auto" Width="803"
+        <Border Margin="0,1,20,22" Focusable="False" MinHeight="416"
+                BorderThickness="2" Grid.Row="1" Height="auto" Width="818"
                 Grid.Column="1" MaxHeight="749" BorderBrush="DarkGray" 
                 Visibility="Visible" Opacity="85" HorizontalAlignment="Left"
                 VerticalAlignment="Stretch" Name="calGridBorder" />
         <!-- calander grid container to control content overflow -->
-        <ScrollViewer Name="calGridContainer" Grid.Column="1" Grid.Row="1"
-                Margin="0,3,25,24" Padding="1,1,1,0" CanContentScroll="True"
-                      HorizontalAlignment="Center" VerticalAlignment="Stretch"
-                      Cursor="Cross" VerticalScrollBarVisibility="Auto"
-                      VerticalContentAlignment="Stretch" MaxHeight="692">
+        <ScrollViewer Name="wkCalGridContainer" Grid.Column="1" Grid.Row="1"
+                Margin="0,3,25,24" Padding="0,1,0,1" CanContentScroll="True"
+                HorizontalAlignment="Right" VerticalAlignment="Stretch" Cursor="Cross"
+                VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch"
+                MaxHeight="692" Visibility="Visible" Width="844">
             <ScrollViewer.Content>
                 <!-- not sure why this is still here haha.
             <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
@@ -132,9 +230,10 @@
                 <!-- calander grid cell definitions -->
                 <Grid Focusable="True" ShowGridLines="True"
                     Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
-                  Margin="15,0,0,0" VerticalAlignment="Bottom">
+                  Margin="15,0,0,0" VerticalAlignment="Bottom"
+                      HorizontalAlignment="Right">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" Name="calGridLabels"
+                        <RowDefinition Height="30" Name="wkCalGridLabels"
                             Focusable="False" />
                         <RowDefinition Height="25" Name="hr0" Focusable="True" />
                         <RowDefinition Height="25" Name="hr1" Focusable="True" />
@@ -330,17 +429,233 @@
                     <Slider Interval="5" Maximum="100" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
-                            BorderBrush="DarkGray" Background="PaleVioletRed"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider" Opacity="0.8" BorderThickness="0">
+                            Name="testSlider" Opacity="0.8"  >
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
                                     Direction="0" />
                         </Slider.BitmapEffect>
-                        <Slider.BitmapEffectInput>
-                            <BitmapEffectInput />
-                        </Slider.BitmapEffectInput>
+                    </Slider>
+                </Grid>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+            <ScrollViewer Name="moCalGridContainer" Grid.Column="1" Grid.Row="1"
+                Margin="0,3,25,24" Padding="1,1,1,0" CanContentScroll="True"
+                HorizontalAlignment="Center" VerticalAlignment="Stretch" Cursor="Cross"
+                VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch"
+                MaxHeight="692" Visibility="Hidden">
+            <ScrollViewer.Content>
+                <!-- not sure why this is still here haha.
+            <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
+                HorizontalAlignment="Left" Width="2" />
+            -->
+                <!-- calander grid cell definitions -->
+                <Grid Focusable="True" ShowGridLines="False"
+                    Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
+                  Margin="0,0,0,0" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" Name="moCalGridLabels"
+                            Focusable="False" />
+                        <RowDefinition Height="125" Name="wk0rw" Focusable="True" />
+                        <RowDefinition Height="125" Name="wk1rw" Focusable="True" />
+                        <RowDefinition Height="125" Name="wk2rw" Focusable="True" />
+                        <RowDefinition Height="125" Name="wk3rw" Focusable="True" />
+                        <RowDefinition Height="125" Name="wk4rw" Focusable="True" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12*" Name="wkSelect"
+                                          Focusable="True" />
+                        <ColumnDefinition Width="106*" Name="mondayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="tuesdayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="109*" Name="wednesdayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="thursdayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="106*" Name="fridayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="107*" Name="saturdayMo"
+                                              Focusable="True" />
+                        <ColumnDefinition Width="106*" Name="sundayMo"
+                                              Focusable="True" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="121"
+                        Width="10" Margin="0,2,1,0" Grid.Row="1" />
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="121"
+                        Width="10" Margin="0,2,1,0" Grid.Row="2" />
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="121"
+                        Width="10" Margin="0,2,1,0" Grid.Row="3" />
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="121"
+                        Width="10" Margin="0,2,1,0" Grid.Row="4" />
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="121"
+                        Width="10" Margin="0,2,1,0" Grid.Row="5" />
+                    
+                    <!-- day labels for week view. will there ever be
+                        anything other than week view for this q? prob not haha.-->
+                    <Label Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c1Mo">
+                        <!--
+                        Control.MouseDoubleClick="r0c1_MouseDoubleClick"
+                        -->
+                        Monday
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c2Mo">Tuesday</Label>
+                    <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c3Mo">Wednesday</Label>
+                    <Label Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c4Mo">Thursday</Label>
+                    <Label Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c5Mo">Friday</Label>
+                    <Label Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c6Mo">Saturday</Label>
+                    <Label Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" FontFamily="verdana"
+                        FontWeight="bold" FontSize="15" Name="r0c7Mo">Sunday</Label>
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" />
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="1" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="2" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="2" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
+                            Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" />
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="3" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="4" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="4" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" />
+                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
+                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="5" Height="122"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            BorderBrush="DimGray" Width="110"/>
+                    <!--
+                    So this is the idea for calander content so far, where there
+                will be other properties associated with each time period; the editor/
+                administrator of the schedule will see the sliders (will have option to
+                see colors or hybrid too) and viewers will not see the sliders, will
+                just see color gradients for their scheduled time blocks. suggestions?
+                this slider is just an example to show what it'll potentially look like.
+                need to figure out how to import a 2D array of grid objects to define cell
+                contents. in the works. Please provide some feedback and make modifications
+                wherever you see fit.
+                    -jon
+                -->
+                    <Slider Interval="5" Maximum="100" Minimum="0" Value="0"
+                                Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom" Width="106" Height="23"
+                            Foreground="GhostWhite" OpacityMask="Azure" Margin="0,0,0,2"
+                            Name="testSlider2" Opacity="0.8" Visibility="Visible" >
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                    Direction="0" />
+                        </Slider.BitmapEffect>
                     </Slider>
                 </Grid>
             </ScrollViewer.Content>
