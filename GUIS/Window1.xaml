@@ -316,104 +316,101 @@
                         copies the time to the focused text box -->
                     <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
-                        FontSize="14" Name="r1c0" Focusable="False" ToolTip="Midnight"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">00:00</Label>
+                        FontSize="10" Name="r1c0" Focusable="False" ToolTip="Midnight"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">12:00AM</Label>
                     <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
-                        FontSize="14" Name="r2c0" ToolTip="One AM"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">01:00</Label>
+                        FontSize="10" Name="r2c0" ToolTip="One AM"
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">01:00AM</Label>
                     <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r3c0">02:00</Label>
+                        FontSize="10" Name="r3c0">02:00AM</Label>
                     <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r4c0">03:00</Label>
+                        FontSize="10" Name="r4c0">03:00AM</Label>
                     <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r5c0">04:00</Label>
+                        FontSize="10" Name="r5c0">04:00AM</Label>
                     <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"  ToolTip="Five AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r6c0">05:00</Label>
+                        FontSize="10" Name="r6c0">05:00AM</Label>
                     <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r7c0">06:00</Label>
+                        FontSize="10" Name="r7c0">06:00AM</Label>
                     <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r8c0">07:00</Label>
+                        FontSize="10" Name="r8c0">07:00AM</Label>
                     <Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r9c0">08:00</Label>
+                        FontSize="10" Name="r9c0">08:00AM</Label>
                     <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r10c0">09:00</Label>
+                        FontSize="10" Name="r10c0">09:00AM</Label>
                     <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r11c0">10:00</Label>
+                        FontSize="10" Name="r11c0">10:00AM</Label>
                     <Label Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r12c0">11:00</Label>
+                        FontSize="10" Name="r12c0">11:00AM</Label>
                     <Label Grid.Row="13" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Noon"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r13c0">12:00</Label>
+                        FontSize="10" Name="r13c0">12:00PM</Label>
                     <Label Grid.Row="14" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="One PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r14c0">13:00</Label>
+                        FontSize="10" Name="r14c0">1:00PM</Label>
                     <Label Grid.Row="15" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r15c0">14:00</Label>
+                        FontSize="10" Name="r15c0">2:00PM</Label>
                     <Label Grid.Row="16" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r16c0">15:00</Label>
+                        FontSize="10" Name="r16c0">3:00PM</Label>
                     <Label Grid.Row="17" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r17c0">16:00</Label>
+                        FontSize="10" Name="r17c0">4:00PM</Label>
                     <Label Grid.Row="18" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Five PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r18c0">17:00</Label>
+                        FontSize="10" Name="r18c0">5:00PM</Label>
                     <Label Grid.Row="19" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r19c0">18:00</Label>
+                        FontSize="10" Name="r19c0">6:00PM</Label>
                     <Label Grid.Row="20" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r20c0">19:00</Label>
+                        FontSize="10" Name="r20c0">7:00PM</Label>
                     <Label Grid.Row="21" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r21c0">20:00</Label>
+                        FontSize="10" Name="r21c0">8:00PM</Label>
                     <Label Grid.Row="22" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r22c0">21:00</Label>
+                        FontSize="10" Name="r22c0">9:00PM</Label>
                     <Label Grid.Row="23" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r23c0">22:00</Label>
+                        FontSize="10" Name="r23c0">10:00PM</Label>
                     <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r24c0">23:00</Label>
-                    <Label Grid.Row="25" Grid.Column="0" HorizontalAlignment="Center"
-                        VerticalAlignment="Center" FontFamily="verdana" ToolTip="Midnight"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="14" Name="r25c0">24:00</Label>
+                        FontSize="10" Name="r24c0">11:00PM</Label>
+                    
                     <!--
                     So this is the idea for calander content so far, where there
                 will be other properties associated with each time period; the editor/
@@ -426,17 +423,61 @@
                 wherever you see fit.
                     -jon
                 -->
-                    <Slider Interval="5" Maximum="100" Minimum="0" Value="0"
+                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider" Opacity="0.8"  >
-                        <Slider.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="2"
+                            Name="testSlider" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
                                     Direction="0" />
-                        </Slider.BitmapEffect>
-                    </Slider>
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                                    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider3" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                        Softness="0.5" Opacity="0.5" Noise="0.1"
+                                        Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                                        Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="102" Height="23"
+                                    Foreground="GhostWhite" OpacityMask="Azure"
+                                    Name="testSlider4" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                            Softness="0.5" Opacity="0.5" Noise="0.1"
+                                            Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider5" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider6" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>
@@ -646,17 +687,20 @@
                 wherever you see fit.
                     -jon
                 -->
-                    <Slider Interval="5" Maximum="100" Minimum="0" Value="0"
+                    <Label Name="SliderLabel">
+                        <Slider Interval="1" Maximum="5" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom" Width="106" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure" Margin="0,0,0,2"
-                            Name="testSlider2" Opacity="0.8" Visibility="Visible" >
-                        <Slider.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="2"
+                            Name="testSlider2" Opacity="0.8" Visibility="Visible" ValueChanged="testSlider2_ValueChanged">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
                                     Direction="0" />
-                        </Slider.BitmapEffect>
-                    </Slider>
+                            </Slider.BitmapEffect>
+                        </Slider>
+                    </Label>
+                    
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>
