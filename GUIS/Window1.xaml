@@ -191,7 +191,7 @@
             </Button>
             <Button Height="50" Name="resetCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,335,5,0"
-                            Grid.Row="1" ToolTip="Reset all the values of the currently visible scheduled time blocks back to default.">
+                            Grid.Row="1" ToolTip="Reset all the values of the currently visible scheduled time blocks back to default." Click="resetCalButton_Click">
                 Reset Values
             </Button>
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
@@ -231,10 +231,9 @@
                 <Grid Focusable="True" ShowGridLines="True"
                     Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
                   Margin="15,0,0,0" VerticalAlignment="Bottom"
-                      HorizontalAlignment="Right">
+                      HorizontalAlignment="Right" Name="theGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" Name="wkCalGridLabels"
-                            Focusable="False" />
+                        <RowDefinition Height="30" Name="wkCalGridLabels" Focusable="False" />
                         <RowDefinition Height="25" Name="hr0" Focusable="True" />
                         <RowDefinition Height="25" Name="hr1" Focusable="True" />
                         <RowDefinition Height="25" Name="hr2" Focusable="True" />
@@ -262,7 +261,7 @@
                         <RowDefinition Height="25" Name="hr24" Focusable="True" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="61*" Name="timeLabels"
+                        <ColumnDefinition Width="106*" Name="timeLabels"
                                               Focusable="False" />
                         <ColumnDefinition Width="106*" Name="monday"
                                               Focusable="True" />
@@ -317,99 +316,99 @@
                     <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r1c0" Focusable="False" ToolTip="Midnight"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">12:00AM</Label>
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill" MouseEnter="EditRow">12:00AM</Label>
                     <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r2c0" ToolTip="One AM"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill">01:00AM</Label>
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill" MouseEnter="EditRow">01:00AM</Label>
                     <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r3c0">02:00AM</Label>
+                        FontSize="10" Name="r3c0" MouseEnter="EditRow">02:00AM</Label>
                     <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r4c0">03:00AM</Label>
+                        FontSize="10" Name="r4c0" MouseEnter="EditRow">03:00AM</Label>
                     <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r5c0">04:00AM</Label>
+                        FontSize="10" Name="r5c0" MouseEnter="EditRow">04:00AM</Label>
                     <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"  ToolTip="Five AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r6c0">05:00AM</Label>
+                        FontSize="10" Name="r6c0" MouseEnter="EditRow">05:00AM</Label>
                     <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r7c0">06:00AM</Label>
+                        FontSize="10" Name="r7c0" MouseEnter="EditRow">06:00AM</Label>
                     <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r8c0">07:00AM</Label>
+                        FontSize="10" Name="r8c0" MouseEnter="EditRow">07:00AM</Label>
                     <Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r9c0">08:00AM</Label>
+                        FontSize="10" Name="r9c0" MouseEnter="EditRow">08:00AM</Label>
                     <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r10c0">09:00AM</Label>
+                        FontSize="10" Name="r10c0" MouseEnter="EditRow">09:00AM</Label>
                     <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r11c0">10:00AM</Label>
+                        FontSize="10" Name="r11c0" MouseEnter="EditRow">10:00AM</Label>
                     <Label Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r12c0">11:00AM</Label>
+                        FontSize="10" Name="r12c0" MouseEnter="EditRow">11:00AM</Label>
                     <Label Grid.Row="13" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Noon"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r13c0">12:00PM</Label>
+                        FontSize="10" Name="r13c0" MouseEnter="EditRow">12:00PM</Label>
                     <Label Grid.Row="14" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="One PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r14c0">1:00PM</Label>
+                        FontSize="10" Name="r14c0" MouseEnter="EditRow">1:00PM</Label>
                     <Label Grid.Row="15" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r15c0">2:00PM</Label>
+                        FontSize="10" Name="r15c0" MouseEnter="EditRow">2:00PM</Label>
                     <Label Grid.Row="16" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r16c0">3:00PM</Label>
+                        FontSize="10" Name="r16c0" MouseEnter="EditRow">3:00PM</Label>
                     <Label Grid.Row="17" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r17c0">4:00PM</Label>
+                        FontSize="10" Name="r17c0" MouseEnter="EditRow">4:00PM</Label>
                     <Label Grid.Row="18" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Five PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r18c0">5:00PM</Label>
+                        FontSize="10" Name="r18c0" MouseEnter="EditRow">5:00PM</Label>
                     <Label Grid.Row="19" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r19c0">6:00PM</Label>
+                        FontSize="10" Name="r19c0" MouseEnter="EditRow">6:00PM</Label>
                     <Label Grid.Row="20" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r20c0">7:00PM</Label>
+                        FontSize="10" Name="r20c0" MouseEnter="EditRow">7:00PM</Label>
                     <Label Grid.Row="21" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r21c0">8:00PM</Label>
+                        FontSize="10" Name="r21c0" MouseEnter="EditRow">8:00PM</Label>
                     <Label Grid.Row="22" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r22c0">9:00PM</Label>
+                        FontSize="10" Name="r22c0" MouseEnter="EditRow">9:00PM</Label>
                     <Label Grid.Row="23" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r23c0">10:00PM</Label>
+                        FontSize="10" Name="r23c0" MouseEnter="EditRow">10:00PM</Label>
                     <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r24c0">11:00PM</Label>
+                        FontSize="10" Name="r24c0" MouseEnter="EditRow">11:00PM</Label>
                     
                     <!--
                     So this is the idea for calander content so far, where there
@@ -423,7 +422,7 @@
                 wherever you see fit.
                     -jon
                 -->
-                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
@@ -434,7 +433,7 @@
                                     Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
-                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
                                     Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
                                     VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
@@ -445,7 +444,7 @@
                                         Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
-                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
                                         Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
@@ -456,7 +455,7 @@
                                             Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
-                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
                                             Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
@@ -467,7 +466,7 @@
                                                 Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
-                        <Slider Interval="1" Maximum="4" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
                                             Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
@@ -478,6 +477,1557 @@
                                                 Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                                Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center" Width="102" Height="23"
+                                            Foreground="GhostWhite" OpacityMask="Azure"
+                                            Name="testSlider7" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                    Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider8" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider9" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider10" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider11" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider12" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider13" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider14" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider15" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider16" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider17" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider18" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider19" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider20" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider21" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider22" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider23" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider24" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="1" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider25" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="102" Height="23"
+                            Foreground="GhostWhite" OpacityMask="Azure"
+                            Name="testSlider_2" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                    Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                    Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider32" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                        Softness="0.5" Opacity="0.5" Noise="0.1"
+                                        Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                        Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="102" Height="23"
+                                    Foreground="GhostWhite" OpacityMask="Azure"
+                                    Name="testSlider42" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                            Softness="0.5" Opacity="0.5" Noise="0.1"
+                                            Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider52" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider62" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                                Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center" Width="102" Height="23"
+                                            Foreground="GhostWhite" OpacityMask="Azure"
+                                            Name="testSlider72" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            <Slider.BitmapEffect>
+                                <DropShadowBitmapEffect ShadowDepth="2"
+                                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                    Direction="0" />
+                            </Slider.BitmapEffect>
+                        </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider82" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider92" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider102" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider112" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider122" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider132" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider142" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider152" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider162" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider172" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider182" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider192" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider202" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider212" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider222" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider232" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider242" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="2" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider252" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+
+
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="102" Height="23"
+                            Foreground="GhostWhite" OpacityMask="Azure"
+                            Name="testSlider_3" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                    Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider323" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                        Softness="0.5" Opacity="0.5" Noise="0.1"
+                                        Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                        Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="102" Height="23"
+                                    Foreground="GhostWhite" OpacityMask="Azure"
+                                    Name="testSlider43" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                            Softness="0.5" Opacity="0.5" Noise="0.1"
+                                            Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider53" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider63" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                                Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center" Width="102" Height="23"
+                                            Foreground="GhostWhite" OpacityMask="Azure"
+                                            Name="testSlider73" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider83" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider93" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider103" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider113" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider123" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider133" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider143" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider153" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider163" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider173" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider183" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider193" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider203" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider213" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider223" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider233" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider243" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="3" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider253" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="102" Height="23"
+                            Foreground="GhostWhite" OpacityMask="Azure"
+                            Name="testSlider_4" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                    Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider324" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                        Softness="0.5" Opacity="0.5" Noise="0.1"
+                                        Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                        Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="102" Height="23"
+                                    Foreground="GhostWhite" OpacityMask="Azure"
+                                    Name="testSlider44" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                            Softness="0.5" Opacity="0.5" Noise="0.1"
+                                            Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider54" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider64" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                                Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center" Width="102" Height="23"
+                                            Foreground="GhostWhite" OpacityMask="Azure"
+                                            Name="testSlider74" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider84" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider94" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider104" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider114" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider124" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider134" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider144" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider154" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider164" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider174" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider184" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider194" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider204" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider214" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider224" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider234" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider244" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="4" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider254" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    
+                    
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="102" Height="23"
+                            Foreground="GhostWhite" OpacityMask="Azure"
+                            Name="testSlider_5" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                    Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider325" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                        Softness="0.5" Opacity="0.5" Noise="0.1"
+                                        Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                        Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="102" Height="23"
+                                    Foreground="GhostWhite" OpacityMask="Azure"
+                                    Name="testSlider45" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                            Softness="0.5" Opacity="0.5" Noise="0.1"
+                                            Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider55" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider65" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                                Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center"
+                                                VerticalAlignment="Center" Width="102" Height="23"
+                                            Foreground="GhostWhite" OpacityMask="Azure"
+                                            Name="testSlider75" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                    Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                    Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider85" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider95" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider105" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider115" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider125" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider135" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider145" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider155" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider165" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider175" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider185" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider195" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider205" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider215" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider225" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider235" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="5" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider255" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+
+
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="24" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester0" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester1" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester2" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester3" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester4" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester5" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester6" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester7" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester8" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester9" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester10" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester11" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="12" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester12" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="13" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester13" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="14" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester14" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="15" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester15" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="16" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester16" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="17" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester17" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="18" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester18" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="19" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester19" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="20" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester20" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="21" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester21" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="22" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester22" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+                    <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
+                                            Grid.Column="0" Grid.Row="23" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" Width="102" Height="23"
+                                        Foreground="GhostWhite" OpacityMask="Azure"
+                                        Name="testSlider245tester23" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                        <Slider.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="2"
+                                                Softness="0.5" Opacity="0.5" Noise="0.1"
+                                                Direction="0" />
+                        </Slider.BitmapEffect>
+                    </Slider>
+
+
+
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>
@@ -688,7 +2238,7 @@
                     -jon
                 -->
                     <Label Name="SliderLabel">
-                        <Slider Interval="1" Maximum="5" Minimum="0" Value="0"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="5" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom" Width="106" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure" Margin="0,0,0,2"
