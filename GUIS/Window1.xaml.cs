@@ -26,8 +26,12 @@ namespace GUIProj1
         private ArrayList
             gridContents = new ArrayList();
         private bool ed = true;
+<<<<<<< .mine
+        private int teamSize;
+=======
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
+>>>>>>> .r20
 
 
         public Window1()
@@ -96,6 +100,24 @@ namespace GUIProj1
         private void startEmail(object sender, RoutedEventArgs e)
         {
             Process.Start("mail.exe");
+        }
+
+        private String[] getNamesOfCurrentTeam()
+        {
+            int i = 0;
+            String[] participNames = new String[teamSize];
+            foreach(gridObject obj in gridContents)
+            {
+                participNames[i] = obj.getName();
+                i++;
+            }
+            return participNames;
+        }
+
+        private void notifyListCall()
+        {
+            checkedList navWinPg = new checkedList();
+
         }
 
         public string toString()

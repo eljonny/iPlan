@@ -8,25 +8,31 @@ namespace GUIProj1
 {
     class gridObject
     {
-        private int row, col;
+        private int row,col,id;
         private double prob;
         private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
         private bool isPopulated;
+        private int[] probDet = null;
 
         public gridObject()
         {
+            Random rand = new Random();
+            id = rand.Next();
             prob = 0;
             row = 0;
             col = 0;
             timeBeg = "";
             timeEnd = "";
             isPopulated = false;
+            rand = null;
         }
         
         public gridObject(int r,int c,string tb,string te,
-            bool pop, string[] content, string t, string d)
+         bool pop,string[] content,string t,string d,int[] pD)
         {
+            Random rand = new Random();
+            id = rand.Next();
             prob = 0;
             row = r;
             col = c;
@@ -34,8 +40,10 @@ namespace GUIProj1
             timeEnd = te;
             isPopulated = pop;
             gObjCont = content;
+            probDet = pD;
             type = t;
             date = d;
+            rand = null;
         }
 
         protected void setCoords(int c, int r)
@@ -89,6 +97,11 @@ namespace GUIProj1
         public void setProb(double d)
         {
             prob = d;
+        }
+
+        public string getName()
+        {
+            return (gObjCont[0]+" "+gObjCont[1]);
         }
 
         public string toString()

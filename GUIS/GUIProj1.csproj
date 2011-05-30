@@ -65,6 +65,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="iconOrList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="checkedList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="iconList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,11 +92,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gridObject.cs" />
+    <Compile Include="iconOrList.xaml.cs">
+      <DependentUpon>iconOrList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="iPlAbout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="iPlAbout.Designer.cs">
       <DependentUpon>iPlAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="checkedList.xaml.cs">
+      <DependentUpon>checkedList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="iconList.xaml.cs">
+      <DependentUpon>iconList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
