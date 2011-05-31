@@ -26,12 +26,10 @@ namespace GUIProj1
         private ArrayList
             gridContents = new ArrayList();
         private bool ed = true;
-<<<<<<< .mine
         private int teamSize;
-=======
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
->>>>>>> .r20
+
 
 
         public Window1()
