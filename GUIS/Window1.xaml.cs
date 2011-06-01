@@ -114,7 +114,7 @@ namespace GUIProj1
 
         private void notifyListCall()
         {
-            checkedList navWinPg = new checkedList();
+            //checkedList navWinPg = new checkedList();
 
         }
 
@@ -207,6 +207,12 @@ namespace GUIProj1
         {
             Slider obj = (Slider)sender;
             obj.Visibility = Visibility.Hidden;
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Customizable cs = new Customizable();
+            cs.ShowDialog();
         }
     }
 }

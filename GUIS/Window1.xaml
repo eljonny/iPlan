@@ -47,7 +47,7 @@
                     <MenuItem Header="Team Member _Details" />
                     <MenuItem Header="Eve_nt Details" />
                     <Separator/>
-                    <MenuItem Header="C_ustomize" />
+                    <MenuItem Header="C_ustomize" Click="MenuItem_Click" />
                 </MenuItem>            
             </Menu>
             <Menu AllowDrop="True" Name="helpMenu" Grid.Column="1"
