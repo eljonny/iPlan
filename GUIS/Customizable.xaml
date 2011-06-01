@@ -1,0 +1,8 @@
+﻿<NavigationWindow x:Class="GUIProj1.Customizable"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Iplan Custom" Height="350" Width="350" MaxHeight="700" MaxWidth="700"
+      Source="CustomizableHome.xaml" MinHeight="350" MinWidth="350">
+        
+    
+</NavigationWindow>
