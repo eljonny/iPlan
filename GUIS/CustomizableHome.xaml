@@ -1,7 +1,7 @@
 ﻿<Page x:Class="GUIProj1.CustomizableHome"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Customizable - Home" Width="350" Height="300">
+    Title="Customizable - Home" Height="300" Width="300" MaxHeight="700" MaxWidth="700">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="lightBlueSky.jpg"/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="45" />
         </Grid.RowDefinitions>
 
-        <Label Name="label1" FontFamily="Atria Bold" FontSize="20" FontStyle="Italic" ForceCursor="False" Margin="49,0,82,0" VerticalAlignment="Center" Grid.Column="1">Custom Home</Label>
+        <Label Name="label1" FontFamily="Atria Bold" FontSize="20" FontStyle="Italic" ForceCursor="False" Margin="21,12,96,4" Grid.Column="1">Custom Home</Label>
         
         <!--Setting Links Page-->
         <Button Grid.Column="1" Grid.Row="1" Margin="0,5,5,0" Content="Settings" Cursor="Hand" Name="button1" Click="button1_Click" Height="19" VerticalAlignment="Top">
@@ -43,7 +43,7 @@
             </Button.Style>
         </Button>
         <Image Grid.Row="1" Source="Settings-icon.png" Height="32" VerticalAlignment="Top" HorizontalAlignment="Center"  />
-        <!--<Image Source="Setting-icon.png" />-->
+        
             
             
         

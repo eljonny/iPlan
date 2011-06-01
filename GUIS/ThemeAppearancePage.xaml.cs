@@ -23,5 +23,39 @@ namespace GUIProj1
         {
             InitializeComponent();
         }
+
+      
+
+        private void label1_MouseEnter(object sender, MouseEventArgs e)
+        {
+            label1.Foreground = Brushes.Blue;
+        }
+
+        private void label1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            label1.Foreground = Brushes.Black;
+        }
+        private void label2_MouseEnter(object sender, MouseEventArgs e)
+        {
+            label2.Foreground = Brushes.Blue;
+        }
+
+        private void label2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            label2.Foreground = Brushes.Black;
+        }
+        private void label3_MouseEnter(object sender, MouseEventArgs e)
+        {
+            label3.Foreground = Brushes.Blue;
+        }
+
+        private void label3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            label3.Foreground = Brushes.Black;
+        }
+
+        
+
+        
     }
 }

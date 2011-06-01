@@ -11,7 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics;
 
 namespace GUIProj1
 {
@@ -25,36 +24,22 @@ namespace GUIProj1
 
             InitializeComponent();
 
-           
-
         }
 
 
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            Image img = new Image();
+            img.Width = 200;
+            img.Height = 150;
+            img.Source = new BitmapImage(new Uri("person1.jpg"));
 
+            Grid g = (Grid)sender;
+            MessageBox.Show("ss");
+            g.Children.Add(img);
 
 
         }
-
-        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("This feature has not been implemented yet");
-
-            ComboBox box = title;
-            box.SelectedIndex = 0;
-               
-
-            
-        
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("mail.exe");
-        }
-        
-
     }
 }

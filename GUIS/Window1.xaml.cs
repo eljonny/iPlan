@@ -27,9 +27,12 @@ namespace GUIProj1
         private ArrayList
             gridContents = new ArrayList();
         private bool ed = true;
-        private int teamSize = 0;
-        private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
+<<<<<<< .mine        private int teamSize;
+
+=======        private int teamSize = 0;
+>>>>>>> .theirs        private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
+
 
         public Window1()
         {
@@ -152,7 +155,9 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
-            /*
+<<<<<<< .mine
+
+=======            /*
             clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
                 arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
             brush.Color = clr2;
@@ -160,7 +165,7 @@ namespace GUIProj1
             brush.Opacity = 0.3;
             s.Background = brush;
              */
-        }
+>>>>>>> .theirs        }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
         {
@@ -251,7 +256,14 @@ namespace GUIProj1
             Customizable cs = new Customizable();
             cs.ShowDialog();
         }
-
+<<<<<<< .mine
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Team teamPage = new Team();
+            teamPage.ShowDialog();
+            
+        }
+=======
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             Team t = new Team();
@@ -264,5 +276,5 @@ namespace GUIProj1
             t.ShowDialog();
         }
 
-    }
+>>>>>>> .theirs    }
 }

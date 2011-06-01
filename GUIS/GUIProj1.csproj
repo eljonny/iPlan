@@ -81,6 +81,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< .mine
+    <Page Include="Team.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+=======
     <Page Include="Team.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+>>>>>>> .r31
     <Page Include="ThemeAppearancePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -180,6 +191,11 @@
     <Resource Include="languages.jpg" />
     <Resource Include="Theme-Appearance-icon.jpg" />
   </ItemGroup>
+<<<<<<< .mine
+  <ItemGroup>
+    <Resource Include="Settings-icon.png" />
+  </ItemGroup>
+=======
   <ItemGroup>
     <Resource Include="person1.jpg" />
   </ItemGroup>
@@ -195,6 +211,7 @@
   <ItemGroup>
     <Resource Include="person3jpg.jpg" />
   </ItemGroup>
+>>>>>>> .r31
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
