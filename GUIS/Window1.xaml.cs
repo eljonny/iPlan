@@ -15,7 +15,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Drawing;
 
-//   Author Jonathan Hyry & George Wanjiru
+//   Author Jonathan Hyry, George Wanjiru, Ryan Soushek
 namespace GUIProj1
 {
     /// <summary>
@@ -27,8 +27,17 @@ namespace GUIProj1
             gridContents = new ArrayList();
         private bool ed = true;
         private int teamSize;
+<<<<<<< .mine
+//>>>>>>.mine
+//=======
+=======
+>>>>>>> .r25
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
+<<<<<<< .mine
+//>>>>>>.r20
+=======
+>>>>>>> .r25
 
 
 
@@ -123,8 +132,8 @@ namespace GUIProj1
             return gridContents.ToString();
         }
 
-
-        private void testSlider2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void testSlider2_ValueChanged(object sender,
+            RoutedPropertyChangedEventArgs<double> e)
         {
             if (ed)
             {
@@ -140,7 +149,8 @@ namespace GUIProj1
                 if (pos >= 0 && pos < 5)
                     clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
 
-                clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+                clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
+                    arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
                 brush.Color = clr2;
                 Slider s = (Slider)sender;
                 brush.Opacity = 0.3;
@@ -152,6 +162,15 @@ namespace GUIProj1
                 sl.Value = 0;
             }
 
+<<<<<<< .mine
+            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
+                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+            brush.Color = clr2;
+            Slider s = (Slider)sender;
+            brush.Opacity = 0.3;
+            s.Background = brush;
+=======
+>>>>>>> .r26
         }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
@@ -160,10 +179,9 @@ namespace GUIProj1
             {
                 tb.Value = 0;
             }
-
-
         }
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
+            where T : DependencyObject
         {
             if (depObj != null)
             {
@@ -187,13 +205,26 @@ namespace GUIProj1
         {
             Label l = (Label)sender;
             int row = (int)l.GetValue(Grid.RowProperty);
-            Slider[] s = { testSlider245tester0, testSlider245tester1, testSlider245tester2, testSlider245tester3, testSlider245tester4 , testSlider245tester5, testSlider245tester6, testSlider245tester7,testSlider245tester8,testSlider245tester9,testSlider245tester10,testSlider245tester11,testSlider245tester12,testSlider245tester13,testSlider245tester14,testSlider245tester15,testSlider245tester16,testSlider245tester17,testSlider245tester18,testSlider245tester19,testSlider245tester20,testSlider245tester21,testSlider245tester22,testSlider245tester23,testSlider245tester};
+            Slider[] s = { testSlider245tester0, testSlider245tester1,
+                             testSlider245tester2, testSlider245tester3,
+                             testSlider245tester4 , testSlider245tester5,
+                             testSlider245tester6, testSlider245tester7,
+                             testSlider245tester8,testSlider245tester9,
+                             testSlider245tester10,testSlider245tester11,
+                             testSlider245tester12,testSlider245tester13,
+                             testSlider245tester14,testSlider245tester15,
+                             testSlider245tester16,testSlider245tester17,
+                             testSlider245tester18,testSlider245tester19,
+                             testSlider245tester20,testSlider245tester21,
+                             testSlider245tester22,testSlider245tester23,
+                             testSlider245tester};
             if (row >= 0 && row < s.Length)
                 s[row].Visibility = Visibility.Visible;
                 
         }
 
-        private void testSlider245tester_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void testSlider245tester_ValueChanged(object sender,
+            RoutedPropertyChangedEventArgs<double> e)
         {
             if (ed)
             {
