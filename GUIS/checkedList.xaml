@@ -1,0 +1,15 @@
+﻿<Page x:Class="GUIProj1.checkedList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+      Title="listBoxNotifChecker" Width="229" Height="auto">
+    <!-- Middle Code above from "http://www.vistax64.com/avalon/19033-how-implement-checkedlistbox-something-similar.html" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"-->
+    <Grid Height="auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="335*" />
+        </Grid.ColumnDefinitions>
+        
+    </Grid>
+</Page>

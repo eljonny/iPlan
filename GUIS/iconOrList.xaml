@@ -1,0 +1,6 @@
+﻿<NavigationWindow x:Class="GUIProj1.iconOrList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Participant Selector" Height="400" Width="350">
+    
+</NavigationWindow>

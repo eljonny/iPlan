@@ -1,3 +1,36 @@
+<<<<<<< .mine
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\bin\Debug\GUIProj1.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\bin\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\Window1.baml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\Window1.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\App.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1_MarkupCompile.cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1.g.resources
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1.Properties.Resources.resources
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\guiProj\obj\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\GUIProj1.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Window1.baml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Window1.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\App.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.g.resources
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iconOrList.baml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iconOrList.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\checkedList.baml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\checkedList.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iconList.baml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iconList.g.cs
+=======
 U:\CS446\CS446 Final Project\GUIS\bin\Debug\GUIProj1.exe
 U:\CS446\CS446 Final Project\GUIS\bin\Debug\GUIProj1.pdb
 U:\CS446\CS446 Final Project\GUIS\obj\Debug\ResolveAssemblyReference.cache
@@ -23,3 +56,4 @@ U:\CS446\CS446 Final Project\GUIS\obj\Debug\LanguagePage.baml
 U:\CS446\CS446 Final Project\GUIS\obj\Debug\SettingPage.baml
 U:\CS446\CS446 Final Project\GUIS\obj\Debug\LanguagePage.g.cs
 U:\CS446\CS446 Final Project\GUIS\obj\Debug\SettingPage.g.cs
+>>>>>>> .r26
