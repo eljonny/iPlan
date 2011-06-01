@@ -27,12 +27,7 @@ namespace GUIProj1
         private ArrayList
             gridContents = new ArrayList();
         private bool ed = true;
-<<<<<<< .mine
         private int teamSize = 0;
-=======
-        private int teamSize;
-
->>>>>>> .r29
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
 
@@ -157,7 +152,6 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
-<<<<<<< .mine
             /*
             clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
                 arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
@@ -166,9 +160,6 @@ namespace GUIProj1
             brush.Opacity = 0.3;
             s.Background = brush;
              */
-=======
-
->>>>>>> .r29
         }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)

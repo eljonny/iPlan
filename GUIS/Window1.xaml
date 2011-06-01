@@ -8,7 +8,7 @@
         ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500" WindowStyle="ToolWindow" WindowState="Maximized">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
         <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
-              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="14,14,14,14">
+              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="7,7,7,7">
         <Grid.Background>
             <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
         </Grid.Background>
@@ -165,7 +165,7 @@
                     FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
                 Grid.Row="1" ToolTip="Save the currently loaded calendar."
                 Foreground="Black">
-            Save Calendar
+                Save Calendar
             </Button>
             <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
@@ -273,21 +273,21 @@
                         <RowDefinition Height="25" Name="hr24" Focusable="True" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="106*" Name="timeLabels"
+                        <ColumnDefinition Width="102*" Name="timeLabels"
                                               Focusable="False" />
-                        <ColumnDefinition Width="106*" Name="monday"
+                        <ColumnDefinition Width="102*" Name="monday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="107*" Name="tuesday"
+                        <ColumnDefinition Width="103*" Name="tuesday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="111*" Name="wednesday"
+                        <ColumnDefinition Width="112*" Name="wednesday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="107*" Name="thursday"
+                        <ColumnDefinition Width="104*" Name="thursday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="106*" Name="friday"
+                        <ColumnDefinition Width="102*" Name="friday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="107*" Name="saturday"
+                        <ColumnDefinition Width="102*" Name="saturday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="106*" Name="sunday"
+                        <ColumnDefinition Width="102*" Name="sunday"
                                               Focusable="True" />
                     </Grid.ColumnDefinitions>
                     <!-- day labels for week view. will there ever be
