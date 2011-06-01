@@ -21,7 +21,7 @@
         <!-- program menus -->
             <Menu Name="fileMenu"
                   AllowDrop="True" FontFamily="Verdana"
-                  FontSize="18" FontWeight="bold" Width="50" HorizontalAlignment="Left"
+                  FontSize="14" FontWeight="bold" Width="50" HorizontalAlignment="Left"
                   Margin="3,5,0,3" >
                 <MenuItem Header="_File"
                           ToolTip="Make new, save, and open calendars and teams.">
@@ -37,9 +37,9 @@
                 </MenuItem>
             </Menu>
             <Menu AllowDrop="True" Name="optionMenu"
-                  Width="50" FontFamily="Verdana" FontSize="18" FontWeight="bold"
-                  HorizontalAlignment="Right" Margin="0,5,3,3">
-                <MenuItem Header="_Opt"
+                  Width="60" FontFamily="Verdana" FontSize="14" FontWeight="bold"
+                  HorizontalAlignment="Right" Margin="0,5,1,3">
+                <MenuItem Header="_Tools"
                   ToolTip="Change calendar properties, change view mode, enter/leave edit mode. Edit teams and team members.">
                     <MenuItem Header="_View Mode" Click="chgViewMode" />
                     <MenuItem Header="_Edit Mode" Click="enterOrLeaveEditMode"/>
@@ -51,9 +51,9 @@
                 </MenuItem>            
             </Menu>
             <Menu AllowDrop="True" Name="helpMenu" Grid.Column="1"
-                      Width="50" FontFamily="Verdana" FontSize="18" FontWeight="bold"
+                      Width="50" FontFamily="Verdana" FontSize="14" FontWeight="bold"
                       HorizontalAlignment="Left" Margin="0,5,0,3">
-                <MenuItem Header="_Hlp"
+                <MenuItem Header="_Help"
                     ToolTip="Access help file contents, as well as version and author information.">
                     <MenuItem Header="_About" Click="about_Click"/>
                     <Separator />
@@ -156,6 +156,7 @@
             on the left for a scrollbar I think.
                 -jon
             -->
+            <!--
             <Button Height="50" Name="saveCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
                 Grid.Row="1" ToolTip="Save the currently loaded calendar."
@@ -167,6 +168,7 @@
                     Grid.Row="1" ToolTip="Change the properties of the currently loaded calendar.">
                 Properties
             </Button>
+            
             <Button Height="50" Name="schedCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
                             Grid.Row="1" ToolTip="View schedule details for current month or week.">
@@ -183,17 +185,20 @@
                         Click="startEmail">
                 Notifications
             </Button>
+            
             <Button Height="50" Name="viewModeCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,280,5,0"
                             Grid.Row="1" Click="chgViewMode"
                             ToolTip="Change the view mode of this calendar.">
                 View Mode
             </Button>
+            -->
             <Button Height="50" Name="resetCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,335,5,0"
                             Grid.Row="1" ToolTip="Reset all the values of the currently visible scheduled time blocks back to default." Click="resetCalButton_Click">
                 Reset Values
             </Button>
+            <!--
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
                 HorizontalAlignment="Right" Grid.Column="1"
                    ToolTip="Please enter the time block, or click a text box and hover over a time.">
@@ -209,10 +214,10 @@
                      Grid.Column="1" VerticalAlignment="Center" />
             <TextBox Name="EndTime" Width="80" Margin="0,3,25,0"
                 HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
-                     Grid.Column="1" VerticalAlignment="Center" />
+                     Grid.Column="1" VerticalAlignment="Center" />-->
             <!-- calander grid border -->
         <Border Margin="0,1,20,22" Focusable="False" MinHeight="416"
-                BorderThickness="2" Grid.Row="1" Height="auto" Width="818"
+                BorderThickness="1" Grid.Row="1" Height="auto" Width="818"
                 Grid.Column="1" MaxHeight="749" BorderBrush="DarkGray" 
                 Visibility="Visible" Opacity="85" HorizontalAlignment="Left"
                 VerticalAlignment="Stretch" Name="calGridBorder" />
@@ -2112,117 +2117,117 @@
                     <Label Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c7Mo">Sunday</Label>
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="2" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="3" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="2" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="3" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="4" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="5" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="4" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" />
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="7" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="1" Height="122"
+                    <Border BorderThickness="1" Grid.Column="6" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="2" Height="122"
+                    <Border BorderThickness="1" Grid.Column="7" Grid.Row="2" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="2" Height="122"
+                    <Border BorderThickness="1" Grid.Column="6" Grid.Row="2" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="2" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="3" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="2" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="3" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="4" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3" 
                             Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="5" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="4" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" />
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="7" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="3" Height="122"
+                    <Border BorderThickness="1" Grid.Column="6" Grid.Row="3" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="4" Height="122"
+                    <Border BorderThickness="1" Grid.Column="7" Grid.Row="4" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="4" Height="122"
+                    <Border BorderThickness="1" Grid.Column="6" Grid.Row="4" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="4" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="4" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="1" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="1" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" />
-                    <Border BorderThickness="2" Grid.Column="2" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="2" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.RowSpan="3"/>
-                    <Border BorderThickness="2" Grid.Column="7" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="7" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="6" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="6" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="5" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="5" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <Border BorderThickness="2" Grid.Column="3" Grid.Row="5" Height="122"
+                    <Border BorderThickness="1" Grid.Column="3" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
                     <!--

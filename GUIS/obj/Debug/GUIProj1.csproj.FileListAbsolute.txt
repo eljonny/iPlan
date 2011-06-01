@@ -1,50 +1,25 @@
-U:\GUIProj\GUIS\obj\Debug\ResolveAssemblyReference.cache
-U:\GUIProj\GUIS\obj\Debug\Window1.baml
-U:\GUIProj\GUIS\obj\Debug\Window1.g.cs
-U:\GUIProj\GUIS\obj\Debug\App.g.cs
-U:\GUIProj\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.g.resources
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
-U:\GUIProj\GUIS\bin\Debug\GUIProj1.exe
-U:\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.exe
-U:\GUIProj\GUIS\obj\Debug\GUIProj1.pdb
-U:\GUIProj\GUIS\obj\Debug\customizable.baml
-U:\GUIProj\GUIS\obj\Debug\customizable.g.cs
-U:\GUIProj\GUIS\obj\Debug\CustomizableHome.baml
-U:\GUIProj\GUIS\obj\Debug\CustomizableHome.g.cs
-U:\GUIProj\GUIS\obj\Debug\SettingPage.baml
-U:\GUIProj\GUIS\obj\Debug\ThemePage.baml
-U:\GUIProj\GUIS\obj\Debug\SettingPage.g.cs
-U:\GUIProj\GUIS\obj\Debug\ThemePage.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\App.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.g.resources
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
-U:\GUIProj\GUIS\obj\Debug\LanguagePage.baml
-U:\GUIProj\GUIS\obj\Debug\LanguagePage.g.cs
-U:\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.baml
-U:\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.g.cs
+U:\CS446\CS446 Final Project\GUIS\bin\Debug\GUIProj1.exe
+U:\CS446\CS446 Final Project\GUIS\bin\Debug\GUIProj1.pdb
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\ResolveAssemblyReference.cache
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\Window1.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\Window1.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\App.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.g.resources
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.exe
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.pdb
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\Customizable.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\CustomizableHome.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\ThemeAppearancePage.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\ThemePage.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\Customizable.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\CustomizableHome.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\ThemeAppearancePage.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\ThemePage.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\LanguagePage.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\SettingPage.baml
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\LanguagePage.g.cs
+U:\CS446\CS446 Final Project\GUIS\obj\Debug\SettingPage.g.cs

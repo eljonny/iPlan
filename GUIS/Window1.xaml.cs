@@ -44,10 +44,10 @@ namespace GUIProj1
         {
             this.Close();
         }
-
+        
         private void labelTxtBoxFill(object sender, ToolTipEventArgs e)
         {
-            if (ed)
+            /*if (ed)
             {
                 Label clicked = (System.Windows.Controls.Label)sender;
                 if (startTime.IsFocused)
@@ -56,9 +56,9 @@ namespace GUIProj1
                     EndTime.Text = clicked.Content.ToString();
             }
             else if (ed == false && (startTime.IsFocused || EndTime.IsFocused))
-                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
+                MessageBox.Show("Please Enable Edit Mode to change the schedule.");*/
         }
-
+        
         private void setObjSlot(gridObject o, ArrayList g)
         {
             if (ed)
@@ -126,23 +126,32 @@ namespace GUIProj1
 
         private void testSlider2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            BrushConverter bc = new BrushConverter();
-            System.Windows.Media.SolidColorBrush brush = new SolidColorBrush();
-            System.Windows.Media.Color clr2;
+            if (ed)
+            {
+                BrushConverter bc = new BrushConverter();
+                System.Windows.Media.SolidColorBrush brush = new SolidColorBrush();
+                System.Windows.Media.Color clr2;
 
-            if (e.OldValue < e.NewValue && e.NewValue < 5)
-                pos = (int)e.NewValue;
-            else if (e.OldValue >= e.NewValue && e.NewValue >= 0)
-                pos = (int)e.NewValue;
+                if (e.OldValue < e.NewValue && e.NewValue < 5)
+                    pos = (int)e.NewValue;
+                else if (e.OldValue >= e.NewValue && e.NewValue >= 0)
+                    pos = (int)e.NewValue;
 
-            if (pos >= 0 && pos < 5)
+                if (pos >= 0 && pos < 5)
+                    clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+
                 clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+                brush.Color = clr2;
+                Slider s = (Slider)sender;
+                brush.Opacity = 0.3;
+                s.Background = brush;
+            }
+            else
+            {
+                Slider sl = (Slider)sender;
+                sl.Value = 0;
+            }
 
-            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
-            brush.Color = clr2;
-            Slider s = (Slider)sender;
-            brush.Opacity = 0.3;
-            s.Background = brush;
         }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
@@ -186,19 +195,26 @@ namespace GUIProj1
 
         private void testSlider245tester_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Slider l = sender as Slider;
-            int row = (int)l.GetValue(Grid.RowProperty);
-            int x = 1;
-            foreach (Slider tb in FindVisualChildren<Slider>(theGrid))
+            if (ed)
             {
+                Slider l = sender as Slider;
+                int row = (int)l.GetValue(Grid.RowProperty);
+                int x = 1;
+                foreach (Slider tb in FindVisualChildren<Slider>(theGrid))
+                {
 
-                if (x == row || x == row + 24 || x == row + 48 || x == row + 72 || x == row + 96)
-                    tb.Value = l.Value;
+                    if (x == row || x == row + 24 || x == row + 48 || x == row + 72 || x == row + 96)
+                        tb.Value = l.Value;
 
-                x++;
+                    x++;
 
+                }
             }
-
+            else
+            {
+                Slider sl = (Slider)sender;
+                sl.Value = 0;
+            }
 
         }
 

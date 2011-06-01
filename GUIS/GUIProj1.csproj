@@ -66,28 +66,28 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Customizable.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomizableHome.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="LanguagePage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="SettingPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ThemeAppearancePage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ThemePage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -159,16 +159,14 @@
     <None Include="Resources\iplabout_blend_fixed.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Settings-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Theme-Appearance-icon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="languages.jpg" />
+    <Resource Include="iplabout_blend_fixed.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="lightBlueSky.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="languages.jpg" />
+    <Resource Include="Theme-Appearance-icon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
