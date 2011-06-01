@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Collections;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 
 //   Author Jonathan Hyry, George Wanjiru, Ryan Soushek
 namespace GUIProj1
@@ -27,25 +28,16 @@ namespace GUIProj1
             gridContents = new ArrayList();
         private bool ed = true;
         private int teamSize;
-<<<<<<< .mine
-//>>>>>>.mine
-//=======
-=======
->>>>>>> .r25
+
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
         private int pos = 0;
-<<<<<<< .mine
-//>>>>>>.r20
-=======
->>>>>>> .r25
-
-
 
         public Window1()
         {
 
             InitializeComponent();
             gridContents.Cast<gridObject>();
+
 
         }
 
@@ -162,15 +154,6 @@ namespace GUIProj1
                 sl.Value = 0;
             }
 
-<<<<<<< .mine
-            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
-                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
-            brush.Color = clr2;
-            Slider s = (Slider)sender;
-            brush.Opacity = 0.3;
-            s.Background = brush;
-=======
->>>>>>> .r26
         }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
@@ -261,5 +244,18 @@ namespace GUIProj1
             Customizable cs = new Customizable();
             cs.ShowDialog();
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Team t = new Team();
+            t.ShowDialog();
+        }
+
+        private void membersCalButton_Click(object sender, RoutedEventArgs e)
+        {
+            Team t = new Team();
+            t.ShowDialog();
+        }
+
     }
 }

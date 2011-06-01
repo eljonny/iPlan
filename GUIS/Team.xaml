@@ -1,0 +1,9 @@
+﻿
+<NavigationWindow x:Class="GUIProj1.Team"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Team Editor" Height="650" Width="650" MaxHeight="1000" MaxWidth="1000"
+      Source="TeamPage.xaml" MinHeight="650" MinWidth="650">
+
+
+</NavigationWindow>

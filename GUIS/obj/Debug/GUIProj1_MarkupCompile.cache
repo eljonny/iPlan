@@ -4,24 +4,15 @@
 winexe
 C#
 .cs
-<<<<<<< .mine
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\
-=======
 U:\CS446\CS446 Final Project\GUIS\obj\Debug\
->>>>>>> .r26
 GUIProj1
 none
 false
 DEBUG;TRACE
-<<<<<<< .mine
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\App.xaml
-4-711001551
-=======
 U:\CS446\CS446 Final Project\GUIS\App.xaml
-7-1239612688
->>>>>>> .r26
+9-166441847
 
-11-1930787101
-12-9596428
-iconOrList.xaml;checkedList.xaml;iconList.xaml;Window1.xaml;
+16565127648
+12-340369072
+Customizable.xaml;CustomizableHome.xaml;LanguagePage.xaml;SettingPage.xaml;Team.xaml;TeamPage.xaml;ThemeAppearancePage.xaml;ThemePage.xaml;Window1.xaml;
 
