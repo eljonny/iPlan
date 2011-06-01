@@ -1,4 +1,4 @@
-﻿<!-- Author Jonathan Hyry & George Wanjiru -->
+﻿<!-- Author Jonathan Hyry, George Wanjiru, and Ryan Soushek -->
 <Window x:Class="GUIProj1.Window1" Background="SlateGray"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -43,7 +43,8 @@
                   Width="60" FontFamily="Verdana" FontSize="14" FontWeight="bold"
                   HorizontalAlignment="Right" Margin="0,5,1,3">
                 <MenuItem Header="_Tools"
-                  ToolTip="Change calendar properties, change view mode, enter/leave edit mode. Edit teams and team members.">
+                  ToolTip="Change calendar properties, change view mode,
+                          enter/leave edit mode. Edit teams and team members.">
                     <MenuItem Header="_View Mode" Click="chgViewMode" />
                     <MenuItem Header="_Edit Mode" Click="enterOrLeaveEditMode"/>
                     <MenuItem Header="Edit _Team" Click="MenuItem_Click_1" />
@@ -56,7 +57,8 @@
                       Width="50" FontFamily="Verdana" FontSize="14" FontWeight="bold"
                       HorizontalAlignment="Left" Margin="0,5,0,3">
                 <MenuItem Header="_Help"
-                    ToolTip="Access help file contents, as well as version and author information.">
+                    ToolTip="Access help file contents, as well as version and
+                          author information.">
                     <MenuItem Header="_About" Click="about_Click"/>
                     <Separator />
                     <MenuItem Header="Help _Contents" />
@@ -167,7 +169,8 @@
             </Button>
             <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
-                    Grid.Row="1" ToolTip="Change the properties of the currently loaded calendar.">
+                    Grid.Row="1" ToolTip="Change the properties of the currently
+                                            loaded calendar.">
                 Properties
             </Button>
             
@@ -200,13 +203,16 @@
             
             <Button Height="50" Name="resetCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
-                            Grid.Row="1" ToolTip="Reset all the values of the currently visible scheduled time blocks back to default." Click="resetCalButton_Click">
+                            Grid.Row="1" ToolTip="Reset all the values of the currently
+                                                visible scheduled time blocks back to
+                                                default." Click="resetCalButton_Click">
                 Reset Values
             </Button>
             <!--
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
                 HorizontalAlignment="Right" Grid.Column="1"
-                   ToolTip="Please enter the time block, or click a text box and hover over a time.">
+                   ToolTip="Please enter the time block, or click a text box and hover
+                    over a time.">
                 Times Available:
             </Label>
             
@@ -233,17 +239,13 @@
                 VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch"
                 MaxHeight="692" Visibility="Visible" Width="844">
             <ScrollViewer.Content>
-                <!-- not sure why this is still here haha.
-            <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
-                HorizontalAlignment="Left" Width="2" />
-            -->
                 <!-- calander grid cell definitions -->
                 <Grid Focusable="True" ShowGridLines="True"
                     Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
                   Margin="15,0,0,0" VerticalAlignment="Bottom"
                       HorizontalAlignment="Right" Name="theGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" Name="wkCalGridLabels" Focusable="False" />
+                    <RowDefinition Height="30" Name="wkCalGridLabels" Focusable="False" />
                         <RowDefinition Height="25" Name="hr0" Focusable="True" />
                         <RowDefinition Height="25" Name="hr1" Focusable="True" />
                         <RowDefinition Height="25" Name="hr2" Focusable="True" />
@@ -277,7 +279,7 @@
                                               Focusable="True" />
                         <ColumnDefinition Width="107*" Name="tuesday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="109*" Name="wednesday"
+                        <ColumnDefinition Width="111*" Name="wednesday"
                                               Focusable="True" />
                         <ColumnDefinition Width="107*" Name="thursday"
                                               Focusable="True" />
@@ -289,7 +291,8 @@
                                               Focusable="True" />
                     </Grid.ColumnDefinitions>
                     <!-- day labels for week view. will there ever be
-                        anything other than week view for this q? prob not haha.-->
+                        anything other than week view for this q?(oh but there is now! =)
+                    prob not haha.-->
                     <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                         VerticalAlignment="Center" FontWeight="bold" FontSize="15"
                         FontFamily="Verdana" Name="r0c0">Times</Label>
@@ -326,11 +329,13 @@
                     <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r1c0" Focusable="False" ToolTip="Midnight"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill" MouseEnter="EditRow">12:00AM</Label>
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
+                           MouseEnter="EditRow">12:00AM</Label>
                     <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r2c0" ToolTip="One AM"
-                        FrameworkElement.ToolTipOpening="labelTxtBoxFill" MouseEnter="EditRow">01:00AM</Label>
+                        FrameworkElement.ToolTipOpening="labelTxtBoxFill"
+                           MouseEnter="EditRow">01:00AM</Label>
                     <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
@@ -420,34 +425,28 @@
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
                         FontSize="10" Name="r24c0" MouseEnter="EditRow">11:00PM</Label>
                     
-                    <!--
-                    So this is the idea for calander content so far, where there
-                will be other properties associated with each time period; the editor/
-                administrator of the schedule will see the sliders (will have option to
-                see colors or hybrid too) and viewers will not see the sliders, will
-                just see color gradients for their scheduled time blocks. suggestions?
-                this slider is just an example to show what it'll potentially look like.
-                need to figure out how to import a 2D array of grid objects to define cell
-                contents. in the works. Please provide some feedback and make modifications
-                wherever you see fit.
-                    -jon
-                -->
-                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
-                                Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
-                                VerticalAlignment="Center" Width="102" Height="23"
-                            Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4"
+                                Minimum="0" Value="0" Grid.Column="1" Grid.Row="1"
+                                HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Width="102" Height="23"
+                                Foreground="GhostWhite" OpacityMask="Azure"
+                                Name="testSlider" Opacity="0.8"
+                                ValueChanged="testSlider2_ValueChanged"
+                                Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
                                     Direction="0" />
                             </Slider.BitmapEffect>
                         </Slider>
-                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4" Minimum="0" Value="0"
-                                    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
-                                    VerticalAlignment="Center" Width="102" Height="23"
+                        <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4"
+                                Minimum="0" Value="0"
+                                Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider3" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                Name="testSlider3" Opacity="0.8"
+                                ValueChanged="testSlider2_ValueChanged"
+                                Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                         Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -2047,10 +2046,6 @@
                 VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch"
                 MaxHeight="692" Visibility="Hidden">
             <ScrollViewer.Content>
-                <!-- not sure why this is still here haha.
-            <Border Margin="-6,-12,0,10.948" Name="mainGridBorder" Grid.RowSpan="2"
-                HorizontalAlignment="Left" Width="2" />
-            -->
                 <!-- calander grid cell definitions -->
                 <Grid Focusable="True" ShowGridLines="False"
                     Grid.Column="1" Grid.Row="1" Height="auto" Width="790"
@@ -2235,18 +2230,7 @@
                     <Border BorderThickness="1" Grid.Column="3" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    <!--
-                    So this is the idea for calander content so far, where there
-                will be other properties associated with each time period; the editor/
-                administrator of the schedule will see the sliders (will have option to
-                see colors or hybrid too) and viewers will not see the sliders, will
-                just see color gradients for their scheduled time blocks. suggestions?
-                this slider is just an example to show what it'll potentially look like.
-                need to figure out how to import a 2D array of grid objects to define cell
-                contents. in the works. Please provide some feedback and make modifications
-                wherever you see fit.
-                    -jon
-                -->
+                    
                     <Label Name="SliderLabel">
                         <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="5" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
