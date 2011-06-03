@@ -430,7 +430,7 @@
                                 HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider" Opacity="0.8"
+                                Name="testSlider" Opacity="0.3"
                                 ValueChanged="testSlider2_ValueChanged"
                                 Background="Maroon">
                             <Slider.BitmapEffect>
@@ -444,7 +444,7 @@
                                 Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider3" Opacity="0.8"
+                                Name="testSlider3" Opacity="0.3"
                                 ValueChanged="testSlider2_ValueChanged"
                                 Background="Maroon">
                             <Slider.BitmapEffect>
@@ -457,7 +457,7 @@
                                         Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
-                                    Name="testSlider4" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                    Name="testSlider4" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                             Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -468,7 +468,7 @@
                                             Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider5" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider5" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -479,7 +479,7 @@
                                             Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider6" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider6" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -490,7 +490,7 @@
                                                 Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center"
                                                 VerticalAlignment="Center" Width="102" Height="23"
                                             Foreground="GhostWhite" OpacityMask="Azure"
-                                            Name="testSlider7" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                            Name="testSlider7" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -501,7 +501,7 @@
                                             Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider8" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider8" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -512,7 +512,7 @@
                                             Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider9" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider9" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -523,7 +523,7 @@
                                             Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider10" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider10" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -534,7 +534,7 @@
                                             Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider11" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider11" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -545,7 +545,7 @@
                                             Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider12" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider12" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -556,7 +556,7 @@
                                             Grid.Column="1" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider13" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider13" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -567,7 +567,7 @@
                                             Grid.Column="1" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider14" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider14" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -578,7 +578,7 @@
                                             Grid.Column="1" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider15" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider15" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -589,7 +589,7 @@
                                             Grid.Column="1" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider16" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider16" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -600,7 +600,7 @@
                                             Grid.Column="1" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider17" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider17" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -611,7 +611,7 @@
                                             Grid.Column="1" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider18" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider18" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -622,7 +622,7 @@
                                             Grid.Column="1" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider19" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider19" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -633,7 +633,7 @@
                                             Grid.Column="1" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider20" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider20" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -644,7 +644,7 @@
                                             Grid.Column="1" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider21" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider21" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -655,7 +655,7 @@
                                             Grid.Column="1" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider22" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider22" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -666,7 +666,7 @@
                                             Grid.Column="1" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider23" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider23" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -677,7 +677,7 @@
                                             Grid.Column="1" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider24" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider24" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -688,7 +688,7 @@
                                             Grid.Column="1" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider25" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider25" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -700,7 +700,7 @@
                                 Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider_2" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            Name="testSlider_2" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -711,7 +711,7 @@
                                     Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center"
                                     VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider32" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                Name="testSlider32" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                         Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -722,7 +722,7 @@
                                         Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
-                                    Name="testSlider42" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                    Name="testSlider42" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                             Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -733,7 +733,7 @@
                                             Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider52" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider52" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -744,7 +744,7 @@
                                             Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider62" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider62" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -755,7 +755,7 @@
                                                 Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center"
                                                 VerticalAlignment="Center" Width="102" Height="23"
                                             Foreground="GhostWhite" OpacityMask="Azure"
-                                            Name="testSlider72" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                            Name="testSlider72" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -766,7 +766,7 @@
                                             Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider82" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider82" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -777,7 +777,7 @@
                                             Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider92" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider92" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -788,7 +788,7 @@
                                             Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider102" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider102" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -799,7 +799,7 @@
                                             Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider112" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider112" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -810,7 +810,7 @@
                                             Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider122" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider122" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -821,7 +821,7 @@
                                             Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider132" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider132" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -832,7 +832,7 @@
                                             Grid.Column="2" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider142" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider142" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -843,7 +843,7 @@
                                             Grid.Column="2" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider152" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider152" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -854,7 +854,7 @@
                                             Grid.Column="2" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider162" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider162" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -865,7 +865,7 @@
                                             Grid.Column="2" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider172" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider172" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -876,7 +876,7 @@
                                             Grid.Column="2" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider182" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider182" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -887,7 +887,7 @@
                                             Grid.Column="2" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider192" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider192" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -898,7 +898,7 @@
                                             Grid.Column="2" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider202" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider202" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -909,7 +909,7 @@
                                             Grid.Column="2" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider212" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider212" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -920,7 +920,7 @@
                                             Grid.Column="2" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider222" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider222" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -931,7 +931,7 @@
                                             Grid.Column="2" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider232" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider232" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -942,7 +942,7 @@
                                             Grid.Column="2" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider242" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider242" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -953,7 +953,7 @@
                                             Grid.Column="2" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider252" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider252" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -966,7 +966,7 @@
                                 Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider_3" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            Name="testSlider_3" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -977,7 +977,7 @@
                                     Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"
                                     VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider323" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                Name="testSlider323" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                         Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -988,7 +988,7 @@
                                         Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
-                                    Name="testSlider43" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                    Name="testSlider43" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                             Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -999,7 +999,7 @@
                                             Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider53" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider53" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1010,7 +1010,7 @@
                                             Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider63" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider63" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1021,7 +1021,7 @@
                                                 Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center"
                                                 VerticalAlignment="Center" Width="102" Height="23"
                                             Foreground="GhostWhite" OpacityMask="Azure"
-                                            Name="testSlider73" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                            Name="testSlider73" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1032,7 +1032,7 @@
                                             Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider83" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider83" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1043,7 +1043,7 @@
                                             Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider93" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider93" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1054,7 +1054,7 @@
                                             Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider103" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider103" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1065,7 +1065,7 @@
                                             Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider113" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider113" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1076,7 +1076,7 @@
                                             Grid.Column="3" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider123" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider123" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1087,7 +1087,7 @@
                                             Grid.Column="3" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider133" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider133" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1098,7 +1098,7 @@
                                             Grid.Column="3" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider143" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider143" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1109,7 +1109,7 @@
                                             Grid.Column="3" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider153" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider153" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1120,7 +1120,7 @@
                                             Grid.Column="3" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider163" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider163" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1131,7 +1131,7 @@
                                             Grid.Column="3" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider173" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider173" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1142,7 +1142,7 @@
                                             Grid.Column="3" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider183" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider183" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1153,7 +1153,7 @@
                                             Grid.Column="3" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider193" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider193" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1164,7 +1164,7 @@
                                             Grid.Column="3" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider203" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider203" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1175,7 +1175,7 @@
                                             Grid.Column="3" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider213" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider213" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1186,7 +1186,7 @@
                                             Grid.Column="3" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider223" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider223" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1197,7 +1197,7 @@
                                             Grid.Column="3" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider233" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider233" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1208,7 +1208,7 @@
                                             Grid.Column="3" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider243" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider243" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1219,7 +1219,7 @@
                                             Grid.Column="3" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider253" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider253" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1231,7 +1231,7 @@
                                 Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider_4" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            Name="testSlider_4" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1242,7 +1242,7 @@
                                     Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center"
                                     VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider324" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                Name="testSlider324" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                         Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1253,7 +1253,7 @@
                                         Grid.Column="4" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
-                                    Name="testSlider44" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                    Name="testSlider44" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                             Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1264,7 +1264,7 @@
                                             Grid.Column="4" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider54" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider54" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1275,7 +1275,7 @@
                                             Grid.Column="4" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider64" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider64" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1286,7 +1286,7 @@
                                                 Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center"
                                                 VerticalAlignment="Center" Width="102" Height="23"
                                             Foreground="GhostWhite" OpacityMask="Azure"
-                                            Name="testSlider74" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                            Name="testSlider74" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1297,7 +1297,7 @@
                                             Grid.Column="4" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider84" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider84" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1308,7 +1308,7 @@
                                             Grid.Column="4" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider94" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider94" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1319,7 +1319,7 @@
                                             Grid.Column="4" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider104" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider104" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1330,7 +1330,7 @@
                                             Grid.Column="4" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider114" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider114" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1341,7 +1341,7 @@
                                             Grid.Column="4" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider124" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider124" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1352,7 +1352,7 @@
                                             Grid.Column="4" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider134" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider134" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1363,7 +1363,7 @@
                                             Grid.Column="4" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider144" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider144" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1374,7 +1374,7 @@
                                             Grid.Column="4" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider154" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider154" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1385,7 +1385,7 @@
                                             Grid.Column="4" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider164" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider164" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1396,7 +1396,7 @@
                                             Grid.Column="4" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider174" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider174" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1407,7 +1407,7 @@
                                             Grid.Column="4" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider184" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider184" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1418,7 +1418,7 @@
                                             Grid.Column="4" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider194" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider194" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1429,7 +1429,7 @@
                                             Grid.Column="4" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider204" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider204" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1440,7 +1440,7 @@
                                             Grid.Column="4" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider214" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider214" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1451,7 +1451,7 @@
                                             Grid.Column="4" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider224" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider224" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1462,7 +1462,7 @@
                                             Grid.Column="4" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider234" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider234" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1473,7 +1473,7 @@
                                             Grid.Column="4" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider244" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider244" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1484,7 +1484,7 @@
                                             Grid.Column="4" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider254" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider254" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1497,7 +1497,7 @@
                                 Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Center" Width="102" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure"
-                            Name="testSlider_5" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                            Name="testSlider_5" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1508,7 +1508,7 @@
                                     Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center"
                                     VerticalAlignment="Center" Width="102" Height="23"
                                 Foreground="GhostWhite" OpacityMask="Azure"
-                                Name="testSlider325" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                Name="testSlider325" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                         Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1519,7 +1519,7 @@
                                         Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center"
                                         VerticalAlignment="Center" Width="102" Height="23"
                                     Foreground="GhostWhite" OpacityMask="Azure"
-                                    Name="testSlider45" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                    Name="testSlider45" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                             Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1530,7 +1530,7 @@
                                             Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider55" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider55" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1541,7 +1541,7 @@
                                             Grid.Column="5" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider65" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider65" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1552,7 +1552,7 @@
                                                 Grid.Column="5" Grid.Row="6" HorizontalAlignment="Center"
                                                 VerticalAlignment="Center" Width="102" Height="23"
                                             Foreground="GhostWhite" OpacityMask="Azure"
-                                            Name="testSlider75" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                            Name="testSlider75" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                     Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1563,7 +1563,7 @@
                                             Grid.Column="5" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider85" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider85" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1574,7 +1574,7 @@
                                             Grid.Column="5" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider95" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider95" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1585,7 +1585,7 @@
                                             Grid.Column="5" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider105" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider105" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1596,7 +1596,7 @@
                                             Grid.Column="5" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider115" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider115" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1607,7 +1607,7 @@
                                             Grid.Column="5" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider125" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider125" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1618,7 +1618,7 @@
                                             Grid.Column="5" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider135" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider135" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1629,7 +1629,7 @@
                                             Grid.Column="5" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider145" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider145" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1640,7 +1640,7 @@
                                             Grid.Column="5" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider155" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider155" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1651,7 +1651,7 @@
                                             Grid.Column="5" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider165" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider165" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1662,7 +1662,7 @@
                                             Grid.Column="5" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider175" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider175" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1673,7 +1673,7 @@
                                             Grid.Column="5" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider185" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider185" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1684,7 +1684,7 @@
                                             Grid.Column="5" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider195" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider195" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1695,7 +1695,7 @@
                                             Grid.Column="5" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider205" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider205" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1706,7 +1706,7 @@
                                             Grid.Column="5" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider215" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider215" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1717,7 +1717,7 @@
                                             Grid.Column="5" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider225" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider225" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1728,7 +1728,7 @@
                                             Grid.Column="5" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider235" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider235" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1739,7 +1739,7 @@
                                             Grid.Column="5" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider245" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1750,7 +1750,7 @@
                                             Grid.Column="5" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider255" Opacity="0.8" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
+                                        Name="testSlider255" Opacity="0.3" ValueChanged="testSlider2_ValueChanged" Background="Maroon">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1763,7 +1763,7 @@
                                             Grid.Column="0" Grid.Row="24" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1774,7 +1774,7 @@
                                             Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester0" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester0" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1785,7 +1785,7 @@
                                             Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester1" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester1" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1796,7 +1796,7 @@
                                             Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester2" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester2" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1807,7 +1807,7 @@
                                             Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester3" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester3" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1818,7 +1818,7 @@
                                             Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester4" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester4" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1829,7 +1829,7 @@
                                             Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester5" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester5" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1840,7 +1840,7 @@
                                             Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester6" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester6" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1851,7 +1851,7 @@
                                             Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester7" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester7" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1862,7 +1862,7 @@
                                             Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester8" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester8" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1873,7 +1873,7 @@
                                             Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester9" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester9" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1884,7 +1884,7 @@
                                             Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester10" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester10" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1895,7 +1895,7 @@
                                             Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester11" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester11" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1906,7 +1906,7 @@
                                             Grid.Column="0" Grid.Row="12" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester12" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester12" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1917,7 +1917,7 @@
                                             Grid.Column="0" Grid.Row="13" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester13" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester13" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1928,7 +1928,7 @@
                                             Grid.Column="0" Grid.Row="14" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester14" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester14" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1939,7 +1939,7 @@
                                             Grid.Column="0" Grid.Row="15" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester15" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester15" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1950,7 +1950,7 @@
                                             Grid.Column="0" Grid.Row="16" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester16" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester16" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1961,7 +1961,7 @@
                                             Grid.Column="0" Grid.Row="17" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester17" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester17" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1972,7 +1972,7 @@
                                             Grid.Column="0" Grid.Row="18" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester18" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester18" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1983,7 +1983,7 @@
                                             Grid.Column="0" Grid.Row="19" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester19" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester19" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -1994,7 +1994,7 @@
                                             Grid.Column="0" Grid.Row="20" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester20" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester20" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -2005,7 +2005,7 @@
                                             Grid.Column="0" Grid.Row="21" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester21" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester21" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -2016,7 +2016,7 @@
                                             Grid.Column="0" Grid.Row="22" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester22" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester22" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -2027,7 +2027,7 @@
                                             Grid.Column="0" Grid.Row="23" HorizontalAlignment="Center"
                                             VerticalAlignment="Center" Width="102" Height="23"
                                         Foreground="GhostWhite" OpacityMask="Azure"
-                                        Name="testSlider245tester23" Opacity="0.8" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
+                                        Name="testSlider245tester23" Opacity="0.3" ValueChanged="testSlider245tester_ValueChanged" Visibility="Hidden" MouseLeave="testSlider245tester_MouseLeave">
                         <Slider.BitmapEffect>
                             <DropShadowBitmapEffect ShadowDepth="2"
                                                 Softness="0.5" Opacity="0.5" Noise="0.1"
@@ -2236,7 +2236,7 @@
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom" Width="106" Height="23"
                             Foreground="GhostWhite" OpacityMask="Azure" Margin="0,0,0,2"
-                            Name="testSlider2" Opacity="0.8" Visibility="Visible" ValueChanged="testSlider2_ValueChanged">
+                            Name="testSlider2" Opacity="0.3" Visibility="Visible" ValueChanged="testSlider2_ValueChanged">
                             <Slider.BitmapEffect>
                                 <DropShadowBitmapEffect ShadowDepth="2"
                                     Softness="0.5" Opacity="0.5" Noise="0.1"

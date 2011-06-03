@@ -25,14 +25,13 @@ namespace GUIProj1
     public partial class Window1 : Window
     {
         private ArrayList
-            gridContents = new ArrayList();
+        gridContents = new ArrayList();
         private bool ed = true;
-<<<<<<< .mine        private int teamSize;
+        private int teamSize = 0;
 
-=======        private int teamSize = 0;
->>>>>>> .theirs        private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Green, System.Drawing.Color.DarkGreen };
+        private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Olive, System.Drawing.Color.DarkGreen};
+
         private int pos = 0;
-
 
         public Window1()
         {
@@ -147,7 +146,7 @@ namespace GUIProj1
                     arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
                 brush.Color = clr2;
                 Slider s = (Slider)sender;
-                brush.Opacity = 0.3;
+                //brush.Opacity = 0.3;
                 s.Background = brush;
             }
             else
@@ -155,17 +154,8 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
-<<<<<<< .mine
 
-=======            /*
-            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
-                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
-            brush.Color = clr2;
-            Slider s = (Slider)sender;
-            brush.Opacity = 0.3;
-            s.Background = brush;
-             */
->>>>>>> .theirs        }
+        }
 
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
         {
@@ -256,14 +246,7 @@ namespace GUIProj1
             Customizable cs = new Customizable();
             cs.ShowDialog();
         }
-<<<<<<< .mine
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            Team teamPage = new Team();
-            teamPage.ShowDialog();
-            
-        }
-=======
+
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             Team t = new Team();
@@ -276,5 +259,5 @@ namespace GUIProj1
             t.ShowDialog();
         }
 
->>>>>>> .theirs    }
+    }
 }
