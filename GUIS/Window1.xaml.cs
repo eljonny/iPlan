@@ -24,22 +24,34 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
+<<<<<<< .mine
+        private ArrayList gridContents = new ArrayList();
+=======
         private ArrayList
         gridContents = new ArrayList();
+>>>>>>> .r33
         private bool ed = true;
+<<<<<<< .mine
+        private int teamSize = 0;
+        /*private System.Drawing.Color[] arrColor =
+            { System.Drawing.Color.Maroon, System.Drawing.Color.Red,
+                System.Drawing.Color.OrangeRed, System.Drawing.Color.Green,
+                System.Drawing.Color.DarkGreen };*/
+=======
         private int teamSize = 0;
 
         private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Olive, System.Drawing.Color.DarkGreen};
 
+>>>>>>> .r33
         private int pos = 0;
+        private LinkedList<Canvas> timeBlocks = new LinkedList<Canvas>();
+        private Canvas temp;
 
         public Window1()
         {
 
             InitializeComponent();
             gridContents.Cast<gridObject>();
-
-
         }
 
         private void file_quit(object sender, EventArgs e)
@@ -49,7 +61,7 @@ namespace GUIProj1
         
         private void labelTxtBoxFill(object sender, ToolTipEventArgs e)
         {
-            /*if (ed)
+            if (ed)
             {
                 Label clicked = (System.Windows.Controls.Label)sender;
                 if (startTime.IsFocused)
@@ -58,7 +70,7 @@ namespace GUIProj1
                     EndTime.Text = clicked.Content.ToString();
             }
             else if (ed == false && (startTime.IsFocused || EndTime.IsFocused))
-                MessageBox.Show("Please Enable Edit Mode to change the schedule.");*/
+                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
         
         private void setObjSlot(gridObject o, ArrayList g)
@@ -117,7 +129,6 @@ namespace GUIProj1
         private void notifyListCall()
         {
             //checkedList navWinPg = new checkedList();
-
         }
 
         public string toString()
@@ -125,25 +136,47 @@ namespace GUIProj1
             return gridContents.ToString();
         }
 
+        private void addGObj()
+        {
+            string[] contents = new string[3];
+            double[] probData = new double[2];
+            probData[0] = .4;probData[1] = .95;
+            contents[0] = "James";contents[1]="Garner";contents[2]="Software Engineer";
+            gridObject tMTimeBlock =
+                new gridObject
+                    (1,2,"00:00","07:00",true,contents,"emp",
+                    DateTime.Today.ToString(),probData);
+            temp = tMTimeBlock.getCanvas();
+        }
+
+        private void populateGrid()
+        {
+            foreach(Canvas c in timeBlocks)
+            {
+            }
+        }
+
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE.
         private void testSlider2_ValueChanged(object sender,
             RoutedPropertyChangedEventArgs<double> e)
         {
-            if (ed)
+            if(ed)
             {
                 BrushConverter bc = new BrushConverter();
                 System.Windows.Media.SolidColorBrush brush = new SolidColorBrush();
                 System.Windows.Media.Color clr2;
 
-                if (e.OldValue < e.NewValue && e.NewValue < 5)
+                if(e.OldValue < e.NewValue && e.NewValue < 5)
                     pos = (int)e.NewValue;
-                else if (e.OldValue >= e.NewValue && e.NewValue >= 0)
+                else if(e.OldValue >= e.NewValue && e.NewValue >= 0)
                     pos = (int)e.NewValue;
 
-                if (pos >= 0 && pos < 5)
-                    clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A, arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+                if(pos >= 0 && pos < 5)
+                    clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,arrColor[pos].R,arrColor[pos].G,arrColor[pos].B);
 
                 clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
-                    arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+                    arrColor[pos].R,arrColor[pos].G,arrColor[pos].B);
                 brush.Color = clr2;
                 Slider s = (Slider)sender;
                 //brush.Opacity = 0.3;
@@ -154,9 +187,22 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
+<<<<<<< .mine
+            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
+                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+            brush.Color = clr2;
+            Slider s = (Slider)sender;
+            brush.Opacity = 0.3;
+            s.Background = brush;
+        }
+        */
+=======
 
         }
+>>>>>>> .r33
 
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE.
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Slider tb in FindVisualChildren<Slider>(this))
@@ -164,6 +210,10 @@ namespace GUIProj1
                 tb.Value = 0;
             }
         }
+         */
+
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE.
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
             where T : DependencyObject
         {
@@ -184,7 +234,10 @@ namespace GUIProj1
                 }
             }
         }
+         */
 
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE.
         private void EditRow(object sender, MouseEventArgs e)
         {
             Label l = (Label)sender;
@@ -206,7 +259,10 @@ namespace GUIProj1
                 s[row].Visibility = Visibility.Visible;
                 
         }
+         */
 
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE
         private void testSlider245tester_ValueChanged(object sender,
             RoutedPropertyChangedEventArgs<double> e)
         {
@@ -231,33 +287,52 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
-
         }
+         */
 
-
+        /* Ryan
+         * PLEASE COMMENT YOUR CODE
         private void testSlider245tester_MouseLeave(object sender, MouseEventArgs e)
         {
             Slider obj = (Slider)sender;
             obj.Visibility = Visibility.Hidden;
         }
-
+         */
+        //George
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             Customizable cs = new Customizable();
             cs.ShowDialog();
         }
+<<<<<<< .mine
 
+        //Ryan
+=======
+
+>>>>>>> .r33
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+<<<<<<< .mine
+            Team teamPage = new Team();
+            teamPage.ShowDialog();
+            
+        }
+        //Ryan
+=======
             Team t = new Team();
             t.ShowDialog();
         }
 
+>>>>>>> .r33
         private void membersCalButton_Click(object sender, RoutedEventArgs e)
         {
             Team t = new Team();
             t.ShowDialog();
         }
+<<<<<<< .mine
+    }
+=======
 
     }
+>>>>>>> .r33
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 //  Author Jonathan Hyry
 namespace GUIProj1
 {
@@ -13,7 +15,9 @@ namespace GUIProj1
         private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
         private bool isPopulated;
-        private int[] probDet = null;
+        private double[] probDet = null;
+        private Canvas block = new Canvas();
+        private SolidColorBrush shade = new SolidColorBrush();
 
         public gridObject()
         {
@@ -26,10 +30,19 @@ namespace GUIProj1
             timeEnd = "";
             isPopulated = false;
             rand = null;
+            probDet=new double[1];
+            probDet[0]=1;
+            shade.Opacity = .4;
+            shade.Color = Color.FromRgb(73,22,196);
+            block.Height=30;
+            block.Width=105;
+            block.Visibility=Visibility.Visible;
+            block.Opacity=.4;
+            block.Background = shade;
         }
         
         public gridObject(int r,int c,string tb,string te,
-         bool pop,string[] content,string t,string d,int[] pD)
+         bool pop,string[] content,string t,string d,double[] pD)
         {
             Random rand = new Random();
             id = rand.Next();
@@ -44,6 +57,10 @@ namespace GUIProj1
             type = t;
             date = d;
             rand = null;
+            block.Height=30;
+            block.Width=105;
+            block.Visibility=Visibility.Visible;
+            block.Opacity=.4;
         }
 
         protected void setCoords(int c, int r)
@@ -78,6 +95,11 @@ namespace GUIProj1
             else
                 isPopulated = true;
             return isPopulated;
+        }
+
+        public Canvas getCanvas()
+        {
+            return block;
         }
 
         public int getDay()

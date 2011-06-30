@@ -5,14 +5,14 @@
     Title="iPlan" Height="545" Width="955" Name="iPlanMain" MaxHeight="768"
         WindowStartupLocation="CenterOwner" MinWidth="955" MinHeight="545"
         MaxWidth="955" ToolTipService.HasDropShadow="True"
-        ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500" WindowStyle="ToolWindow" WindowState="Maximized">
+        ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
         <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
-              VerticalAlignment="Top" HorizontalAlignment="Left" Margin="7,7,7,7">
+              VerticalAlignment="Top" HorizontalAlignment="Left">
         <Grid.Background>
             <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
         </Grid.Background>
-            <!-- Dynamically sized grid cells -->
+        <!-- Dynamically sized grid cells -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110*" />
             <ColumnDefinition Width="846*"/>
@@ -155,44 +155,38 @@
                 2013
             </ComboBoxItem>
         </ComboBox>
-            <!-- program command buttons... suggestions for new command buttons?
-            Maybe add more and put them in a scrollviewer? There's enough space
-            on the left for a scrollbar I think.
-                -jon
             
             
             <Button Height="50" Name="saveCalButton" VerticalAlignment="Top"
-                    FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
+                    FontFamily="Verdana" FontSize="13" Margin="3,170,5,0"
                 Grid.Row="1" ToolTip="Save the currently loaded calendar."
                 Foreground="Black">
                 Save Calendar
             </Button>
             <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
-                    FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
+                    FontFamily="Verdana" FontSize="13" Margin="3,235,5,0"
                     Grid.Row="1" ToolTip="Change the properties of the currently
                                             loaded calendar.">
                 Properties
             </Button>
             
             <Button Height="50" Name="schedCalButton" VerticalAlignment="Top"
-                            FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
+                            FontFamily="Verdana" FontSize="13" Margin="3,300,5,0"
                             Grid.Row="1" ToolTip="View schedule details for current month or week.">
                 Sched. Details
             </Button>
-            -->
+
             <Button Height="50" Name="membersCalButton" VerticalAlignment="Top"
                     FontFamily="Verdana" FontSize="13" Margin="3,5,5,0"
                     Grid.Row="1" ToolTip="View the currently participating team members." Click="membersCalButton_Click">
                 Team
             </Button>
-            <!--
             <Button Height="50" Name="notifyCalButton" VerticalAlignment="Top"
-                        FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
+                        FontFamily="Verdana" FontSize="13" Margin="3,355,5,0"
                         Grid.Row="1" ToolTip="Send notifications to team members."
                         Click="startEmail">
                 Notifications
             </Button>
-            -->
             
             <Button Height="50" Name="viewModeCalButton" VerticalAlignment="Top"
                             FontFamily="Verdana" FontSize="13" Margin="3,60,5,0"
@@ -205,10 +199,9 @@
                             FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
                             Grid.Row="1" ToolTip="Reset all the values of the currently
                                                 visible scheduled time blocks back to
-                                                default." Click="resetCalButton_Click">
+                                                default.">
                 Reset Values
             </Button>
-            <!--
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
                 HorizontalAlignment="Right" Grid.Column="1"
                    ToolTip="Please enter the time block, or click a text box and hover
@@ -225,7 +218,7 @@
                      Grid.Column="1" VerticalAlignment="Center" />
             <TextBox Name="EndTime" Width="80" Margin="0,3,25,0"
                 HorizontalAlignment="Right" Text="hh:mm" TextAlignment="Center"
-                     Grid.Column="1" VerticalAlignment="Center" />-->
+                     Grid.Column="1" VerticalAlignment="Center" />
             <!-- calander grid border -->
         <Border Margin="0,1,20,22" Focusable="False" MinHeight="416"
                 BorderThickness="1" Grid.Row="1" Height="auto" Width="818"
@@ -270,7 +263,9 @@
                         <RowDefinition Height="25" Name="hr21" Focusable="True" />
                         <RowDefinition Height="25" Name="hr22" Focusable="True" />
                         <RowDefinition Height="25" Name="hr23" Focusable="True" />
+                        <!--  Got rid of 24:00... maybe bring it back?
                         <RowDefinition Height="25" Name="hr24" Focusable="True" />
+                        -->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="102*" Name="timeLabels"
@@ -330,99 +325,102 @@
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r1c0" Focusable="False" ToolTip="Midnight"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                           MouseEnter="EditRow">12:00AM</Label>
+                           >00:00</Label>
                     <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontSize="10" Name="r2c0" ToolTip="One AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                           MouseEnter="EditRow">01:00AM</Label>
+                           >01:00</Label>
                     <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r3c0" MouseEnter="EditRow">02:00AM</Label>
+                        FontSize="10" Name="r3c0" >02:00AM</Label>
                     <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r4c0" MouseEnter="EditRow">03:00AM</Label>
+                        FontSize="10" Name="r4c0" >03:00</Label>
                     <Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r5c0" MouseEnter="EditRow">04:00AM</Label>
+                        FontSize="10" Name="r5c0" >04:00</Label>
                     <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"  ToolTip="Five AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r6c0" MouseEnter="EditRow">05:00AM</Label>
+                        FontSize="10" Name="r6c0" >05:00</Label>
                     <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r7c0" MouseEnter="EditRow">06:00AM</Label>
+                        FontSize="10" Name="r7c0" >06:00</Label>
                     <Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r8c0" MouseEnter="EditRow">07:00AM</Label>
+                        FontSize="10" Name="r8c0" >07:00</Label>
                     <Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r9c0" MouseEnter="EditRow">08:00AM</Label>
+                        FontSize="10" Name="r9c0" >08:00</Label>
                     <Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r10c0" MouseEnter="EditRow">09:00AM</Label>
+                        FontSize="10" Name="r10c0" >09:00</Label>
                     <Label Grid.Row="11" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r11c0" MouseEnter="EditRow">10:00AM</Label>
+                        FontSize="10" Name="r11c0" >10:00</Label>
                     <Label Grid.Row="12" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven AM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r12c0" MouseEnter="EditRow">11:00AM</Label>
+                        FontSize="10" Name="r12c0">11:00</Label>
                     <Label Grid.Row="13" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Noon"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r13c0" MouseEnter="EditRow">12:00PM</Label>
+                        FontSize="10" Name="r13c0">12:00</Label>
                     <Label Grid.Row="14" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="One PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r14c0" MouseEnter="EditRow">1:00PM</Label>
+                        FontSize="10" Name="r14c0">13:00</Label>
                     <Label Grid.Row="15" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Two PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r15c0" MouseEnter="EditRow">2:00PM</Label>
+                        FontSize="10" Name="r15c0">14:00</Label>
                     <Label Grid.Row="16" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Three PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r16c0" MouseEnter="EditRow">3:00PM</Label>
+                        FontSize="10" Name="r16c0">15:00</Label>
                     <Label Grid.Row="17" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Four PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r17c0" MouseEnter="EditRow">4:00PM</Label>
+                        FontSize="10" Name="r17c0">16:00</Label>
                     <Label Grid.Row="18" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Five PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r18c0" MouseEnter="EditRow">5:00PM</Label>
+                        FontSize="10" Name="r18c0">17:00</Label>
                     <Label Grid.Row="19" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Six PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r19c0" MouseEnter="EditRow">6:00PM</Label>
+                        FontSize="10" Name="r19c0">18:00</Label>
                     <Label Grid.Row="20" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Seven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r20c0" MouseEnter="EditRow">7:00PM</Label>
+                        FontSize="10" Name="r20c0">19:00</Label>
                     <Label Grid.Row="21" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eight PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r21c0" MouseEnter="EditRow">8:00PM</Label>
+                        FontSize="10" Name="r21c0">20:00</Label>
                     <Label Grid.Row="22" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Nine PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r22c0" MouseEnter="EditRow">9:00PM</Label>
+                        FontSize="10" Name="r22c0">21:00</Label>
                     <Label Grid.Row="23" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Ten PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-                        FontSize="10" Name="r23c0" MouseEnter="EditRow">10:00PM</Label>
+                        FontSize="10" Name="r23c0">22:00</Label>
                     <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
+<<<<<<< .mine
+                        FontSize="10" Name="r24c0">23:00</Label>
+=======
                         FontSize="10" Name="r24c0" MouseEnter="EditRow">11:00PM</Label>
                     
                         <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4"
@@ -2037,6 +2035,7 @@
 
 
 
+>>>>>>> .r33
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>
@@ -2117,6 +2116,7 @@
                     <Label Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana"
                         FontWeight="bold" FontSize="15" Name="r0c7Mo">Sunday</Label>
+                    <!-- Month view per-day borders -->
                     <Border BorderThickness="1" Grid.Column="1" Grid.Row="1" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110" Grid.ColumnSpan="3"
@@ -2230,7 +2230,7 @@
                     <Border BorderThickness="1" Grid.Column="3" Grid.Row="5" Height="122"
                             VerticalAlignment="Center" HorizontalAlignment="Center"
                             BorderBrush="DimGray" Width="110"/>
-                    
+                    <!-- This covered up the time quick-change per time label.
                     <Label Name="SliderLabel">
                         <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="5" Minimum="0" Value="0"
                                 Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
@@ -2244,16 +2244,16 @@
                             </Slider.BitmapEffect>
                         </Slider>
                     </Label>
-                    
+                    -->
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>
         <!-- maybe dynamically display some sort of useful information here -->
             <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
                    VerticalAlignment="Bottom" Height="20" Width="120"
-                   Margin="0,0,0,2" Grid.ColumnSpan="2"/>
+                   Margin="0,0,0,2" Grid.ColumnSpan="2" Name="lStatBar"/>
             <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
                 Height="20" Width="805" HorizontalAlignment="Left"
-                   Margin="14,0,5,2" />
+                   Margin="14,0,5,2" Name="rStatBar"/>
     </Grid>
 </Window>
