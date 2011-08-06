@@ -29,9 +29,9 @@
                 <MenuItem Header="_File"
                           ToolTip="Make new, save, and open calendars and teams.">
                     <MenuItem Header="_New Calendar" />
-                    <MenuItem Header="New _Team Member" />
+                    <MenuItem Header="New _Team Member" Click="newTeamMember_Click" />
                     <MenuItem Header="_Open Calendar" />
-                    <MenuItem Header="O_pen Team Member" />
+                    <MenuItem Header="O_pen Team Member" Click="openTeam_Click" />
                     <MenuItem Header="_Save Calendar" />
                     <MenuItem Header="S_ave Calendar As..." />
                     <MenuItem Header="Sa_ve Team Member..." />
@@ -44,10 +44,10 @@
                   HorizontalAlignment="Right" Margin="0,5,1,3">
                 <MenuItem Header="_Tools"
                   ToolTip="Change calendar properties, change view mode,
-                          enter/leave edit mode. Edit teams and team members.">
+                          enter/leave edit mode. Edit teams and team members." >
                     <MenuItem Header="_View Mode" Click="chgViewMode" />
                     <MenuItem Header="_Edit Mode" Click="enterOrLeaveEditMode"/>
-                    <MenuItem Header="Edit _Team" Click="MenuItem_Click_1" />
+                    <MenuItem Header="Edit _Team" />
                     <MenuItem Header="Eve_nt Details" />
                     <Separator/>
                     <MenuItem Header="C_ustomize" Click="MenuItem_Click" />
@@ -199,7 +199,7 @@
                             FontFamily="Verdana" FontSize="13" Margin="3,115,5,0"
                             Grid.Row="1" ToolTip="Reset all the values of the currently
                                                 visible scheduled time blocks back to
-                                                default.">
+                                                default." Click="resetCalButton_Click">
                 Reset Values
             </Button>
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
@@ -418,9 +418,9 @@
                     <Label Grid.Row="24" Grid.Column="0" HorizontalAlignment="Center"
                         VerticalAlignment="Center" FontFamily="verdana" ToolTip="Eleven PM"
                         FrameworkElement.ToolTipOpening="labelTxtBoxFill"
-<<<<<<< .mine
-                        FontSize="10" Name="r24c0">23:00</Label>
-=======
+
+                        
+
                         FontSize="10" Name="r24c0" MouseEnter="EditRow">11:00PM</Label>
                     
                         <Slider Interval="1" IsSnapToTickEnabled="True" Maximum="4"
@@ -2035,7 +2035,7 @@
 
 
 
->>>>>>> .r33
+
                 </Grid>
             </ScrollViewer.Content>
         </ScrollViewer>

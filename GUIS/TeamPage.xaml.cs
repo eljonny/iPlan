@@ -30,14 +30,14 @@ namespace GUIProj1
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            Image img = new Image();
-            img.Width = 200;
-            img.Height = 150;
-            img.Source = new BitmapImage(new Uri("person1.jpg"));
+            //Image img = new Image();
+            //img.Width = 200;
+            //img.Height = 150;
+            //img.Source = new BitmapImage(new Uri("person1.jpg"));
 
-            Grid g = (Grid)sender;
-            MessageBox.Show("ss");
-            g.Children.Add(img);
+            //Grid g = (Grid)sender;
+            //MessageBox.Show("ss");
+            //g.Children.Add(img);
 
 
         }
