@@ -11,14 +11,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace GUIProj1
 {
     /// <summary>
     /// Interaction logic for TeamPage.xaml
     /// </summary>
-    public partial class TeamPage : Page
+    public partial class TeamPage : Window
     {
+       
         public TeamPage()
         {
 
@@ -38,7 +40,16 @@ namespace GUIProj1
             //Grid g = (Grid)sender;
             //MessageBox.Show("ss");
             //g.Children.Add(img);
+            Window1 w = new Window1();
+           // teamMembersInfo.ItemsSource = LoadListBoxData();
+        }
 
+        private ArrayList LoadListBoxData()
+        {
+
+            Window1 w = new Window1();
+
+            return w.team;
 
         }
     }

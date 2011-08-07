@@ -105,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -128,9 +132,20 @@
     <Compile Include="iPlAbout.Designer.cs">
       <DependentUpon>iPlAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="iPlanDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iPlanDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="iPlanDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iPlanDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Member.cs" />
     <Compile Include="NewMember.xaml.cs">
       <DependentUpon>NewMember.xaml</DependentUpon>
     </Compile>
@@ -162,6 +177,9 @@
     <Compile Include="ThemePage.xaml.cs">
       <DependentUpon>ThemePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="iPlAbout.resx">
       <DependentUpon>iPlAbout.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -178,6 +196,29 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="iPlanDatabaseDataSet.xsc">
+      <DependentUpon>iPlanDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="iPlanDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>iPlanDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="iPlanDatabaseDataSet.xss">
+      <DependentUpon>iPlanDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="iPlanDatabaseDataSet1.xsc">
+      <DependentUpon>iPlanDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="iPlanDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>iPlanDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="iPlanDatabaseDataSet1.xss">
+      <DependentUpon>iPlanDatabaseDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\iplabout_blend_fixed.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +245,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="person3jpg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iPlanDatabase.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -58,3 +58,41 @@ C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\NewMember.baml
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\NewMember.g.cs
+C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_Content.g.cs
+C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe.config
+C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe.config
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.exe
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\NewMember.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Team.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TeamPage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window2.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\NewMember.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Team.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TeamPage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window2.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\App.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_Content.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.g.resources
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlanDatabase.accdb
+C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
+C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.pdb

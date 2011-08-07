@@ -24,6 +24,7 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
+        public ArrayList team = new ArrayList();
 
         private ArrayList gridContents = new ArrayList();
 
@@ -48,6 +49,7 @@ namespace GUIProj1
 
             InitializeComponent();
             gridContents.Cast<gridObject>();
+            team.Cast<Member>();
         }
 
         private void file_quit(object sender, EventArgs e)
@@ -327,7 +329,7 @@ namespace GUIProj1
             
         }
 
-       
+     
 
        
 
