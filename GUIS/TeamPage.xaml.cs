@@ -20,11 +20,18 @@ namespace GUIProj1
     /// </summary>
     public partial class TeamPage : Window
     {
+<<<<<<< .mine
+        Uri p1, p2, p3;
+=======
        
+>>>>>>> .r36
         public TeamPage()
         {
 
             InitializeComponent();
+            p1 = new Uri("person1.jpg", UriKind.RelativeOrAbsolute);
+            p2 = new Uri("person2.png", UriKind.RelativeOrAbsolute);
+            p3 = new Uri("person3.jpg", UriKind.RelativeOrAbsolute);
 
         }
 
@@ -32,10 +39,17 @@ namespace GUIProj1
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+<<<<<<< .mine
+            Image img = new Image();
+            img.Width = 200;
+            img.Height = 150;
+            img.Source = new BitmapImage(p2);
+=======
             //Image img = new Image();
             //img.Width = 200;
             //img.Height = 150;
             //img.Source = new BitmapImage(new Uri("person1.jpg"));
+>>>>>>> .r36
 
             //Grid g = (Grid)sender;
             //MessageBox.Show("ss");
