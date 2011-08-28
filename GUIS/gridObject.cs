@@ -15,7 +15,7 @@ namespace GUIProj1
         private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
         private bool isPopulated;
-        private double[] probDet = null;
+        private double[,] probDet = null;
         private Canvas block = new Canvas();
         private SolidColorBrush shade = new SolidColorBrush();
 
@@ -23,15 +23,15 @@ namespace GUIProj1
         {
             Random rand = new Random();
             id = rand.Next();
-            prob = 0;
-            row = 0;
-            col = 0;
-            timeBeg = "";
-            timeEnd = "";
+            row=0;
+            col=0;
+            prob = 1;
+            timeBeg = "00:00";
+            timeEnd = "06:00";
             isPopulated = false;
             rand = null;
-            probDet=new double[1];
-            probDet[0]=1;
+            probDet=new double[100,2];
+            probDet[0,0]=1;
             shade.Opacity = .4;
             shade.Color = Color.FromRgb(73,22,196);
             block.Height=30;
@@ -41,8 +41,8 @@ namespace GUIProj1
             block.Background = shade;
         }
         
-        public gridObject(int r,int c,string tb,string te,
-         bool pop,string[] content,string t,string d,double[] pD)
+        public gridObject(int r, int c, string tb,string te,
+         bool pop,string[] content,string t,string d,double[,] pD)
         {
             Random rand = new Random();
             id = rand.Next();
@@ -124,6 +124,11 @@ namespace GUIProj1
         public string getName()
         {
             return (gObjCont[0]+" "+gObjCont[1]);
+        }
+
+        public int getID()
+        {
+            return id;
         }
 
         public string toString()

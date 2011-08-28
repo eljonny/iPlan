@@ -6,7 +6,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="lightBlueSky.jpg"/>
         </Grid.Background>
-        
 
     </Grid>
 </Window>
