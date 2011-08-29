@@ -24,39 +24,12 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
-<<<<<<< .mine
         private ArrayList
         gridContents = new ArrayList();
         private bool ed = true, view = false;
-=======
-        public ArrayList team = new ArrayList();
-
-        private ArrayList gridContents = new ArrayList();
-
-        private bool ed = true;
-
->>>>>>> .r36
         private int teamSize = 0;
-<<<<<<< .mine
-=======
-        /*private System.Drawing.Color[] arrColor =
-            { System.Drawing.Color.Maroon, System.Drawing.Color.Red,
-                System.Drawing.Color.OrangeRed, System.Drawing.Color.Green,
-                System.Drawing.Color.DarkGreen };*/
->>>>>>> .r36
-
-<<<<<<< .mine
-        private System.Drawing.Color[] arrColor =
-        { System.Drawing.Color.Maroon, System.Drawing.Color.Red,
-            System.Drawing.Color.OrangeRed, System.Drawing.Color.Olive,
-            System.Drawing.Color.DarkGreen};
-=======
-
-        private System.Drawing.Color[] arrColor = { System.Drawing.Color.Maroon, System.Drawing.Color.Red, System.Drawing.Color.OrangeRed, System.Drawing.Color.Olive, System.Drawing.Color.DarkGreen };
-
-
->>>>>>> .r36
-        private int pos = 0;
+        public Team team = new Team();
+        //private int pos = 0;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
         private Canvas temp;
 
@@ -65,7 +38,6 @@ namespace GUIProj1
 
             InitializeComponent();
             gridContents.Cast<gridObject>();
-            team.Cast<Member>();
         }
 
         private void file_quit(object sender, EventArgs e)
@@ -141,6 +113,10 @@ namespace GUIProj1
             }
             return participNames;
         }
+        public ArrayList getTeam()
+        {
+            return gridContents;
+        }
 
         private void notifyListCall()
         {
@@ -155,15 +131,9 @@ namespace GUIProj1
         private void addGObj()
         {
             string[] contents = new string[3];
-<<<<<<< .mine
             double[,] probData = new double[100,2];
             probData[0,1] = .4;probData[1,1] = .95;
             contents[0] = "James";contents[1]="Garner";contents[2]="Software Engineer";
-=======
-            double[] probData = new double[2];
-            probData[0] = .4; probData[1] = .95;
-            contents[0] = "James"; contents[1] = "Garner"; contents[2] = "Software Engineer";
->>>>>>> .r36
             gridObject tMTimeBlock =
                 new gridObject
                     (1, 2, "00:00", "07:00", true, contents, "emp",
@@ -171,25 +141,7 @@ namespace GUIProj1
             temp = tMTimeBlock.getCanvas();
         }
 
-        private void populateGrid()
-        {
-<<<<<<< .mine
-            foreach(TimeBlock c in timeBlocks)
-=======
-            foreach (Canvas c in timeBlocks)
->>>>>>> .r36
-            {
-                c.BringIntoView();
-                this.AddVisualChild(c);
-            }
-        }
-
-<<<<<<< .mine
-        /* Ryan*/
-=======
         /* Ryan
-         * PLEASE COMMENT YOUR CODE.*/
->>>>>>> .r36
         private void testSlider2_ValueChanged(object sender,
             RoutedPropertyChangedEventArgs<double> e)
         {
@@ -221,31 +173,15 @@ namespace GUIProj1
                 Slider sl = (Slider)sender;
                 sl.Value = 0;
             }
-<<<<<<< .mine
-=======
-//<<<<<<< .mine
-//            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
-//                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
-//            brush.Color = clr2;
-//            Slider s = (Slider)sender;
-//            brush.Opacity = 0.3;
-//            s.Background = brush;
->>>>>>> .r36
-        }
-<<<<<<< .mine
-=======
-        
->>>>>>> .r36
+            clr2 = System.Windows.Media.Color.FromArgb(arrColor[pos].A,
+                arrColor[pos].R, arrColor[pos].G, arrColor[pos].B);
+            brush.Color = clr2;
+            Slider s = (Slider)sender;
+            brush.Opacity = 0.3;
+            s.Background = brush;
+        }*/
 
-<<<<<<< .mine
-=======
-
-
-
-
-        /* Ryan
-         * PLEASE COMMENT YOUR CODE.*/
->>>>>>> .r36
+        /* Ryan */
         private void resetCalButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Slider tb in FindVisualChildren<Slider>(this))
@@ -253,16 +189,8 @@ namespace GUIProj1
                 tb.Value = 0;
             }
         }
-<<<<<<< .mine
-=======
-         
->>>>>>> .r36
 
-<<<<<<< .mine
-=======
-        /* Ryan
-         * PLEASE COMMENT YOUR CODE. */
->>>>>>> .r36
+        /* Ryan */
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
             where T : DependencyObject
         {
@@ -283,14 +211,8 @@ namespace GUIProj1
                 }
             }
         }
-<<<<<<< .mine
-        /*
-=======
-        
 
         /* Ryan
-         * PLEASE COMMENT YOUR CODE.*/
->>>>>>> .r36
         private void EditRow(object sender, MouseEventArgs e)
         {
             Label l = (Label)sender;
@@ -311,15 +233,8 @@ namespace GUIProj1
             if (row >= 0 && row < s.Length)
                 s[row].Visibility = Visibility.Visible;
                 
-        }
-<<<<<<< .mine
-        */
-=======
-         
+        }*/
 
-         
-        /* * PLEASE COMMENT YOUR CODE */
->>>>>>> .r36
         private void testSlider245tester_ValueChanged(object sender,
             RoutedPropertyChangedEventArgs<double> e)
         {
@@ -346,27 +261,14 @@ namespace GUIProj1
             }
             
         }
-<<<<<<< .mine
-=======
-         
->>>>>>> .r36
-
-<<<<<<< .mine
-=======
        
-        /* Ryan
-         * PLEASE COMMENT YOUR CODE*/
->>>>>>> .r36
+        /* Ryan*/
         private void testSlider245tester_MouseLeave(object sender, MouseEventArgs e)
         {
             Slider obj = (Slider)sender;
             obj.Visibility = Visibility.Hidden;
         }
-<<<<<<< .mine
 
-=======
-         
->>>>>>> .r36
         //George
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -374,69 +276,48 @@ namespace GUIProj1
             cs.ShowDialog();
         }
 
-<<<<<<< .mine
         //Ryan
         private void membersCalButton_Click(object sender, RoutedEventArgs e)
-=======
-        private void membersCalButton_Click(object sender, RoutedEventArgs e)
->>>>>>> .r36
         {
-<<<<<<< .mine
             Team t = new Team();
-=======
-           Team t = new Team();
->>>>>>> .r36
             t.Show();
         }
 
-<<<<<<< .mine
         private void addTimeBlock_Click(object sender, RoutedEventArgs e)
-=======
-        private void openTeam_Click(object sender, RoutedEventArgs e)
->>>>>>> .r36
         {
-<<<<<<< .mine
             TimeBlock memberTimeBlock = new TimeBlock();
             timeBlocks.AddFirst(memberTimeBlock);
             if(view == false)
             {
                 memberTimeBlock.InitializeComponent();
                 memberTimeBlock.UpdateLayout();
-                memberTimeBlock.BringIntoView();
                 memberTimeBlock.Focusable=true;
                 memberTimeBlock.Show();
             }
-=======
+        }
+
+        private void openTeam_Click(object sender, RoutedEventArgs e)
+        {
             Team team = new Team();
             try
             {
                 team.Show();
             }
             catch (Exception ex) { }
-
->>>>>>> .r36
         }
-
-<<<<<<< .mine
         private void iPlanMain_Closing(object sender,System.ComponentModel.CancelEventArgs e)
         {
             foreach(TimeBlock t in timeBlocks)
                 t.Close();
         }
-=======
+
+        //George
         private void newTeamMember_Click(object sender, RoutedEventArgs e)
         {
+            /*
             NewMember m = new NewMember();
-            m.ShowDialog();
+            m.ShowDialog();*/
             
         }
-
-     
-
-       
-
-
-
->>>>>>> .r36
     }
 }

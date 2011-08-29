@@ -1,4 +1,4 @@
-﻿<Window x:Class="GUIProj1.TeamPage"
+﻿<Page x:Class="GUIProj1.TeamPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="TeamPage">
@@ -6,6 +6,5 @@
         <Grid.Background>
             <ImageBrush ImageSource="lightBlueSky.jpg"/>
         </Grid.Background>
-
     </Grid>
-</Window>
+</Page>
