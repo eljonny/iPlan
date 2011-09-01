@@ -46,7 +46,6 @@ namespace GUIProj1
             init02 = iPlanMain.weekGrid.ColumnDefinitions;
             init03 = iPlanMain.monthGrid.ColumnDefinitions;
             System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
-            
         }
 
         //Jon

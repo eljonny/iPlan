@@ -166,6 +166,8 @@ C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlanDatabase.accdb
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Customizable.baml
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\CustomizableHome.baml
@@ -188,12 +190,10 @@ C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemePage.g.cs
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TimeBlock.g.cs
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Window1.g.cs
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\App.g.cs
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_MarkupCompile.cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.g.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_MarkupCompile.cache
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.g.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
