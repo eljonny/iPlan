@@ -49,7 +49,7 @@ namespace GUIProj1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GUIProj1;component/customizable.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/iPlan;component/customizable.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\Customizable.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

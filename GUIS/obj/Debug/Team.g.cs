@@ -49,7 +49,7 @@ namespace GUIProj1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GUIProj1;component/team.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/iPlan;component/team.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\Team.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

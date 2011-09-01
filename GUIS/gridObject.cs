@@ -16,8 +16,6 @@ namespace GUIProj1
         private string[] gObjCont = null;
         private bool isPopulated;
         private double[,] probDet = null;
-        private Canvas block = new Canvas();
-        private SolidColorBrush shade = new SolidColorBrush();
 
         public gridObject()
         {
@@ -32,13 +30,6 @@ namespace GUIProj1
             rand = null;
             probDet=new double[100,2];
             probDet[0,0]=1;
-            shade.Opacity = .4;
-            shade.Color = Color.FromRgb(73,22,196);
-            block.Height=30;
-            block.Width=105;
-            block.Visibility=Visibility.Visible;
-            block.Opacity=.4;
-            block.Background = shade;
         }
         
         public gridObject(int r, int c, string tb,string te,
@@ -57,15 +48,21 @@ namespace GUIProj1
             type = t;
             date = d;
             rand = null;
-            block.Height=30;
-            block.Width=105;
-            block.Visibility=Visibility.Visible;
-            block.Opacity=.4;
         }
 
         protected void setCoords(int c, int r)
         {
             row = r;
+            col = c;
+        }
+
+        protected void setR(int r)
+        {
+            row = r;
+        }
+
+        protected void setC(int c)
+        {
             col = c;
         }
 
@@ -95,11 +92,6 @@ namespace GUIProj1
             else
                 isPopulated = true;
             return isPopulated;
-        }
-
-        public Canvas getCanvas()
-        {
-            return block;
         }
 
         public int getDay()

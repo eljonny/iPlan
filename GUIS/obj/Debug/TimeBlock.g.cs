@@ -84,7 +84,7 @@ namespace GUIProj1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GUIProj1;component/timeblock.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/iPlan;component/timeblock.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\TimeBlock.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

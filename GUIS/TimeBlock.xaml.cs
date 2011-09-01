@@ -17,13 +17,16 @@ namespace GUIProj1
     /// <summary>
     /// Interaction logic for TimeBlock.xaml
     /// </summary>
+    /// Author: Jonathan Hyry
     public partial class TimeBlock : Window
     {
+        string[] content = new string[100];
+        double[,] probData = new double[100,2];
         public TimeBlock()
         {
             InitializeComponent();
-            gridObject gO = new gridObject();
-            blockCanvas = gO.getCanvas();
+            gridObject gO = new
+                gridObject(0,0,"08:00","17:00",true,content,"emp",System.DateTime.Now.ToString(),probData);
         }
 
         private void dragMove(object sender,MouseButtonEventArgs e)
@@ -37,6 +40,12 @@ namespace GUIProj1
                 OnMouseLeftButtonUp(e);
             }
         }
+
+        /*
+        private Point coordsForSnap()
+        {
+            
+        }*/
 
         private void removeBlock_Click(object sender,RoutedEventArgs e)
         {

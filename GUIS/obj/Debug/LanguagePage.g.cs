@@ -56,7 +56,7 @@ namespace GUIProj1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GUIProj1;component/languagepage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/iPlan;component/languagepage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\LanguagePage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

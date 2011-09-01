@@ -6,8 +6,8 @@
         WindowStartupLocation="CenterOwner" MinWidth="955" MinHeight="545"
         MaxWidth="955" ToolTipService.HasDropShadow="True"
         ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500"
-        Icon="/GUIProj1;component/clockwindowicon.bmp"
-        Closing="iPlanMain_Closing" SnapsToDevicePixels="True">
+        LocationChanged="iPlanMain_LocationChanged" Closing="iPlanMain_Closing"
+        SnapsToDevicePixels="True">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
         <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
               VerticalAlignment="Top" HorizontalAlignment="Left" Name="mainGrid">
@@ -55,9 +55,9 @@
                     <MenuItem Header="C_ustomize" Click="MenuItem_Click" />
                 </MenuItem>            
             </Menu>
-            <Menu AllowDrop="True" Name="helpMenu" Grid.Column="1"
+            <Menu AllowDrop="True" Name="helpMenu" Grid.ColumnSpan="2"
                       Width="50" FontFamily="Verdana" FontSize="14" FontWeight="bold"
-                      HorizontalAlignment="Left" Margin="0,5,0,3">
+                      HorizontalAlignment="Left" Margin="106,5,0,3">
                 <MenuItem Header="_Help"
                     ToolTip="Access help file contents, as well as version and
                           author information.">
@@ -291,9 +291,7 @@
                         <ColumnDefinition Width="102*" Name="sunday"
                                               Focusable="True" />
                     </Grid.ColumnDefinitions>
-                    <!-- day labels for week view. will there ever be
-                        anything other than week view for this q?(oh but there is now! =)
-                    prob not haha.-->
+                    <!-- day labels for week view. -->
                     <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
                         VerticalAlignment="Center" FontWeight="bold" FontSize="15"
                         FontFamily="Verdana" Name="r0c0">Times</Label>

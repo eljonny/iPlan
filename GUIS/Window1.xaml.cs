@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -24,41 +25,52 @@ namespace GUIProj1
     /// </summary>
     public partial class Window1 : Window
     {
-        private ArrayList
-        gridContents = new ArrayList();
+        private ArrayList gridContents = new ArrayList();
         private bool ed = true, view = false;
         private int teamSize = 0;
         public Team team = new Team();
         //private int pos = 0;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
-        private Canvas temp;
+        private LinkedList<TimeBlock>.Enumerator tBlocks;
+        private RowDefinitionCollection init1, init2, init3;
+        private ColumnDefinitionCollection init01,init02,init03;
 
         public Window1()
         {
-
             InitializeComponent();
             gridContents.Cast<gridObject>();
+            init1 = iPlanMain.mainGrid.RowDefinitions;
+            init2 = iPlanMain.weekGrid.RowDefinitions;
+            init3 = iPlanMain.monthGrid.RowDefinitions;
+            init01 = iPlanMain.mainGrid.ColumnDefinitions;
+            init02 = iPlanMain.weekGrid.ColumnDefinitions;
+            init03 = iPlanMain.monthGrid.ColumnDefinitions;
+            System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
+            
         }
 
+        //Jon
         private void file_quit(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Jon
         private void labelTxtBoxFill(object sender, ToolTipEventArgs e)
         {
             if (ed)
             {
-                Label clicked = (System.Windows.Controls.Label)sender;
+                System.Windows.Controls.Label clicked = (System.Windows.Controls.Label)sender;
                 if (startTime.IsFocused)
                     startTime.Text = clicked.Content.ToString();
                 else if (EndTime.IsFocused)
                     EndTime.Text = clicked.Content.ToString();
             }
             else if (ed == false && (startTime.IsFocused || EndTime.IsFocused))
-                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
+                System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
 
+        //Jon
         private void setObjSlot(gridObject o, ArrayList g)
         {
             if (ed)
@@ -67,15 +79,17 @@ namespace GUIProj1
                 g.RemoveAt(o.getDay() + 1);
             }
             else
-                MessageBox.Show("Please Enable Edit Mode to change the schedule.");
+                System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
 
+        //Jon
         private void about_Click(object sender, RoutedEventArgs e)
         {
             iPlAbout aboutWin = new iPlAbout();
             aboutWin.ShowDialog();
         }
 
+        //Jon
         private void chgViewMode(object sender, RoutedEventArgs e)
         {
             if (this.wkCalGridContainer.Visibility == Visibility.Visible)
@@ -92,16 +106,19 @@ namespace GUIProj1
             }
         }
 
+        //Jon
         private void enterOrLeaveEditMode(object sender, RoutedEventArgs e)
         {
             ed = !ed;
         }
 
+        //Jon
         private void startEmail(object sender, RoutedEventArgs e)
         {
             Process.Start("mail.exe");
         }
 
+        //Jon
         private String[] getNamesOfCurrentTeam()
         {
             int i = 0;
@@ -113,6 +130,8 @@ namespace GUIProj1
             }
             return participNames;
         }
+
+        //Jon
         public ArrayList getTeam()
         {
             return gridContents;
@@ -128,6 +147,7 @@ namespace GUIProj1
             return gridContents.ToString();
         }
 
+        //Jon
         private void addGObj()
         {
             string[] contents = new string[3];
@@ -138,7 +158,6 @@ namespace GUIProj1
                 new gridObject
                     (1, 2, "00:00", "07:00", true, contents, "emp",
                     DateTime.Today.ToString(), probData);
-            temp = tMTimeBlock.getCanvas();
         }
 
         /* Ryan
@@ -263,7 +282,7 @@ namespace GUIProj1
         }
        
         /* Ryan*/
-        private void testSlider245tester_MouseLeave(object sender, MouseEventArgs e)
+        private void testSlider245tester_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             Slider obj = (Slider)sender;
             obj.Visibility = Visibility.Hidden;
@@ -283,8 +302,11 @@ namespace GUIProj1
             t.Show();
         }
 
+        //Jon
         private void addTimeBlock_Click(object sender, RoutedEventArgs e)
         {
+            RowDefinition init =
+                iPlanMain.weekGrid.RowDefinitions.ElementAt<RowDefinition>(2);
             TimeBlock memberTimeBlock = new TimeBlock();
             timeBlocks.AddFirst(memberTimeBlock);
             if(view == false)
@@ -296,6 +318,18 @@ namespace GUIProj1
             }
         }
 
+        //Jon
+        private void iPlanMain_LocationChanged(object sender,EventArgs e)
+        {
+            if(timeBlocks.Count != 0)
+            {
+                timeBlocks.First.Value.Left = this.Left + 188;
+                timeBlocks.First.Value.Top = this.Top + 105;
+            }
+
+        }
+
+        //Ryan
         private void openTeam_Click(object sender, RoutedEventArgs e)
         {
             Team team = new Team();
@@ -303,12 +337,13 @@ namespace GUIProj1
             {
                 team.Show();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {System.Windows.Forms.MessageBox.Show(ex.ToString());}
         }
+
+        //Jon
         private void iPlanMain_Closing(object sender,System.ComponentModel.CancelEventArgs e)
         {
-            foreach(TimeBlock t in timeBlocks)
-                t.Close();
+            System.Environment.Exit(System.Environment.ExitCode);
         }
 
         //George

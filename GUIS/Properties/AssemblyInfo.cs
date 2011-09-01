@@ -7,19 +7,19 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GUIProj1")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("iPlan Schedule Management")]
+[assembly: AssemblyDescription("Manage your team schedule with habit-tracking and a clean, efficient interface")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Central Washington University")]
-[assembly: AssemblyProduct("GUIProj1")]
-[assembly: AssemblyCopyright("Copyright © Central Washington University 2011")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Jonathan Hyry, George Wanjiru")]
+[assembly: AssemblyProduct("iPlan")]
+[assembly: AssemblyCopyright("Copyright © Jonathan Hyry, George Wanjiru, Ryan Soushek, Barend Venter")]
+[assembly: AssemblyTrademark("Efficient. Clean. Accurate.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 //In order to begin building localizable applications, set 
 //<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file
@@ -51,5 +51,6 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("0.1.13.205")]
+[assembly: AssemblyFileVersion("0.0.1.5")]
+[assembly: NeutralResourcesLanguageAttribute("en-US")]
