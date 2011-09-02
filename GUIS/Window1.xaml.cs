@@ -327,7 +327,7 @@ namespace GUIProj1
                 for(int i = 0; i < timeBlocks.Count; i++)
                 {
                     tBlocks.Current.Top = (tBlocks.Current.Top - this.Top)
-                        - tBlocks.Current.getGO().getPxDiffs()[0];
+                        - tBlocks.Current.getGO().getPxDiffs()[1];
                     tBlocks.Current.Left = ;
                     tBlocks.MoveNext();
                 }

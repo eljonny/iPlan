@@ -59,4 +59,5 @@ namespace GUIProj1
         {
             return gO;
         }
+    }
 }

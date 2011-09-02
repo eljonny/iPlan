@@ -166,10 +166,6 @@ C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlanDatabase.accdb
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.pdb
-<<<<<<< .mine
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan_MarkupCompile.cache
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.g.resources
-=======
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
@@ -199,12 +195,13 @@ C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.g.resource
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.TrustInfo.xml
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe.manifest
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
->>>>>>> .r43
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TimeBlock.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TimeBlock.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlan.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlan.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application
