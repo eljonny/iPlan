@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{71A4CFA1-7F43-43CA-B848-D2454A6C027E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -15,8 +15,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <StartupObject>GUIProj1.App</StartupObject>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>clockwindowicon.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>11D4336FBE3CE6A7BA8AB062D5DB0CFF33BF3E63</ManifestCertificateThumbprint>
     <ManifestKeyFile>GUIProj1_TemporaryKey.pfx</ManifestKeyFile>
@@ -141,7 +140,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSVParser.cs" />
     <Compile Include="Customizable.xaml.cs">
       <DependentUpon>Customizable.xaml</DependentUpon>
     </Compile>
@@ -158,7 +156,6 @@
     <Compile Include="LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -281,6 +278,9 @@
       <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="clockwindowicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

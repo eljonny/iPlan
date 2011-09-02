@@ -27,7 +27,8 @@ namespace GUIProj1
     {
         private ArrayList gridContents = new ArrayList();
         private bool ed = true, view = false;
-        private int teamSize = 0, pxDiffBlockTop,pxDiffBlockLeft;
+        private int teamSize = 0;
+        private double pxDiffBlockTop,pxDiffBlockLeft;
         public Team team = new Team();
         //private int pos = 0;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
@@ -147,7 +148,7 @@ namespace GUIProj1
         }
 
         //Jon
-        private void addGObj()
+        private gridObject addGObj()
         {
             string[] contents = new string[3];
             double[,] probData = new double[100,2];
@@ -155,8 +156,9 @@ namespace GUIProj1
             contents[0] = "James";contents[1]="Garner";contents[2]="Software Engineer";
             gridObject tMTimeBlock =
                 new gridObject
-                    (1, 2, "00:00", "07:00", true, contents, "emp",
+                    (1, 2, 0,0,"00:00", "07:00", true, contents, "emp",
                     DateTime.Today.ToString(), probData);
+            return tMTimeBlock;
         }
 
         /* Ryan
@@ -316,23 +318,28 @@ namespace GUIProj1
                 memberTimeBlock.Show();
                 pxDiffBlockLeft = memberTimeBlock.Left - this.Left;
                 pxDiffBlockTop = memberTimeBlock.Top - this.Top;
+                memberTimeBlock.setPxDiff(pxDiffBlockLeft, pxDiffBlockTop);
             }
         }
 
         //Jon
         private void iPlanMain_LocationChanged(object sender,EventArgs e)
         {
-            if(timeBlocks.Count != 0)
+            tBlocks = timeBlocks.GetEnumerator();
+            if(tBlocks.Current == null)
+                tBlocks.MoveNext();
+            if(timeBlocks.Count != 0 && tBlocks.Current != null)
             {
-                for(int i = 0; i < timeBlocks.Count; i++)
+                do
                 {
-                    tBlocks.Current.Top = (tBlocks.Current.Top - this.Top)
-                        - tBlocks.Current.getGO().getPxDiffs()[1];
-                    tBlocks.Current.Left = ;
-                    tBlocks.MoveNext();
-                }
+                    tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
+                        - tBlocks.Current.getGO().getPxDiffs()[1]);
+                    tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
+                        - tBlocks.Current.getGO().getPxDiffs()[0];
+                    tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left,tBlocks.Current.Top - this.Top);
+                }while(tBlocks.MoveNext());
             }
-
+            tBlocks.Dispose();
         }
 
         //Ryan
@@ -359,6 +366,56 @@ namespace GUIProj1
             NewMember m = new NewMember();
             m.ShowDialog();*/
             
+        }
+
+        private void iPlanMain_windowStateChanged(object sender,EventArgs e)
+        {
+            tBlocks = timeBlocks.GetEnumerator();
+            if(this.WindowState == WindowState.Minimized)
+            {
+                if(tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if(timeBlocks.Count != 0 && tBlocks.Current != null)
+                {
+                    do
+                    {
+                        tBlocks.Current.Topmost = false;
+                        tBlocks.Current.Visibility = Visibility.Hidden;
+                    }while(tBlocks.MoveNext());
+                }
+            }
+            else
+            {
+                if(tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if(timeBlocks.Count != 0 && tBlocks.Current != null)
+                {
+                    do
+                    {
+                        tBlocks.Current.Topmost = true;
+                        tBlocks.Current.Visibility = Visibility.Visible;
+                    }while(tBlocks.MoveNext());
+                }
+            }
+            tBlocks.Dispose();
+            this.UpdateLayout();
+        }
+
+        private void iPlanMain_mouseNotOver(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            tBlocks = timeBlocks.GetEnumerator();
+            if(tBlocks.Current == null)
+                tBlocks.MoveNext();
+            if(timeBlocks.Count != 0 && tBlocks.Current != null)
+            {
+                do
+                {
+                    tBlocks.Current.Topmost = false;
+                    tBlocks.Current.Visibility = Visibility.Hidden;
+                }while(tBlocks.MoveNext());
+            }
+            tBlocks.Dispose();
+            this.UpdateLayout();
         }
     }
 }

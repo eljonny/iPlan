@@ -8,10 +8,10 @@ using System.Windows.Media;
 //  Author Jonathan Hyry
 namespace GUIProj1
 {
-    class gridObject
+    public class gridObject
     {
         private int row,col,id;
-        private int[] px = new int[2];
+        private double[] px = new double[2];
         private double prob;
         private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
@@ -33,7 +33,7 @@ namespace GUIProj1
             probDet[0,0]=1;
         }
         
-        public gridObject(int r, int c, int pxDL, int pxDT, string tb,string te,
+        public gridObject(int r, int c, double pxDL, double pxDT, string tb,string te,
          bool pop,string[] content,string t,string d,double[,] pD)
         {
             Random rand = new Random();
@@ -126,7 +126,7 @@ namespace GUIProj1
             return id;
         }
 
-        public int[] getPxDiffs()
+        public double[] getPxDiffs()
         {
             return px;
         }

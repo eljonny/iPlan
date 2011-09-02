@@ -202,6 +202,4 @@ C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application

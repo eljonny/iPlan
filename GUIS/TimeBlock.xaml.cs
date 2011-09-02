@@ -22,8 +22,9 @@ namespace GUIProj1
     {
         string[] content = new string[100];
         double[,] probData = new double[100,2];
+        double pxDiffL = 0, pxDiffT = 0;
         private gridObject gO;
-        public TimeBlock(int pxDiffL,int pxDiffT)
+        public TimeBlock()
         {
             InitializeComponent();
             gO = new gridObject
@@ -53,6 +54,12 @@ namespace GUIProj1
         private void removeBlock_Click(object sender,RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public void setPxDiff(double l, double t)
+        {
+            pxDiffL = l;
+            pxDiffT = t;
         }
 
         public gridObject getGO()
