@@ -27,7 +27,7 @@ namespace GUIProj1
     {
         private ArrayList gridContents = new ArrayList();
         private bool ed = true, view = false;
-        private int teamSize = 0;
+        private int teamSize = 0, pxDiffBlockTop,pxDiffBlockLeft;
         public Team team = new Team();
         //private int pos = 0;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
@@ -314,6 +314,8 @@ namespace GUIProj1
                 memberTimeBlock.UpdateLayout();
                 memberTimeBlock.Focusable=true;
                 memberTimeBlock.Show();
+                pxDiffBlockLeft = memberTimeBlock.Left - this.Left;
+                pxDiffBlockTop = memberTimeBlock.Top - this.Top;
             }
         }
 
@@ -322,8 +324,13 @@ namespace GUIProj1
         {
             if(timeBlocks.Count != 0)
             {
-                timeBlocks.First.Value.Left = this.Left + 188;
-                timeBlocks.First.Value.Top = this.Top + 105;
+                for(int i = 0; i < timeBlocks.Count; i++)
+                {
+                    tBlocks.Current.Top = (tBlocks.Current.Top - this.Top)
+                        - tBlocks.Current.getGO().getPxDiffs()[0];
+                    tBlocks.Current.Left = ;
+                    tBlocks.MoveNext();
+                }
             }
 
         }

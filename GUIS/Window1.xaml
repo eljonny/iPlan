@@ -7,7 +7,7 @@
         MaxWidth="955" ToolTipService.HasDropShadow="True"
         ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500"
         LocationChanged="iPlanMain_LocationChanged" Closing="iPlanMain_Closing"
-        SnapsToDevicePixels="True">
+        SnapsToDevicePixels="True" Icon="/iPlan;component/clockwindowicon.ico">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
         <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
               VerticalAlignment="Top" HorizontalAlignment="Left" Name="mainGrid">

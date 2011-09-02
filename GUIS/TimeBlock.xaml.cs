@@ -22,11 +22,13 @@ namespace GUIProj1
     {
         string[] content = new string[100];
         double[,] probData = new double[100,2];
-        public TimeBlock()
+        private gridObject gO;
+        public TimeBlock(int pxDiffL,int pxDiffT)
         {
             InitializeComponent();
-            gridObject gO = new
-                gridObject(0,0,"08:00","17:00",true,content,"emp",System.DateTime.Now.ToString(),probData);
+            gO = new gridObject
+                (0,0,pxDiffL,pxDiffT,"08:00","17:00",true,content,
+                "emp",System.DateTime.Now.ToString(),probData);
         }
 
         private void dragMove(object sender,MouseButtonEventArgs e)
@@ -37,6 +39,7 @@ namespace GUIProj1
             }
             catch(InvalidOperationException invOpEx)
             {
+                MessageBox.Show(invOpEx.ToString());
                 OnMouseLeftButtonUp(e);
             }
         }
@@ -51,5 +54,9 @@ namespace GUIProj1
         {
             this.Close();
         }
-    }
+
+        public gridObject getGO()
+        {
+            return gO;
+        }
 }

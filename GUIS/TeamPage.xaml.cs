@@ -21,6 +21,7 @@ namespace GUIProj1
     public partial class TeamPage : Page
     {
         ArrayList teamMembersInfo = new ArrayList();
+
         public TeamPage()
         {
             InitializeComponent();
@@ -31,9 +32,9 @@ namespace GUIProj1
             Image img = new Image();
             img.Width = 200;
             img.Height = 150;
-            img.Source = new BitmapImage(new Uri("person1.jpg"));
+            img.Source = new BitmapImage(new Uri("defaultcontact.bmp", UriKind.Relative));
             Grid g = (Grid)sender;
-            MessageBox.Show("ss");
+            //MessageBox.Show("ss");
             g.Children.Add(img);
             Window1 w = new Window1();
             //teamMembersInfo = LoadListBoxData();

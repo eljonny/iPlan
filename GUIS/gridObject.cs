@@ -11,6 +11,7 @@ namespace GUIProj1
     class gridObject
     {
         private int row,col,id;
+        private int[] px = new int[2];
         private double prob;
         private string timeBeg, timeEnd, type, date;
         private string[] gObjCont = null;
@@ -32,7 +33,7 @@ namespace GUIProj1
             probDet[0,0]=1;
         }
         
-        public gridObject(int r, int c, string tb,string te,
+        public gridObject(int r, int c, int pxDL, int pxDT, string tb,string te,
          bool pop,string[] content,string t,string d,double[,] pD)
         {
             Random rand = new Random();
@@ -40,6 +41,8 @@ namespace GUIProj1
             prob = 0;
             row = r;
             col = c;
+            px[0] = pxDL;
+            px[1] = pxDT;
             timeBeg = tb;
             timeEnd = te;
             isPopulated = pop;
@@ -121,6 +124,11 @@ namespace GUIProj1
         public int getID()
         {
             return id;
+        }
+
+        public int[] getPxDiffs()
+        {
+            return px;
         }
 
         public string toString()
