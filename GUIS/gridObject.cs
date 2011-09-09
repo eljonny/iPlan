@@ -53,23 +53,23 @@ namespace GUIProj1
             rand = null;
         }
 
-        protected void setCoords(int c, int r)
+        public void setCoords(int c, int r)
         {
             row = r;
             col = c;
         }
 
-        protected void setR(int r)
+        public void setR(int r)
         {
             row = r;
         }
 
-        protected void setC(int c)
+        public void setC(int c)
         {
             col = c;
         }
 
-        protected void setTimes(string b, string e)
+        public void setTimes(string b, string e)
         {
             timeBeg = b;
             timeEnd = e;
@@ -78,6 +78,12 @@ namespace GUIProj1
         public void setType(string t)
         {
             type = t;
+        }
+
+        public void setPxDiff(double L, double T)
+        {
+            px[0] = L;
+            px[1] = T;
         }
 
         public void setDate(string d)

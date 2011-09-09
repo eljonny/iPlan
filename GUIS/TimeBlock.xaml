@@ -5,8 +5,8 @@
         SnapsToDevicePixels="True" ShowInTaskbar="False" SizeToContent="Width" WindowStyle="None"
         WindowStartupLocation="CenterOwner" AllowsTransparency="True" BorderThickness="1"
         Name="currentTimeBlock" ResizeMode="CanResizeWithGrip" Cursor="Hand" Visibility="Visible"
-        BorderBrush="AliceBlue" AllowDrop="True" MouseLeftButtonDown="dragMove"
-        Topmost="True">
+        BorderBrush="AliceBlue" AllowDrop="True" MouseLeftButtonUp="dragMoveEnd"
+        Topmost="True" Closing="currentTimeBlock_Closing" LocationChanged="tBlockLocationChanged">
     <Canvas Width="84" Name="blockCanvas" Background="Blue" Opacity=".9"
             Height="auto" Margin="5,5,5,5" AllowDrop="True">
         <Slider Interval="1" Minimum="0" Maximum="100" Width="74"

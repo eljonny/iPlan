@@ -8,21 +8,22 @@
         ToolTipService.InitialShowDelay="1000" ToolTipService.BetweenShowDelay="500"
         LocationChanged="iPlanMain_LocationChanged" Closing="iPlanMain_Closing"
         SnapsToDevicePixels="True" Icon="/iPlan;component/clockwindowicon.bmp"
-        StateChanged="iPlanMain_windowStateChanged" IsMouseCapturedChanged="iPlanMain_mouseNotOver">
+        MouseLeave="iPlanMain_mouseNotOver" MouseEnter="iPlanMain_mouseOver"
+        SizeChanged="iPlanMain_SizeChanged">
     <!-- Main window grid that holds buttons/text/calander grid/etc -->
-        <Grid Height="auto" Width="950" MinHeight="512" MaxHeight="768"
+        <Grid Height="auto" Width="955" MinHeight="512" MaxHeight="768"
               VerticalAlignment="Top" HorizontalAlignment="Left" Name="mainGrid">
         <Grid.Background>
             <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
         </Grid.Background>
         <!-- Dynamically sized grid cells -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="110*" />
-            <ColumnDefinition Width="846*"/>
+            <ColumnDefinition Width="110" />
+            <ColumnDefinition Width="845"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="37*" MinHeight="35" MaxHeight="39" />
-            <RowDefinition Height="448*" MaxHeight="729" />
+            <RowDefinition Height="39" MinHeight="35" MaxHeight="39" />
+            <RowDefinition Height="448*" MaxHeight="729" Name="gridHolder"/>
         </Grid.RowDefinitions>
         <!-- program menus -->
             <Menu Name="fileMenu"
@@ -166,7 +167,7 @@
                 Save Calendar
             </Button>
             <Button Height="50" Name="propCalButton" VerticalAlignment="Top"
-                    FontFamily="Verdana" FontSize="13" Margin="3,225,5,0"
+                    FontFamily="Verdana" FontSize="13" Margin="3,225,5,0" Click="propCalButton_Click"
                     Grid.Row="1" ToolTip="Change the properties of the currently loaded calendar.">
                 Properties
             </Button>
@@ -203,9 +204,9 @@
             ToolTip="Reset all the values of the currently visible scheduled time blocks back to default.">
             Reset Values
         </Button>
-        <Button FontFamily="Verdana" FontSize="13" Height="50" Margin="3,390,5,0" Name="button1"
-                    ToolTip="Add a team member Time Block." VerticalAlignment="Top"
-                    Grid.Row="1" Click="addTimeBlock_Click">+ Time Block</Button>
+        <Button FontFamily="Verdana" FontSize="13" Width="101" Height="50" Margin="3,390,5,0" Name="button1"
+                    ToolTip="Add a team member Time Block." VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Grid.Row="1" Grid.ColumnSpan="2" Click="addTimeBlock_Click">+ Time Block</Button>
             <Label Name="label2" Margin="0,1,210,0" Width="95" VerticalAlignment="Center"
                 HorizontalAlignment="Right" Grid.Column="1"
                    ToolTip="Please enter the time block, or click a text box and hover over a time.">
@@ -233,7 +234,8 @@
                 Margin="0,3,25,24" Padding="0,1,0,1" CanContentScroll="True"
                 HorizontalAlignment="Right" VerticalAlignment="Stretch" Cursor="Cross"
                 VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch"
-                MaxHeight="692" Visibility="Visible" Width="844" >
+                MaxHeight="692" Visibility="Visible" Width="844"
+                      ScrollChanged="wkCalGridContainer_ScrollChanged">
             <ScrollViewer.Content>
                 <!-- calander grid cell definitions -->
                 <Grid Focusable="True" ShowGridLines="True"
@@ -277,19 +279,19 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="65" Name="timeLabels"
                                               Focusable="False" />
-                        <ColumnDefinition Width="102*" Name="monday"
+                        <ColumnDefinition Width="102" Name="monday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="103*" Name="tuesday"
+                        <ColumnDefinition Width="103" Name="tuesday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="112*" Name="wednesday"
+                        <ColumnDefinition Width="112" Name="wednesday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="104*" Name="thursday"
+                        <ColumnDefinition Width="104" Name="thursday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="102*" Name="friday"
+                        <ColumnDefinition Width="102" Name="friday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="102*" Name="saturday"
+                        <ColumnDefinition Width="102" Name="saturday"
                                               Focusable="True" />
-                        <ColumnDefinition Width="102*" Name="sunday"
+                        <ColumnDefinition Width="102" Name="sunday"
                                               Focusable="True" />
                     </Grid.ColumnDefinitions>
                     <!-- day labels for week view. -->
@@ -663,11 +665,27 @@
             </ScrollViewer.Content>
         </ScrollViewer>
         <!-- maybe dynamically display some sort of useful information here -->
-            <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
+        <StatusBar Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
                    VerticalAlignment="Bottom" Height="20" Width="120"
-                   Margin="0,0,0,2" Grid.ColumnSpan="2" Name="lStatBar"/>
-            <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
+                   Margin="0,0,0,2" Grid.ColumnSpan="2" Name="lStatBar">
+            <StatusBarItem>
+                <TextBlock FontFamily="verdana" FontSize="10" FontStyle="normal"
+                           Name="lStatBarTxt">
+                    iPlan 1.1.47.470
+                </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+        <StatusBar Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"
                 Height="20" Width="805" HorizontalAlignment="Left"
-                   Margin="14,0,5,2" Name="rStatBar"/>
+                   Margin="14,0,5,2" Name="rStatBar">
+            <StatusBarItem>
+                <TextBlock FontFamily="verdana" FontSize="10" FontStyle="normal"
+                           Name="rStatBarTxt">
+                    Welcome to iPlan! To get started in building a schedule,
+                    click the '+ Time Block' button; or, open an existing 
+                    calendar through the file menu.
+                </TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>

@@ -28,9 +28,9 @@ namespace GUIProj1
         private ArrayList gridContents = new ArrayList();
         private bool ed = true, view = false;
         private int teamSize = 0;
-        private double pxDiffBlockTop,pxDiffBlockLeft;
+        private double pxDiffBlockTop,pxDiffBlockLeft,wkCalGridContainerHeight,wkCalGridContainerWidth;
         public Team team = new Team();
-        //private int pos = 0;
+        private TimeBlock tmp;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
         private LinkedList<TimeBlock>.Enumerator tBlocks;
         private RowDefinitionCollection init1, init2, init3;
@@ -39,6 +39,7 @@ namespace GUIProj1
         public Window1()
         {
             InitializeComponent();
+            this.Activate();
             gridContents.Cast<gridObject>();
             init1 = iPlanMain.mainGrid.RowDefinitions;
             init2 = iPlanMain.weekGrid.RowDefinitions;
@@ -47,6 +48,8 @@ namespace GUIProj1
             init02 = iPlanMain.weekGrid.ColumnDefinitions;
             init03 = iPlanMain.monthGrid.ColumnDefinitions;
             System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
         }
 
         //Jon
@@ -92,18 +95,185 @@ namespace GUIProj1
         //Jon
         private void chgViewMode(object sender, RoutedEventArgs e)
         {
+            this.rStatBarTxt.Text = "Changing views...";
             if (this.wkCalGridContainer.Visibility == Visibility.Visible)
             {
                 this.wkCalGridContainer.Visibility = Visibility.Hidden;
+               
+                tBlocks = timeBlocks.GetEnumerator();
+                if(tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if(timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
+                {
+                    do
+                    {
+                        tBlocks.Current.Topmost = false;
+                        tBlocks.Current.Visibility = Visibility.Hidden;
+                    }while(tBlocks.MoveNext());
+                }
+                tBlocks.Dispose();
+
                 this.moCalGridContainer.Visibility = Visibility.Visible;
+                
                 view = true;
             }
             else if (this.moCalGridContainer.Visibility == Visibility.Visible)
             {
                 this.wkCalGridContainer.Visibility = Visibility.Visible;
+
+                tBlocks = timeBlocks.GetEnumerator();
+                if(tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if(timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
+                {
+                    do
+                    {
+                        if(tBlocks.Current.IsEnabled)
+                        {
+                            tBlocks.Current.Topmost = true;
+                            tBlocks.Current.Visibility = Visibility.Visible;
+                        }
+                        else if(!tBlocks.Current.IsEnabled)
+                        {
+                            tmp = tBlocks.Current;
+                            break;
+                        }
+                    }while(tBlocks.MoveNext());
+                }
+                tBlocks.Dispose();
+                if(tmp != null && !tmp.IsEnabled)
+                {
+                    timeBlocks.Remove(tmp);
+                    tmp = null;
+                }
+
                 this.moCalGridContainer.Visibility = Visibility.Hidden;
                 view = false;
             }
+
+            this.rStatBarTxt.Text = "Checking tBlocks visibility...";
+            
+            if(timeBlocks.Count > 0 && !checkTBlockVisibleState())
+            {
+                this.rStatBarTxt.Text = "Normalizing visibility...";
+                normalizeTBlockVisibility();
+                
+            }
+            else
+                this.rStatBarTxt.Text = "Ok.";
+            if(view)
+                    this.rStatBarTxt.Text = "Month View."
+                        + " View schedule details to help plan for "
+                        + "long term goals. Easily organize your "
+                        + "thoughts and notify your team of changes"
+                        + " and new ideas.";
+                else
+                    this.rStatBarTxt.Text = "Week View. Build your "
+                        + "Schedule here and send notifications about"
+                        + " schedule changes.";
+        }
+
+        private bool checkTBlockVisibleState()
+        {
+            bool prev = false;
+            tBlocks = timeBlocks.GetEnumerator();
+            if(tBlocks.Current == null)
+                tBlocks.MoveNext();
+            prev = tBlocks.Current.IsVisible;
+            do
+            {
+                if(!tBlocks.Current.IsEnabled)
+                {
+                    tmp = tBlocks.Current;
+                    break;
+                }
+                if(prev != tBlocks.Current.IsVisible)
+                    return false;
+                prev = tBlocks.Current.IsVisible;
+
+            }while(tBlocks.MoveNext());
+
+            tBlocks.Dispose();
+
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+                checkTBlockVisibleState();
+            }
+
+            System.GC.Collect();
+
+            return true;
+        }
+
+        private void normalizeTBlockVisibility()
+        {
+            tBlocks = timeBlocks.GetEnumerator();
+            if(tBlocks.Current == null)
+                tBlocks.MoveNext();
+            if(!view)
+            {
+                do
+                {
+                    if(!tBlocks.Current.IsEnabled)
+                    {
+                        tmp = tBlocks.Current;
+                        break;
+                    }
+                    tBlocks.Current.Visibility = Visibility.Visible;
+                }while(tBlocks.MoveNext());
+            }
+            else
+            {
+                do
+                {
+                    if(!tBlocks.Current.IsEnabled)
+                    {
+                        tmp = tBlocks.Current;
+                        break;
+                    }
+                    tBlocks.Current.Visibility = Visibility.Hidden;
+                }while(tBlocks.MoveNext());
+            }
+
+            tBlocks.Dispose();
+            
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+                normalizeTBlockVisibility();
+            }
+
+            System.GC.Collect();
+        }
+
+        private void cleanTimeBlockList()
+        {
+            tBlocks = timeBlocks.GetEnumerator();
+            if(tBlocks.Current == null)
+                tBlocks.MoveNext();
+            do
+            {
+                if(!tBlocks.Current.IsEnabled)
+                {
+                    tmp = tBlocks.Current;
+                    break;
+                }
+            }while(tBlocks.MoveNext());
+
+            tBlocks.Dispose();
+
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+                cleanTimeBlockList();
+            }
+
+            System.GC.Collect();
+            this.rStatBarTxt.Text = "TimeBlock list cleaned";
         }
 
         //Jon
@@ -306,12 +476,11 @@ namespace GUIProj1
         //Jon
         private void addTimeBlock_Click(object sender, RoutedEventArgs e)
         {
-            RowDefinition init =
-                iPlanMain.weekGrid.RowDefinitions.ElementAt<RowDefinition>(2);
-            TimeBlock memberTimeBlock = new TimeBlock();
-            timeBlocks.AddFirst(memberTimeBlock);
-            if(view == false)
+            if(!view)
             {
+                TimeBlock memberTimeBlock = new TimeBlock();
+                memberTimeBlock.setParental(this);
+                timeBlocks.AddFirst(memberTimeBlock);
                 memberTimeBlock.InitializeComponent();
                 memberTimeBlock.UpdateLayout();
                 memberTimeBlock.Focusable=true;
@@ -320,11 +489,20 @@ namespace GUIProj1
                 pxDiffBlockTop = memberTimeBlock.Top - this.Top;
                 memberTimeBlock.setPxDiff(pxDiffBlockLeft, pxDiffBlockTop);
             }
+            else
+            {
+                System.Windows.MessageBox.Show("You can not add a timeblock"
+                    + " in Month View. Please change to Week View to add "
+                    + "a time block.");
+                this.rStatBarTxt.Text = "Can't add time block in Month View";
+            }
         }
 
         //Jon
         private void iPlanMain_LocationChanged(object sender,EventArgs e)
         {
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
             tBlocks = timeBlocks.GetEnumerator();
             if(tBlocks.Current == null)
                 tBlocks.MoveNext();
@@ -332,14 +510,27 @@ namespace GUIProj1
             {
                 do
                 {
-                    tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
-                        - tBlocks.Current.getGO().getPxDiffs()[1]);
-                    tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
-                        - tBlocks.Current.getGO().getPxDiffs()[0];
-                    tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left,tBlocks.Current.Top - this.Top);
+                    if(tBlocks.Current.IsEnabled)
+                    {
+                        tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
+                            - tBlocks.Current.getGO().getPxDiffs()[1]);
+                        tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
+                            - tBlocks.Current.getGO().getPxDiffs()[0];
+                        tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left,tBlocks.Current.Top - this.Top);
+                    }
+                    else if(!tBlocks.Current.IsEnabled)
+                    {
+                        tmp = tBlocks.Current;
+                        break;
+                    }
                 }while(tBlocks.MoveNext());
             }
             tBlocks.Dispose();
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+            }
         }
 
         //Ryan
@@ -379,12 +570,20 @@ namespace GUIProj1
                 {
                     do
                     {
-                        tBlocks.Current.Topmost = false;
-                        tBlocks.Current.Visibility = Visibility.Hidden;
+                        if(tBlocks.Current.IsEnabled)
+                        {
+                            tBlocks.Current.Topmost = false;
+                            tBlocks.Current.Visibility = Visibility.Hidden;
+                        }
+                        else if(!tBlocks.Current.IsEnabled)
+                        {
+                            tmp = tBlocks.Current;
+                            break;
+                        }
                     }while(tBlocks.MoveNext());
                 }
             }
-            else
+            else if(this.WindowState == WindowState.Maximized || this.WindowState == WindowState.Normal)
             {
                 if(tBlocks.Current == null)
                     tBlocks.MoveNext();
@@ -392,16 +591,29 @@ namespace GUIProj1
                 {
                     do
                     {
-                        tBlocks.Current.Topmost = true;
-                        tBlocks.Current.Visibility = Visibility.Visible;
+                        if(tBlocks.Current.Visibility != Visibility.Visible
+                            && tBlocks.Current.IsEnabled)
+                        {
+                            tBlocks.Current.Topmost = true;
+                            tBlocks.Current.Visibility = Visibility.Visible;
+                        }
+                        else if(!tBlocks.Current.IsEnabled)
+                        {
+                            tmp = tBlocks.Current;
+                            break;
+                        }
                     }while(tBlocks.MoveNext());
                 }
             }
             tBlocks.Dispose();
-            this.UpdateLayout();
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+            }
         }
 
-        private void iPlanMain_mouseNotOver(object sender, DependencyPropertyChangedEventArgs e)
+        private void iPlanMain_mouseOver(object sender, System.Windows.Input.MouseEventArgs e)
         {
             tBlocks = timeBlocks.GetEnumerator();
             if(tBlocks.Current == null)
@@ -410,12 +622,89 @@ namespace GUIProj1
             {
                 do
                 {
-                    tBlocks.Current.Topmost = false;
-                    tBlocks.Current.Visibility = Visibility.Hidden;
+                    if(tBlocks.Current.IsEnabled)
+                    {
+                        tBlocks.Current.Topmost = true;
+                        tBlocks.Current.Visibility = Visibility.Visible;
+                    }
+                    else if(!tBlocks.Current.IsEnabled)
+                    {
+                        tmp = tBlocks.Current;
+                        break;
+                    }
                 }while(tBlocks.MoveNext());
             }
             tBlocks.Dispose();
-            this.UpdateLayout();
+            if(tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+            }
         }
-    }
-}
+
+        private void iPlanMain_mouseNotOver(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            bool overAny = false;
+            int activeBlock;
+            tBlocks = timeBlocks.GetEnumerator();
+            if(timeBlocks.Count > 0)
+            {
+                if(tBlocks.Current == null)
+                    tBlocks.MoveNext();
+
+                do
+                {
+                    if(tBlocks.Current != null
+                        && tBlocks.Current.IsMouseOver)
+                    {
+                        overAny = true;
+                        break;
+                    }
+                }while(tBlocks.MoveNext());
+                tBlocks.Dispose();
+
+                if(!overAny)
+                {
+                    tBlocks = timeBlocks.GetEnumerator();
+                    if(tBlocks.Current == null)
+                        tBlocks.MoveNext();
+                    do
+                    {
+                        tBlocks.Current.Topmost = false;
+                        tBlocks.Current.Visibility = Visibility.Hidden;
+                    }while(tBlocks.MoveNext());
+                    tBlocks.Dispose();
+                }
+            }
+        }
+
+        private void iPlanMain_SizeChanged(object sender,SizeChangedEventArgs e)
+        {
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+        }
+
+        private void propCalButton_Click(object sender,RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
+                + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
+                + "\nMainGrdHght: " + mainGrid.ActualHeight + "\nMainGrdWdth: "
+                + mainGrid.ActualWidth);
+        }
+
+        private void wkCalGridContainer_ScrollChanged(object sender,ScrollChangedEventArgs e)
+        {
+            if(wkCalGridContainer.VerticalOffset <= 30 && timeBlocks.Count > 0)
+            {
+                tBlocks = timeBlocks.GetEnumerator();
+                if(tBlocks.Current == null)
+                        tBlocks.MoveNext();
+                cleanTimeBlockList();
+                do
+                {
+                    tBlocks.Current.setScrollContentOffset(wkCalGridContainer.VerticalOffset);
+                }while(tBlocks.MoveNext());
+                tBlocks.Dispose();
+            }
+        } // wkCalGridContainer_ScrollChanged method end
+    } // Partial class Window1 end
+} // namespace GUIProj1
