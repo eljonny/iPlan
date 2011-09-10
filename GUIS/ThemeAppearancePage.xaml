@@ -13,17 +13,38 @@
         <!-- Three rows -->
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
-            <!--<RowDefinition Height="50" />
-            <RowDefinition Height="50" />-->
-            <RowDefinition Height="242*" />
+            <RowDefinition Height="160" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <Image Source="Theme-Appearance-icon.jpg" Margin="12,5,0,0" HorizontalAlignment="Left" Width="95" />
         <Label FontFamily="Comic Sans MS" FontSize="20" Margin="57.533,5,0,0">Themes and Appearance</Label>
-        <Label Name="label3" HorizontalAlignment="Center" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="80.215,80,92.518,0" Height="31" VerticalAlignment="Top" MouseEnter="label3_MouseEnter" MouseLeave="label3_MouseLeave">Change Resolution</Label>
-        <Label Name="label1" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="80.215,41,104.822,0" Height="33" VerticalAlignment="Top" MouseEnter="label1_MouseEnter" MouseLeave="label1_MouseLeave">Add Team Label</Label>
-        <Label Name="label2" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="68,117,72,109" MouseEnter="label2_MouseEnter" MouseLeave="label2_MouseLeave">Add Background Image</Label>
-        <Button Margin="113,0,105,29" Height="26" Grid.Row="1" VerticalAlignment="Bottom">Apply</Button>
-        <Button Margin="0,0,17,29" Height="26" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" Width="82">Exit</Button>
+        <Label Name="label3" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="84.015,56,88.718,73" MouseEnter="label3_MouseEnter" MouseLeave="label3_MouseLeave">Change Resolution</Label>
+        <Label Name="label1" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="80.215,17,104.822,0" Height="33" VerticalAlignment="Top" MouseEnter="label1_MouseEnter" MouseLeave="label1_MouseLeave">Add Team Label</Label>
+        <Label Name="label2" FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Margin="69,0,71,35" MouseEnter="label2_MouseEnter" MouseLeave="label2_MouseLeave" Height="32" VerticalAlignment="Bottom">Add Background Image</Label>
+       
+        <Button Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Return to Main Menu" Cursor="Hand" Name="button2" Height="24" Click="button2_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock Name="textblock1" FontSize="14" FontFamily="Ashley Crawford Volume" TextDecorations="None">
+                    <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        
+        <Button Margin="113,6,105,8" Grid.Row="3">Apply</Button>
+        <Button Margin="0,6,17,8" HorizontalAlignment="Right" Grid.Row="3" Width="82" Click="Button_Click">Exit</Button>
     </Grid>
 </Page>

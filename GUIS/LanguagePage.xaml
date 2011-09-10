@@ -14,18 +14,41 @@
         <!-- Three rows -->
         <Grid.RowDefinitions>
             <RowDefinition Height="45" />
-            <RowDefinition Height="50*" />
+            <RowDefinition Height="160" />
+            <RowDefinition Height="45" />
+            <RowDefinition Height="45" />
         </Grid.RowDefinitions>
         <Image Source="languages.jpg" Margin="-11,8,11,0" Height="45" Grid.RowSpan="2" VerticalAlignment="Top" />
         <Label FontFamily="BAZOOKA" FontSize="18" Grid.ColumnSpan="2" Margin="92,13.4,130,0">IPlan Language</Label>
-        <Label Grid.Row="1" Height="35" VerticalAlignment="Top" Margin="27,56,27,0">Pick Your Region:</Label>
-        <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Margin="0,56,0,0" Name="comboBox1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+        <Label Grid.Row="1" Height="35" VerticalAlignment="Top" Margin="27,56,13.719,0">Pick Your Region:</Label>
+        <ComboBox Grid.Column="1" Grid.Row="1" Height="23" Margin="10,56,120,0" Name="comboBox1" VerticalAlignment="Top">
             <ComboBoxItem>English USA</ComboBoxItem>
             <ComboBoxItem>English UK</ComboBoxItem>
             <ComboBoxItem>Spanish Mexico</ComboBoxItem>
             <ComboBoxItem>Spanish Spain</ComboBoxItem>
         </ComboBox>
-        <Button Margin="114,0,0,24" Grid.ColumnSpan="2" Height="26" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Bottom" Width="82">Apply</Button>
-        <Button Margin="52,0,116,24" Grid.Column="1" Height="26" Grid.Row="1" VerticalAlignment="Bottom">Exit</Button>
+
+        <Button Grid.ColumnSpan="2" Grid.Row="2" Content="Theme and Appearance" Cursor="Hand" Name="button2" Click="button2_Click" Margin="79,0,71,21">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock Name="textblock1" FontSize="14" FontFamily="Ashley Crawford Volume" TextDecorations="None">
+                    <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button Margin="114,4,0,15" Grid.ColumnSpan="2" HorizontalAlignment="Left" Grid.Row="3" Width="82">Apply</Button>
+        <Button Margin="52,4,116,15" Grid.Column="1" Grid.Row="3" Click="Button_Click">Exit</Button>
     </Grid>
 </Page>

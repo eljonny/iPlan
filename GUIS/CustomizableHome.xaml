@@ -17,7 +17,7 @@
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
             <RowDefinition Height="45" />
-            <RowDefinition Height="45" />
+            <RowDefinition Height="45*" />
         </Grid.RowDefinitions>
 
         <Label Name="label1" FontFamily="Atria Bold" FontSize="20" FontStyle="Italic" ForceCursor="False" Margin="21,12,96,4" Grid.Column="1">Custom Home</Label>
@@ -92,6 +92,8 @@
             </Button.Style>
         </Button>
         <Image Grid.Column="0" Grid.Row="3" Source="languages.jpg" Height="32" />
+        
+        <Button Grid.Column="1" Grid.Row="4" Margin="0,55,18,34" HorizontalAlignment="Right" Width="72" Click="Button_Click">Exit</Button>
         
     </Grid>
 </Page>

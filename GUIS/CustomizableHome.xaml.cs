@@ -47,5 +47,11 @@ namespace GUIProj1
             ThemeAppearancePage tp = new ThemeAppearancePage();
             this.NavigationService.Navigate(tp);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           // CustomizableHome ch = new CustomizableHome();
+           // this.NavigationService.NavigationStopped;
+        }
     }
 }

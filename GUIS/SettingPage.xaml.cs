@@ -23,5 +23,17 @@ namespace GUIProj1
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            CustomizableHome ch = new CustomizableHome();
+            this.NavigationService.Navigate(ch);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CustomizableHome ch = new CustomizableHome();
+            this.NavigationService.Navigate(ch);
+        }
     }
 }

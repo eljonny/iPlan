@@ -7,8 +7,6 @@
             <ImageBrush ImageSource="lightBlueSky.jpg"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <!--<ColumnDefinition Width="150" />
-            <ColumnDefinition Width="250" />-->
         </Grid.ColumnDefinitions>
 
         <!-- Three rows -->
@@ -16,6 +14,7 @@
             <RowDefinition Height="58" />
             <RowDefinition Height="58" />
             <RowDefinition Height="242*" />
+            <RowDefinition Height="58" />
         </Grid.RowDefinitions>
 
         <Image HorizontalAlignment="Left" Source="Settings-icon.png" Margin="32,5,64,14.4" />
@@ -25,7 +24,28 @@
             <ComboBoxItem>OFF</ComboBoxItem>
             <ComboBoxItem>ON</ComboBoxItem>
         </ComboBox>
-        <Button Grid.Row="2" Height="26" VerticalAlignment="Bottom" Margin="107,0,111,27">Apply</Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right" Width="82" Height="26" VerticalAlignment="Bottom" Margin="0,0,23,27">Exit</Button>
+
+        <Button Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Return to Main Menu" Cursor="Hand" Name="button2" Height="24" Click="button2_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock Name="textblock1" FontSize="14" FontFamily="Ashley Crawford Volume" TextDecorations="None">
+                    <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button Grid.Row="3" Height="26" VerticalAlignment="Bottom" Margin="107,0,111,27">Apply</Button>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Width="82" Height="26" VerticalAlignment="Bottom" Margin="0,0,23,27" Click="Button_Click">Exit</Button>
     </Grid>
 </Page>
