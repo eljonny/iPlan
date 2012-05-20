@@ -1,0 +1,71 @@
+﻿<Window x:Class="GUIProj1.iPlan_Welcome" Icon="clockwindowicon.ico"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="iPlan Calendar System" Height="300" Width="397"
+    Background="White" WindowStyle="None" BorderThickness="0" WindowStartupLocation="CenterScreen">
+    <Canvas>
+        <Path Stroke="Beige" StrokeThickness="12" Stretch="Uniform" Canvas.Left="-7" Name="titleBar"
+              Width="405" HorizontalAlignment="Stretch" VerticalAlignment="Top" Opacity=".3"
+              MouseLeftButtonDown="iPlan_TitleBar_click">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment Points="200,0"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+            <Path.BitmapEffect>
+                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" Opacity=".3" GlowSize="4" Noise="0" />
+            </Path.BitmapEffect>
+        </Path>
+        <Image Source="clockwindowicon.ico" Height="12" Name="iPlanWelcomeWindowIcon">
+            <Image.ContextMenu>
+                <ContextMenu Name="iconContext" Background="White" BorderThickness="0" HasDropShadow="True">
+                    <MenuItem Header="Exit" Click="iPlan_Exit_click" />
+                    <MenuItem Header="Minimize" Click="iPlan_ContextMinimize_click" />
+                    <Separator/>
+                    <MenuItem Header="About" Click="iPlan_ContextAbout_click"/>
+                </ContextMenu>
+            </Image.ContextMenu>
+        </Image>
+        <DockPanel Height="auto" Width="355" Name="dockIPlanWelcome"
+                   Margin="10,70,10,0">
+            <TextBlock Height="37" Margin="32,0,50,0" DockPanel.Dock="Top"
+                Name="lblWelcomePageIntroLabel" TextBlock.TextAlignment="Center"
+                Padding="10">
+                Welcome to iPlan, The Premier scheduling application!
+            </TextBlock>
+            <TextBlock Width="125" Margin="0" DockPanel.Dock="Top"
+                       Padding="5">
+                Please select an action:
+            </TextBlock>
+            <Button Content="New Calendar" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_NewCal_click"/>
+            <Button Content="Load Calendar" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_LoadCal_click" />
+            <Button Content="Exit iPlan" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_Exit_click" />
+        </DockPanel>
+
+        <StackPanel Margin="10,80,10,0" Width="355" Name="newCalStackPanel"
+                  FlowDirection="LeftToRight" RenderOptions.EdgeMode="Aliased"
+                    Visibility="Hidden">
+            <Label Content="Please enter a calendar name:" Margin="0,0,0,10"/>
+            <TextBox Margin="10,0,10,10" Name="txtNewCalName" KeyDown="iPlan_NewCal_TxtBox_EnterKeyHit"/>
+            <Button Margin="90,0,90,5" Content="Make New Calendar" Click="iPlan_MakeNewCal_click" />
+            <Button Margin="90,0,90,10" Content="Cancel" Click="iPlan_NewCal_click_Cancel"/>
+        </StackPanel>
+        <Grid Canvas.Bottom="0" Width="375">
+            <StatusBar Name="welcomeStatusBar" Background="White" Width="auto" HorizontalAlignment="Center">
+                <StatusBarItem Content="iPlan 1.1.513" Name="welcomeStatBarText"
+                               FontFamily="Verdana" FontSize="12"
+                               FontStyle="Normal" FontWeight="Bold" />
+            </StatusBar>
+        </Grid>
+    </Canvas>
+</Window>
