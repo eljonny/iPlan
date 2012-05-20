@@ -100,5 +100,10 @@ namespace GUIProj1
             }
         }
         #endregion
+
+        private void iPlAbout_OK_click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

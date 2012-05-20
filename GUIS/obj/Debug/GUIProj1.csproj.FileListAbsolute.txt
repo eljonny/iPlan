@@ -39,10 +39,6 @@ U:\Project\cs446\GUIS\bin\Debug\GUIProj1.exe
 U:\Project\cs446\GUIS\bin\Debug\GUIProj1.pdb
 U:\Project\cs446\GUIS\obj\Debug\GUIProj1.exe
 U:\Project\cs446\GUIS\obj\Debug\GUIProj1.pdb
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.exe
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.pdb
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\GUIProj1.exe
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\GUIProj1.pdb
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Customizable.baml
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\CustomizableHome.baml
@@ -63,8 +59,6 @@ C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debu
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemePage.g.cs
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Window1.g.cs
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\App.g.cs
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
-C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.g.resources
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
 C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
@@ -130,35 +124,45 @@ C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\NewMember.baml
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\NewMember.g.cs
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_Content.g.cs
 C:\Documents and Settings\wanjirug\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe.config
+C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe.config
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.exe
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\NewMember.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Team.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TeamPage.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.baml
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window2.baml
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Customizable.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\CustomizableHome.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\LanguagePage.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\NewMember.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\SettingPage.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Team.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TeamPage.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemeAppearancePage.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\ThemePage.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window1.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\Window2.g.cs
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\App.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_Content.g.cs
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1_MarkupCompile.cache
+C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.g.resources
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan_MarkupCompile.cache
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.g.resources
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlanDatabase.accdb
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.exe
 C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\GUIProj1.pdb
 C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\GUIProj1.pdb
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
@@ -190,18 +194,59 @@ C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Propert
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.TrustInfo.xml
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe.manifest
+C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe
 C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TimeBlock.baml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\TimeBlock.g.cs
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlan.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlan.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.exe
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.pdb
-C:\Users\GI\Desktop\GUIProj\GUIS\bin\Debug\iPlan.exe.config
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
-C:\Users\Jonny\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.TrustInfo.xml
-C:\Users\GI\Desktop\GUIProj\GUIS\obj\Debug\iPlan.exe.manifest
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Customizable.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\CustomizableHome.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\LanguagePage.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\SettingPage.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Team.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TeamPage.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemeAppearancePage.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemePage.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TimeBlock.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Customizable.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\CustomizableHome.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\LanguagePage.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\SettingPage.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\Team.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TeamPage.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemeAppearancePage.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\ThemePage.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TimeBlock.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\App.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_MarkupCompile.cache
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.g.resources
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.iPlAbout.resources
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.Properties.Resources.resources
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\GUIProj1.csproj.GenerateResource.Cache
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.TrustInfo.xml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe.manifest
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.config
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.pdb
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe.manifest
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.application
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.exe
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\bin\Debug\iPlan.pdb
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TimeBlock.baml
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\TimeBlock.g.cs
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_MarkupCompile.cache
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.g.resources
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.TrustInfo.xml
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.exe.manifest
+C:\Documents and Settings\Jon\My Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan.application
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_Main.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_Welcome.baml
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_Main.g.cs
+C:\Users\JonJon\Documents\CWU\CS446\Project\cs446\GUIS\obj\Debug\iPlan_Welcome.g.cs

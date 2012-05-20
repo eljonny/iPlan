@@ -36,7 +36,7 @@ namespace GUIProj1
             Grid g = (Grid)sender;
             //MessageBox.Show("ss");
             g.Children.Add(img);
-            Window1 w = new Window1();
+            //iPlan_Main w = new iPlan_Main();
             //teamMembersInfo = LoadListBoxData();
         }
 

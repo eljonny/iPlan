@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{71A4CFA1-7F43-43CA-B848-D2454A6C027E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -32,8 +32,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>470</ApplicationRevision>
-    <ApplicationVersion>1.1.47.470</ApplicationVersion>
+    <ApplicationRevision>471</ApplicationRevision>
+    <ApplicationVersion>1.1.47.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -84,6 +84,9 @@
     <Reference Include="PresentationFramework">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -126,16 +129,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="iPlan_Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="iPlan_Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="iPlan_Main.xaml.cs">
+      <DependentUpon>iPlan_Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -176,6 +183,7 @@
     <Compile Include="Team.xaml.cs">
       <DependentUpon>Team.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamMember.cs" />
     <Compile Include="TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
@@ -187,6 +195,9 @@
     </Compile>
     <Compile Include="TimeBlock.xaml.cs">
       <DependentUpon>TimeBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="iPlan_Welcome.xaml.cs">
+      <DependentUpon>iPlan_Welcome.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="iPlAbout.resx">
       <DependentUpon>iPlAbout.cs</DependentUpon>
@@ -238,11 +249,6 @@
     <Resource Include="delContextMenuIcon.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
       <Visible>False</Visible>
       <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
@@ -258,11 +264,6 @@
       <ProductName>.NET Framework 3.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
       <ProductName>Windows Installer 3.1</ProductName>
@@ -277,7 +278,6 @@
       <TargetPath>
       </TargetPath>
       <PublishState>DataFile</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="iPlan.XmlSerializers">
@@ -287,7 +287,6 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

@@ -10,6 +10,8 @@ namespace GUIProj1
 {
     public class gridObject
     {
+        #region GridObject Variables
+
         private int row,col,id;
         private double[] px = new double[2];
         private double prob;
@@ -17,6 +19,10 @@ namespace GUIProj1
         private string[] gObjCont = null;
         private bool isPopulated;
         private double[,] probDet = null;
+
+        #endregion
+
+        #region Construction
 
         public gridObject()
         {
@@ -34,7 +40,7 @@ namespace GUIProj1
         }
         
         public gridObject(int r, int c, double pxDL, double pxDT, string tb,string te,
-         bool pop,string[] content,string t,string d,double[,] pD)
+                                bool pop,string[] content,string t,string d,double[,] pD)
         {
             Random rand = new Random();
             id = rand.Next();
@@ -52,6 +58,10 @@ namespace GUIProj1
             date = d;
             rand = null;
         }
+
+        #endregion
+
+        #region GridObject operations
 
         public void setCoords(int c, int r)
         {
@@ -142,5 +152,7 @@ namespace GUIProj1
             return gObjCont.ToString()+"\n"+col+"\n"
                 +prob+"\n"+timeBeg+"\n"+timeEnd;
         }
+
+        #endregion
     }
 }
