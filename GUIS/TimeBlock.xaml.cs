@@ -31,7 +31,7 @@ namespace GUIProj1
             maxPxDiffTopScrollCompensation,scrollVertOffsetTmp=0,
             offSetDelta;
         //private bool delta = true;
-        private gridObject gO;
+        private GridObject gO;
         private Point temp1;//, temp2;
         private iPlan_Main iPlMain;
 
@@ -42,9 +42,7 @@ namespace GUIProj1
         public TimeBlock()
         {
             InitializeComponent();
-            gO = new gridObject
-                (0,0,pxDiffL,pxDiffT,"08:00","17:00",true,content,
-                "emp",System.DateTime.Now.ToString(),probData);
+            // This needs a GridObject.
         }
 
         #endregion
@@ -165,7 +163,7 @@ namespace GUIProj1
         {
             pxDiffL = l;
             pxDiffT = t;
-            gO.setPxDiff(l,t);
+            //gO.setPxDiff(l,t);
         }
 
         public void setParental(iPlan_Main parentalUnit)
@@ -223,7 +221,7 @@ namespace GUIProj1
             scrollVertOffsetTmp = offSet;
         }
 
-        public gridObject getGO()
+        public GridObject getGO()
         {
             return gO;
         }

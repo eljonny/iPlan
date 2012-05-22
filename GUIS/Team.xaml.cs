@@ -20,9 +20,25 @@ namespace GUIProj1
     /// </summary>
     public partial class Team : NavigationWindow
     {
+        LinkedList<TeamMember> members;
+
         public Team()
         {
             InitializeComponent();
+
+            members = new LinkedList<TeamMember>();
+        }
+
+        public TeamMember[] getMemberList()
+        {
+            return members.ToArray();
+        }
+
+        public bool addMember(TeamMember newMember)
+        {
+            members.AddFirst(newMember);
+
+            return members.Contains(newMember);
         }
     }
 }

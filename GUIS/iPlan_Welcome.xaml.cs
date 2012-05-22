@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 
 namespace GUIProj1
@@ -30,6 +32,12 @@ namespace GUIProj1
         public iPlan_Welcome()
         {
             InitializeComponent();
+
+            welcomeStatBarText.Content =
+                "iPlan v." +
+                Assembly.
+                    GetAssembly(typeof(iPlan_Main)).
+                        GetName().Version.ToString();
         }
 
         #endregion
@@ -123,6 +131,63 @@ namespace GUIProj1
         private void iPlan_ContextAbout_click(object sender, RoutedEventArgs e)
         {
             new iPlAbout().Show();
+        }
+
+        private void titleBarX_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ((OuterGlowBitmapEffect)titleBarXBack.BitmapEffect).GlowSize = 3;
+            ((OuterGlowBitmapEffect)titleBarXForward.BitmapEffect).GlowSize = 3;
+        }
+
+        private void titleBarX_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ((OuterGlowBitmapEffect)titleBarXBack.BitmapEffect).GlowSize = 0;
+            ((OuterGlowBitmapEffect)titleBarXForward.BitmapEffect).GlowSize = 0;
+        }
+
+        private void titleBarX_click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+                ((OuterGlowBitmapEffect)titleBarXBack.BitmapEffect).GlowSize = 5;
+                ((OuterGlowBitmapEffect)titleBarXForward.BitmapEffect).GlowSize = 5;
+        }
+
+        private void titleBarX_clickRelease(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (titleBarXContainer.IsMouseOver)
+            {
+                ((OuterGlowBitmapEffect)titleBarXBack.BitmapEffect).GlowSize = 0;
+                ((OuterGlowBitmapEffect)titleBarXForward.BitmapEffect).GlowSize = 0;
+                
+                if (calendar != null)
+                    calendar.Close();
+
+                this.Close();
+            }
+        }
+
+        private void titleBarMin_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ((OuterGlowBitmapEffect)titleBar_.BitmapEffect).GlowSize = 3;
+        }
+
+        private void titleBarMin_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            ((OuterGlowBitmapEffect)titleBar_.BitmapEffect).GlowSize = 0;
+        }
+
+        private void titleBarMin_click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ((OuterGlowBitmapEffect)titleBar_.BitmapEffect).GlowSize = 5;
+        }
+
+        private void titleBarMin_clickRelease(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (titleBarMinimizeContainer.IsMouseOver)
+            {
+                ((OuterGlowBitmapEffect)titleBar_.BitmapEffect).GlowSize = 0;
+
+                this.WindowState = WindowState.Minimized;
+            }
         }
 
         #endregion

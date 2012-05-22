@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Controls;
@@ -50,15 +51,21 @@ namespace GUIProj1
             parent = welcomeWin;
             InitializeComponent();
 
+            lStatBarTxt.Text =
+                "iPlan v." +
+                Assembly.
+                    GetAssembly(typeof(iPlan_Main)).
+                        GetName().Version.ToString();
+
             initCombos();
 
             this.calName = newCalName;
 
             this.Title = "iPlan - " + newCalName;
-            
+
             this.Activate();
             
-            gridContents.Cast<gridObject>();
+            gridContents.Cast<GridObject>();
 
             System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
             
@@ -75,6 +82,12 @@ namespace GUIProj1
             parent = welcomeWin;
             InitializeComponent();
 
+            lStatBarTxt.Text =
+                "iPlan v." +
+                Assembly.
+                    GetAssembly(typeof(iPlan_Main)).
+                        GetName().Version.ToString();
+
             initCombos();
 
             this.Activate();
@@ -84,7 +97,7 @@ namespace GUIProj1
             if (parseIPlanCal(calendar))
                 rStatBarTxt.Text = calName + " successfully loaded!";
 
-            gridContents.Cast<gridObject>();
+            gridContents.Cast<GridObject>();
 
             System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
             
@@ -100,12 +113,15 @@ namespace GUIProj1
         {
             ItemCollection weeks = wkComboBox.Items;
             ItemCollection years = yrComboBox.Items;
+            ItemCollection days = dayComboBox.Items;
 
             for(int i = 0; ++i < 6; weeks.Add(i.ToString()));
-            for (int i = (DateTime.Today.Year - 1); ++i < 2051; years.Add(i.ToString())) ;
+            for (int i = 0; ++i < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString())) ;
+            for (int i = (DateTime.Today.Year - 1); ++i < 2051; years.Add(i.ToString()));
 
             moComboBox.SelectedIndex = DateTime.Now.Month - 1;
             wkComboBox.SelectedIndex = getWeekOfMonth();
+            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
             yrComboBox.SelectedItem = DateTime.Now.Year.ToString();
         }
 
@@ -142,6 +158,37 @@ namespace GUIProj1
         #endregion
 
         #region Event Handlers
+
+        private void selectWeekOne_click(object sender, RoutedEventArgs e)
+        {
+            this.chgViewMode(sender, e);
+            this.wkComboBox.SelectedIndex = 0;
+        }
+
+        private void selectWeekTwo_click(object sender, RoutedEventArgs e)
+        {
+            this.chgViewMode(sender, e);
+            this.wkComboBox.SelectedIndex = 1;
+        }
+
+        private void selectWeekThree_click(object sender, RoutedEventArgs e)
+        {
+            this.chgViewMode(sender, e);
+            this.wkComboBox.SelectedIndex = 2;
+        }
+
+        private void selectWeekFour_click(object sender, RoutedEventArgs e)
+        {
+            this.chgViewMode(sender, e);
+            this.wkComboBox.SelectedIndex = 3;
+        }
+
+        private void selectWeekFive_click(object sender, RoutedEventArgs e)
+        {
+            this.chgViewMode(sender, e);
+            this.wkComboBox.SelectedIndex = 4;
+        }
+
         //Jon
         private void file_quit(object sender, EventArgs e)
         {
@@ -154,12 +201,12 @@ namespace GUIProj1
             if (ed)
             {
                 System.Windows.Controls.Label clicked = (System.Windows.Controls.Label)sender;
-                if (startTime.IsFocused)
-                    startTime.Text = clicked.Content.ToString();
-                else if (EndTime.IsFocused)
-                    EndTime.Text = clicked.Content.ToString();
+                if (txtboxStartTime.IsFocused)
+                    txtboxStartTime.Text = clicked.Content.ToString();
+                else if (txtboxEndTime.IsFocused)
+                    txtboxEndTime.Text = clicked.Content.ToString();
             }
-            else if (!ed && (startTime.IsFocused || EndTime.IsFocused))
+            else if (!ed && (txtboxStartTime.IsFocused || txtboxEndTime.IsFocused))
                 System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
 
@@ -179,10 +226,11 @@ namespace GUIProj1
         private void chgViewMode(object sender, RoutedEventArgs e)
         {
             this.rStatBarTxt.Text = "Changing views...";
-            if (this.wkCalGridContainer.Visibility == Visibility.Visible)
+
+            if (this.wkCalGridContainerBorder.Visibility == Visibility.Visible)
             {
                 // Make the week view hidden
-                this.wkCalGridContainer.Visibility = Visibility.Hidden;
+                this.wkCalGridContainerBorder.Visibility = Visibility.Hidden;
                 // Make all the time blocks hidden if we
                 // move to month view
                 tBlocks = timeBlocks.GetEnumerator();
@@ -198,14 +246,31 @@ namespace GUIProj1
                 }
                 // Clean up....
                 tBlocks.Dispose();
+
                 // Make the month view visible
-                this.moCalGridContainer.Visibility = Visibility.Visible;
+                this.moCalGridContainerBorder.Visibility = Visibility.Visible;
+
+                this.rStatBarTxt.Text = "Checking tBlocks visibility...";
+
+                if (timeBlocks.Count > 0 && !checkTBlockVisibleState())
+                {
+                    this.rStatBarTxt.Text = "Normalizing visibility...";
+                    normalizeTBlockVisibility();
+                }
+                else
+                    this.rStatBarTxt.Text = "Ok.";
+
+                this.rStatBarTxt.Text = "Month View."
+                    + " View schedule details to help plan for "
+                    + "long term goals. Easily organize your "
+                    + "thoughts and notify your team of changes"
+                    + " and new ideas.";
                 
                 view = true;
             }
-            else if (this.moCalGridContainer.Visibility == Visibility.Visible)
+            else if (this.moCalGridContainerBorder.Visibility == Visibility.Visible)
             {
-                this.wkCalGridContainer.Visibility = Visibility.Visible;
+                this.wkCalGridContainerBorder.Visibility = Visibility.Visible;
 
                 tBlocks = timeBlocks.GetEnumerator();
                 if(tBlocks.Current == null)
@@ -233,31 +298,24 @@ namespace GUIProj1
                     tmp = null;
                 }
 
-                this.moCalGridContainer.Visibility = Visibility.Hidden;
-                view = false;
-            }
+                this.moCalGridContainerBorder.Visibility = Visibility.Hidden;
 
-            this.rStatBarTxt.Text = "Checking tBlocks visibility...";
-            
-            if(timeBlocks.Count > 0 && !checkTBlockVisibleState())
-            {
-                this.rStatBarTxt.Text = "Normalizing visibility...";
-                normalizeTBlockVisibility();
-            }
-            else
-                this.rStatBarTxt.Text = "Ok.";
+                this.rStatBarTxt.Text = "Checking tBlocks visibility...";
 
-            // Update the status bar.
-            if(view)
-                this.rStatBarTxt.Text = "Month View."
-                    + " View schedule details to help plan for "
-                    + "long term goals. Easily organize your "
-                    + "thoughts and notify your team of changes"
-                    + " and new ideas.";
-            else
+                if (timeBlocks.Count > 0 && !checkTBlockVisibleState())
+                {
+                    this.rStatBarTxt.Text = "Normalizing visibility...";
+                    normalizeTBlockVisibility();
+                }
+                else
+                    this.rStatBarTxt.Text = "Ok.";
+
                 this.rStatBarTxt.Text = "Week View. Build your "
                     + "Schedule here and send notifications about"
                     + " schedule changes.";
+
+                view = false;
+            }
         }
 
         //Jon
@@ -344,10 +402,10 @@ namespace GUIProj1
                 {
                     if (tBlocks.Current.IsEnabled)
                     {
-                        tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
-                            - tBlocks.Current.getGO().getPxDiffs()[1]);
-                        tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
-                            - tBlocks.Current.getGO().getPxDiffs()[0];
+                        //tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
+                        //    - tBlocks.Current.getGO().getPxDiffs()[1]);
+                        //tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
+                        //    - tBlocks.Current.getGO().getPxDiffs()[0];
                         tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left, tBlocks.Current.Top - this.Top);
                     }
                     else if (!tBlocks.Current.IsEnabled)
@@ -520,8 +578,8 @@ namespace GUIProj1
         {
             System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
                 + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
-                + "\nMainGrdHght: " + mainGrid.ActualHeight + "\nMainGrdWdth: "
-                + mainGrid.ActualWidth);
+                + "\nMainGrdHght: " + monthGrid.ActualHeight + "\nMainGrdWdth: "
+                + monthGrid.ActualWidth);
         }
 
         /* Ryan */
@@ -614,9 +672,9 @@ namespace GUIProj1
             int i = 0;
             String[] participNames = new String[teamSize];
 
-            foreach (gridObject teamMember in gridContents)
+            foreach (TeamMember member in team.getMemberList())
             {
-                participNames[i] = teamMember.getName();
+                participNames[i] = member.getName();
                 i++;
             }
 
@@ -624,12 +682,12 @@ namespace GUIProj1
         }
 
         //Jon
-        private void setObjSlot(gridObject o, ArrayList gridObjects)
+        private void setObjSlot(GridObject o, ArrayList gridObjects)
         {
             if (ed)
             {
-                gridObjects.Insert(o.getDay(), o);
-                gridObjects.RemoveAt(o.getDay() + 1);
+                //gridObjects.Insert(o.getDay(), o);
+                //gridObjects.RemoveAt(o.getDay() + 1);
             }
             else
                 System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
@@ -647,17 +705,21 @@ namespace GUIProj1
         }
 
         //Jon
-        private gridObject addGObj()
+        private GridObject addGObj()
         {
-            string[] contents = new string[3];
+            // TODO Rewrite GridObject construction code.
+            /*string[] contents = new string[3];
             double[,] probData = new double[100, 2];
             probData[0, 1] = .4; probData[1, 1] = .95;
             contents[0] = "James"; contents[1] = "Garner"; contents[2] = "Software Engineer";
-            gridObject tMTimeBlock =
-                new gridObject
+            GridObject tMTimeBlock =
+                new GridObject
                     (1, 2, 0, 0, "00:00", "07:00", true, contents, "emp",
                     DateTime.Today.ToString(), probData);
             return tMTimeBlock;
+            */
+
+            return null;
         }
 
         #endregion
@@ -913,6 +975,5 @@ namespace GUIProj1
         }
 
         #endregion
-
     } // Partial class iPlan_Main end
 } // namespace GUIProj1

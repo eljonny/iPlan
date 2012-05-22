@@ -1,11 +1,11 @@
 ﻿<Window x:Class="GUIProj1.iPlan_Welcome" Icon="clockwindowicon.ico"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="iPlan Calendar System" Height="300" Width="397"
-    Background="White" WindowStyle="None" BorderThickness="0" WindowStartupLocation="CenterScreen">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" BorderThickness="0"
+    Title="iPlan Calendar System" Height="300" Width="397" BorderBrush="Transparent"
+    Background="White" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Canvas>
-        <Path Stroke="Beige" StrokeThickness="12" Stretch="Uniform" Canvas.Left="-7" Name="titleBar"
-              Width="405" HorizontalAlignment="Stretch" VerticalAlignment="Top" Opacity=".3"
+        <Path Stroke="DimGray" StrokeThickness="12" Stretch="Uniform" Canvas.Left="-7" Name="titleBar"
+              Width="405" HorizontalAlignment="Stretch" VerticalAlignment="Top" Opacity=".9"
               MouseLeftButtonDown="iPlan_TitleBar_click">
             <Path.Data>
                 <PathGeometry>
@@ -23,10 +23,87 @@
                 </PathGeometry>
             </Path.Data>
             <Path.BitmapEffect>
-                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" Opacity=".3" GlowSize="4" Noise="0" />
+                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="8" Noise=".4" />
             </Path.BitmapEffect>
         </Path>
-        <Image Source="clockwindowicon.ico" Height="12" Name="iPlanWelcomeWindowIcon">
+        <Path Stroke="Red" StrokeThickness="1" Stretch="Uniform" Name="titleBarXBack"
+              Width="10" Canvas.Right="0" Canvas.Top="0"
+              MouseLeftButtonDown="iPlan_TitleBar_click">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment Points="10,10"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+            <Path.BitmapEffect>
+                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="0" Noise="0" />
+            </Path.BitmapEffect>
+        </Path>
+        <Path Stroke="Red" StrokeThickness="1" Stretch="Uniform" Name="titleBarXForward"
+              Width="10" Canvas.Right="0" Canvas.Top="0"
+              MouseLeftButtonDown="iPlan_TitleBar_click">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment Points="-10,10"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+            <Path.BitmapEffect>
+                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="0" Noise="0" />
+            </Path.BitmapEffect>
+        </Path>
+        <Rectangle Height="12" Width="12" Canvas.Right="0" Canvas.Top="0" Name="titleBarXContainer"
+                   MouseLeftButtonDown="titleBarX_click" Fill="Transparent" MouseEnter="titleBarX_MouseEnter"
+                   MouseLeave="titleBarX_MouseLeave" MouseLeftButtonUp="titleBarX_clickRelease" />
+        <Path Stroke="Black" StrokeThickness="3" Stretch="Uniform" Name="titleBar_"
+              Width="12" Canvas.Right="12" Canvas.Top="8"
+              MouseLeftButtonDown="iPlan_TitleBar_click">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment Points="10,0"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+            <Path.BitmapEffect>
+                <OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="0" Noise="0" />
+            </Path.BitmapEffect>
+        </Path>
+        <Rectangle Height="12" Width="12" Canvas.Right="12" Canvas.Top="0" Name="titleBarMinimizeContainer"
+                   MouseLeftButtonDown="titleBarMin_click" Fill="Transparent" MouseEnter="titleBarMin_MouseEnter"
+                   MouseLeave="titleBarMin_MouseLeave" MouseLeftButtonUp="titleBarMin_clickRelease" />
+        <Ellipse Height="36" Width="36" Canvas.Left="-6" Canvas.Top="-6" Fill="DimGray" Opacity=".8">
+            <Ellipse.BitmapEffect>
+                <BlurBitmapEffect KernelType="Gaussian" Radius="4" />
+            </Ellipse.BitmapEffect>
+        </Ellipse>
+        <Image Source="clockwindowicon.ico" Height="24" Canvas.Left="1" Canvas.Top="1" Name="iPlanWelcomeWindowIcon">
             <Image.ContextMenu>
                 <ContextMenu Name="iconContext" Background="White" BorderThickness="0" HasDropShadow="True">
                     <MenuItem Header="Exit" Click="iPlan_Exit_click" />
@@ -53,7 +130,7 @@
         </DockPanel>
 
         <StackPanel Margin="10,80,10,0" Width="355" Name="newCalStackPanel"
-                  FlowDirection="LeftToRight" RenderOptions.EdgeMode="Aliased"
+                    FlowDirection="LeftToRight" RenderOptions.EdgeMode="Aliased"
                     Visibility="Hidden">
             <Label Content="Please enter a calendar name:" Margin="0,0,0,10"/>
             <TextBox Margin="10,0,10,10" Name="txtNewCalName" KeyDown="iPlan_NewCal_TxtBox_EnterKeyHit"/>
@@ -62,7 +139,7 @@
         </StackPanel>
         <Grid Canvas.Bottom="0" Width="375">
             <StatusBar Name="welcomeStatusBar" Background="White" Width="auto" HorizontalAlignment="Center">
-                <StatusBarItem Content="iPlan 1.1.513" Name="welcomeStatBarText"
+                <StatusBarItem Name="welcomeStatBarText"
                                FontFamily="Verdana" FontSize="12"
                                FontStyle="Normal" FontWeight="Bold" />
             </StatusBar>

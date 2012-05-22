@@ -31,9 +31,14 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>471</ApplicationRevision>
-    <ApplicationVersion>1.1.47.%2a</ApplicationVersion>
+    <MapFileExtensions>false</MapFileExtensions>
+    <SupportUrl>http://www.cwu.edu/~hyryj/iplan/support/index.html</SupportUrl>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>iPlan</ProductName>
+    <PublisherName>Jonathan Hyry</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>527</ApplicationRevision>
+    <ApplicationVersion>2.0.87.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -47,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -56,6 +61,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -153,7 +159,7 @@
     <Compile Include="CustomizableHome.xaml.cs">
       <DependentUpon>CustomizableHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="gridObject.cs" />
+    <Compile Include="GridObject.cs" />
     <Compile Include="iPlAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,7 @@
     <Compile Include="LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProbabilityFactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -271,15 +278,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="iPlan.pdb">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>DataFile</PublishState>
-      <FileType>File</FileType>
-    </PublishFile>
     <PublishFile Include="iPlan.XmlSerializers">
       <Visible>False</Visible>
       <Group>
