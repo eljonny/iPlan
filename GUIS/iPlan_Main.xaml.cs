@@ -23,7 +23,7 @@ using System.IO;
 
 #endregion
 
-//   Author Jonathan Hyry, George Wanjiru, Ryan Soushek
+//   Author Jonathan Hyry, Ryan Soushek
 namespace GUIProj1
 {
     /// <summary>
@@ -46,6 +46,7 @@ namespace GUIProj1
 
         // For accessing Label objects from monthViewLabels.
         private IEnumerable<System.Windows.Controls.Label> lblsMonthNames;
+
         private bool ed = true, view = false, contextClckMkBlck = false,
                      newcal = true, calEdited = false, mondayFirst = true;
         private int mouseWheelDeltaTmp;
@@ -254,12 +255,15 @@ namespace GUIProj1
                 labels.MoveNext();
             }
 
+            /* Might need this later....
+             * 
             // If there were days to populate from the previous month...
             if (startDay < 0)
                 startDay *= -1;
             // Else continue normally...
             else
-                startDay++;
+             * */
+            startDay++;
             
             // Populate the day values of the current month...
             while (startDay <= numDaysCurrent)
