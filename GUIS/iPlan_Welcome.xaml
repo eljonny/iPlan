@@ -3,6 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" BorderThickness="0"
     Title="iPlan Calendar System" Height="300" Width="397" BorderBrush="Transparent"
     Background="White" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style x:Key="welcomeBtnStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10,15,0,0" />
+            <Setter Property="DockPanel.Dock" Value="Left" />
+            <Setter Property="Width" Value="110" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    
     <Canvas>
         <Path Stroke="DimGray" StrokeThickness="12" Stretch="Uniform" Canvas.Left="-7" Name="titleBar"
               Width="405" HorizontalAlignment="Stretch" VerticalAlignment="Top" Opacity=".9"
@@ -98,12 +108,13 @@
         <Rectangle Height="12" Width="12" Canvas.Right="12" Canvas.Top="0" Name="titleBarMinimizeContainer"
                    MouseLeftButtonDown="titleBarMin_click" Fill="Transparent" MouseEnter="titleBarMin_MouseEnter"
                    MouseLeave="titleBarMin_MouseLeave" MouseLeftButtonUp="titleBarMin_clickRelease" />
-        <Ellipse Height="36" Width="36" Canvas.Left="-6" Canvas.Top="-6" Fill="DimGray" Opacity=".8">
+        <Ellipse Height="36" Width="36" Canvas.Left="-6" Canvas.Top="-6" Fill="DimGray" Opacity="1">
             <Ellipse.BitmapEffect>
                 <BlurBitmapEffect KernelType="Gaussian" Radius="4" />
             </Ellipse.BitmapEffect>
         </Ellipse>
-        <Image Source="clockwindowicon.ico" Height="24" Canvas.Left="1" Canvas.Top="1" Name="iPlanWelcomeWindowIcon">
+        <Image Source="clockwindowicon.ico" Height="24" Canvas.Left="1" Canvas.Top="1"
+               Name="iPlanWelcomeWindowIcon" ToolTip="Right click for program menu.">
             <Image.ContextMenu>
                 <ContextMenu Name="iconContext" Background="White" BorderThickness="0" HasDropShadow="True">
                     <MenuItem Header="Exit" Click="iPlan_Exit_click" />
@@ -113,35 +124,29 @@
                 </ContextMenu>
             </Image.ContextMenu>
         </Image>
-        <DockPanel Height="auto" Width="355" Name="dockIPlanWelcome"
-                   Margin="10,70,10,0">
-            <TextBlock Height="37" Margin="32,0,50,0" DockPanel.Dock="Top"
-                Name="lblWelcomePageIntroLabel" TextBlock.TextAlignment="Center"
-                Padding="10">
+        <DockPanel Height="auto" Name="dockIPlanWelcome" Margin="10,80,10,0" Opacity="1">
+            <TextBlock DockPanel.Dock="Top" Padding="10" TextBlock.LineHeight="12"
+                       Name="lblWelcomePageIntroLabel" TextBlock.TextAlignment="Center">
                 Welcome to iPlan, The Premier scheduling application!
             </TextBlock>
-            <TextBlock Width="125" Margin="0" DockPanel.Dock="Top"
-                       Padding="5">
+            <TextBlock DockPanel.Dock="Top" Name="lblWelcomePageSelectActionLabel"
+                       Padding="8"  TextBlock.TextAlignment="Center">
                 Please select an action:
             </TextBlock>
-            <Button Content="New Calendar" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_NewCal_click"/>
-            <Button Content="Load Calendar" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_LoadCal_click" />
-            <Button Content="Exit iPlan" Margin="20,15,20,20" DockPanel.Dock="Left" Click="iPlan_Exit_click" />
+            <Button Content="New Calendar" Style="{StaticResource welcomeBtnStyle}" Click="iPlan_NewCal_click"/>
+            <Button Content="Load Calendar" Style="{StaticResource welcomeBtnStyle}" Click="iPlan_LoadCal_click" />
+            <Button Content="Exit iPlan" Style="{StaticResource welcomeBtnStyle}" Click="iPlan_Exit_click" />
         </DockPanel>
 
-        <StackPanel Margin="10,80,10,0" Width="355" Name="newCalStackPanel"
-                    FlowDirection="LeftToRight" RenderOptions.EdgeMode="Aliased"
-                    Visibility="Hidden">
-            <Label Content="Please enter a calendar name:" Margin="0,0,0,10"/>
-            <TextBox Margin="10,0,10,10" Name="txtNewCalName" KeyDown="iPlan_NewCal_TxtBox_EnterKeyHit"/>
-            <Button Margin="90,0,90,5" Content="Make New Calendar" Click="iPlan_MakeNewCal_click" />
-            <Button Margin="90,0,90,10" Content="Cancel" Click="iPlan_NewCal_click_Cancel"/>
+        <StackPanel Margin="40,80,10,0" Opacity="0" Name="newCalStackPanel" Visibility="Hidden">
+            <Label Content="Please enter a calendar name:" HorizontalAlignment="Center" />
+            <TextBox Width="300" Name="txtNewCalName" KeyDown="iPlan_NewCal_TxtBox_EnterKeyHit"/>
+            <Button Style="{StaticResource welcomeBtnStyle}" Content="Make New Calendar" Click="iPlan_MakeNewCal_click" />
+            <Button Style="{StaticResource welcomeBtnStyle}" Content="Cancel" Click="iPlan_NewCal_click_Cancel"/>
         </StackPanel>
-        <Grid Canvas.Bottom="0" Width="375">
+        <Grid Canvas.Bottom="0" Width="390">
             <StatusBar Name="welcomeStatusBar" Background="White" Width="auto" HorizontalAlignment="Center">
-                <StatusBarItem Name="welcomeStatBarText"
-                               FontFamily="Verdana" FontSize="12"
-                               FontStyle="Normal" FontWeight="Bold" />
+                <StatusBarItem Name="welcomeStatBarText" FontSize="12" FontStyle="Normal" FontWeight="Bold" />
             </StatusBar>
         </Grid>
     </Canvas>

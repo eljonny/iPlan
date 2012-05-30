@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using Assemblies
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Collections;
 
+#endregion
+
 namespace GUIProj1
 {
     /// <summary>
@@ -20,7 +24,12 @@ namespace GUIProj1
     /// </summary>
     public partial class Team : NavigationWindow
     {
-        LinkedList<TeamMember> members;
+        #region Team Class variables
+
+        private LinkedList<TeamMember> members;
+        internal string teamName { get; set; }
+
+        #endregion
 
         public Team()
         {
@@ -39,6 +48,11 @@ namespace GUIProj1
             members.AddFirst(newMember);
 
             return members.Contains(newMember);
+        }
+
+        public bool Equals(Team other)
+        {
+            return this.teamName.Equals(other.teamName) ? true : false;
         }
     }
 }

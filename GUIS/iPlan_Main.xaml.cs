@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using Assemblies
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,9 @@ using System.Collections;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.IO;
+
+#endregion
 
 //   Author Jonathan Hyry, George Wanjiru, Ryan Soushek
 namespace GUIProj1
@@ -24,16 +29,29 @@ namespace GUIProj1
     /// <summary>
     /// Interaction logic for iPlan_Main.xaml
     /// </summary>
-    public partial class iPlan_Main : Window
+    public sealed partial class iPlan_Main : Window
     {
         #region iPlan Main Window Variables
 
-        private ArrayList gridContents = new ArrayList();
-        private bool ed = true, view = false, contextClckMkBlck=false, newcal = true, calEdited = false;
-        private int teamSize = 0, mouseWheelDeltaTmp;
-        private string calName;
-        private double pxDiffBlockTop,pxDiffBlockLeft,wkCalGridContainerHeight,wkCalGridContainerWidth;
-        public  Team team = new Team();
+        private const int MAX_YEAR = 2051;
+
+        // Hold GUI elements that are edited at run time.
+        private ArrayList gridContents = new ArrayList(),
+                          monthViewDayNumbers = new ArrayList(),
+                          monthViewLabels = new ArrayList(),
+                          teams = new ArrayList();
+
+        // <Border object, is week selected?>
+        private Dictionary<Border, Boolean> monthViewWeekBorders = new Dictionary<Border, Boolean>();
+
+        // For accessing Label objects from monthViewLabels.
+        private IEnumerable<System.Windows.Controls.Label> lblsMonthNames;
+        private bool ed = true, view = false, contextClckMkBlck = false,
+                     newcal = true, calEdited = false, mondayFirst = true;
+        private int mouseWheelDeltaTmp;
+        private string calName = null;
+        private double pxDiffBlockTop, pxDiffBlockLeft,
+                       wkCalGridContainerHeight, wkCalGridContainerWidth;
         private TimeBlock tmp;
         private System.Windows.Point mousePositionTmp;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
@@ -41,72 +59,81 @@ namespace GUIProj1
         private ScrollViewer scroller;
         private OpenFileDialog openOrSaveCal;
         private iPlan_Welcome parent;
+        private DateTime today = DateTime.Now;
 
         #endregion
 
         #region Construction
 
+        #region Constructors
+
         public iPlan_Main(string newCalName, iPlan_Welcome welcomeWin)
         {
-            parent = welcomeWin;
-            InitializeComponent();
+            iPlanInit(welcomeWin);
 
-            lStatBarTxt.Text =
-                "iPlan v." +
-                Assembly.
-                    GetAssembly(typeof(iPlan_Main)).
-                        GetName().Version.ToString();
-
-            initCombos();
-
+            newcal = true;
             this.calName = newCalName;
-
             this.Title = "iPlan - " + newCalName;
-
-            this.Activate();
-            
-            gridContents.Cast<GridObject>();
-
-            System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
-            
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
-            
-            System.Windows.Input.Mouse.AddMouseWheelHandler
-                ( (DependencyObject)wkCalGridContainer,
-                  new MouseWheelEventHandler(wkCalGridContainer_MouseWheel) );
         }
 
         public iPlan_Main(System.IO.Stream calendar, iPlan_Welcome welcomeWin)
         {
-            parent = welcomeWin;
-            InitializeComponent();
-
-            lStatBarTxt.Text =
-                "iPlan v." +
-                Assembly.
-                    GetAssembly(typeof(iPlan_Main)).
-                        GetName().Version.ToString();
-
-            initCombos();
-
-            this.Activate();
+            iPlanInit(welcomeWin);
 
             newcal = false;
 
             if (parseIPlanCal(calendar))
                 rStatBarTxt.Text = calName + " successfully loaded!";
+        }
 
+        #endregion
+
+        #region Init
+
+        private void iPlanInit(iPlan_Welcome welcomeWin)
+        {
+            parent = welcomeWin;
+            InitializeComponent();
+
+            #region ArrayList Casting for later object storage
             gridContents.Cast<GridObject>();
+            monthViewDayNumbers.Cast<TextBlock>();
+            monthViewLabels.Cast<System.Windows.Controls.Label>();
+            monthViewWeekBorders.Cast<Border>();
+            teams.Cast<Team>();
+            #endregion
 
-            System.Drawing.Size displayRes = SystemInformation.PrimaryMonitorSize;
-            
+            #region Set initial status bars texts
+            lStatBarTxt.Text =
+                "iPlan v " + Assembly.GetAssembly(typeof(iPlan_Main)).
+                                            GetName().Version.ToString();
+
+            rStatBarTxt.Text = "Welcome to iPlan! To get started in building a schedule, " +
+                               "click the '+ Time Block' button; or, open an existing" +
+                               " calendar through the file menu.";
+            #endregion
+
+            #region Month view construction
+            findMonthViewNumberTextBlocks();
+            findMonthViewLabels();
+            findMonthViewWeekBorders();
+            initCombos();
+            populateMonthViewDayLabels();
+            selectWeek(monthViewWeekBorders.ElementAt(moComboBox.SelectedIndex).Key, wkComboBox.SelectedIndex);
+            #endregion
+
+            // For rearranging the day labels later.
+            lblsMonthNames = monthViewLabels.ToArray().Cast<object>().
+                                    Cast<System.Windows.Controls.Label>();
+
+            this.Activate();
+
             wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
             wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
-            
+
             System.Windows.Input.Mouse.AddMouseWheelHandler
                 ((DependencyObject)wkCalGridContainer,
-                 new MouseWheelEventHandler(wkCalGridContainer_MouseWheel));
+                  new MouseWheelEventHandler(wkCalGridContainer_MouseWheel));
         }
 
         private void initCombos()
@@ -117,97 +144,496 @@ namespace GUIProj1
 
             for(int i = 0; ++i < 6; weeks.Add(i.ToString()));
             for (int i = 0; ++i < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString())) ;
-            for (int i = (DateTime.Today.Year - 1); ++i < 2051; years.Add(i.ToString()));
+            for (int i = (DateTime.Today.Year - 1); ++i < MAX_YEAR; years.Add(i.ToString()));
 
             moComboBox.SelectedIndex = DateTime.Now.Month - 1;
-            wkComboBox.SelectedIndex = getWeekOfMonth();
-            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
             yrComboBox.SelectedItem = DateTime.Now.Year.ToString();
+            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
+            wkComboBox.SelectedIndex = getWeekInMonth();
         }
 
-        private int getWeekOfMonth()
+        #endregion
+
+        #region Reflections helper functions that populate data structures.
+
+        private void findMonthViewNumberTextBlocks()
         {
-            int days = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
-            int dayOffset = 0;
-            DateTime first = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            switch (first.DayOfWeek.ToString())
+            Console.WriteLine("\n\nFinding day number text blocks....\n");
+
+            FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields( BindingFlags.NonPublic |
+                                                                    BindingFlags.Public    |
+                                                                    BindingFlags.Instance    );
+            foreach (FieldInfo field in iPlanFields)
+                if (field.Name.EndsWith("Number"))
+                {
+                    Console.WriteLine("Adding {0}", field.Name);
+                    monthViewDayNumbers.Add(field.GetValue(this));
+                }
+        }
+
+        private void findMonthViewLabels()
+        {
+            Console.WriteLine("\n\nFinding month labels....\n");
+
+            FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields( BindingFlags.NonPublic |
+                                                                    BindingFlags.Public    |
+                                                                    BindingFlags.Instance    );
+            foreach (FieldInfo field in iPlanFields)
+                if (field.Name.StartsWith("lblMonthView"))
+                {
+                    Console.WriteLine("Adding {0}", field.Name);
+                    monthViewLabels.Add(field.GetValue(this));
+                }
+        }
+
+        private void findMonthViewWeekBorders()
+        {
+            Console.WriteLine("\n\nFinding month view week borders....\n");
+
+            FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields(BindingFlags.NonPublic |
+                                                                    BindingFlags.Public |
+                                                                    BindingFlags.Instance);
+            foreach (FieldInfo field in iPlanFields)
+                if (field.Name.StartsWith("moCalGridWk") &&
+                    field.Name.EndsWith("Border") )
+                {
+                    Console.WriteLine("Adding {0}", field.Name);
+                    monthViewWeekBorders.Add(((Border)field.GetValue(this)),false);
+                }
+        }
+
+        #endregion
+
+        #region Grid Population Methods
+
+        private void populateMonthViewDayLabels()
+        {
+            Console.WriteLine("\n\nPopulating month grid for {0}...", moComboBox.SelectedValue.ToString());
+
+            int startDay = getFirstDayOfMonthOffset(), numDaysPrevious, numDaysCurrent;
+
+            Console.WriteLine("Start day for this month: {0}",startDay.ToString());
+
+            if (mondayFirst && startDay > 0)
+                startDay--;
+
+            // Get number of days in the previous month.
+            if (moComboBox.SelectedIndex == 0)
+                numDaysPrevious =
+                    DateTime.DaysInMonth((Int32.Parse(yrComboBox.SelectedValue.ToString()) - 1),
+                                                  /*If january, previous month is December.*/ 12);
+            else
+                numDaysPrevious =
+                    DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
+                                                                  (moComboBox.SelectedIndex + 1));
+
+            Console.WriteLine("Number of days in previous-to-the-current month, {0}: {1}",moComboBox.SelectedValue.ToString(),numDaysPrevious.ToString());
+
+            // Get number of days in current month.
+            numDaysCurrent =
+                DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
+                                                          moComboBox.SelectedIndex + 1);
+
+            Console.WriteLine("Number of days in current month, {0}: {1}", moComboBox.SelectedValue.ToString(), numDaysCurrent.ToString());
+
+            IEnumerator labels = monthViewDayNumbers.GetEnumerator();
+
+            TextBlock dayNumberTextBlock;
+
+            // Begin the iteration.
+            labels.MoveNext();
+
+            // Populate day values pertaining to the previous month,
+            // if there are any.
+            while (numDaysPrevious - startDay < numDaysPrevious)
             {
-                case "Monday":
-                    dayOffset = 1;
-                    break;
-                case "Tuesday":
-                    dayOffset = 2;
-                    break;
-                case "Wednesday":
-                    dayOffset = 3;
-                    break;
-                case "Thursday":
-                    dayOffset = 4;
-                    break;
-                case "Friday":
-                    dayOffset = 5;
-                    break;
-                case "Saturday":
-                    dayOffset = 6;
-                    break;
+                dayNumberTextBlock = (TextBlock)labels.Current;
+                dayNumberTextBlock.Opacity = .5;
+                dayNumberTextBlock.Text = (numDaysPrevious - (startDay--)).ToString();
+                Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                labels.MoveNext();
             }
 
-            return (DateTime.Now.Day + dayOffset) / 7;
+            // If there were days to populate from the previous month...
+            if (startDay < 0)
+                startDay *= -1;
+            // Else continue normally...
+            else
+                startDay++;
+            
+            // Populate the day values of the current month...
+            while (startDay <= numDaysCurrent)
+            {
+                dayNumberTextBlock = (TextBlock)labels.Current;
+                dayNumberTextBlock.Opacity = 1;
+                dayNumberTextBlock.Text = (startDay++).ToString();
+                Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                labels.MoveNext();
+            }
+
+            startDay = 1;
+
+            // Populate the remaining days in the calendar grid.
+            try
+            {
+                do
+                {
+                    dayNumberTextBlock = (TextBlock)labels.Current;
+                    dayNumberTextBlock.Opacity = .5;
+                    dayNumberTextBlock.Text = (startDay++).ToString();
+                    Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                } while (labels.MoveNext());
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                Console.WriteLine("\nCan not populate any days from the next month!\n");
+                Console.WriteLine("Enumeration failed: already reached the end of enumeration." +
+                                    "\n\nException detail:\n{0}\n\nStack trace:\n{1}\n", invOpEx.Message,
+                                                                                         invOpEx.StackTrace);
+            }
         }
+
+        private void switchDayOrder()
+        {
+            string first = lblsMonthNames.First().Content.ToString(), previous, next;
+
+            lblsMonthNames.First().Content = lblsMonthNames.Last().Content.ToString();
+            lblsMonthNames.Last().Content = first;
+
+            if(mondayFirst)
+                for (int i = lblsMonthNames.Count() - 1; i > 1; i--)
+                {
+                    previous = lblsMonthNames.ElementAt(i).Content.ToString();
+                    lblsMonthNames.ElementAt(i).Content = lblsMonthNames.ElementAt(i - 1).Content.ToString();
+                    lblsMonthNames.ElementAt(i - 1).Content = previous;
+                }
+            else
+                for (int i = 1; i < lblsMonthNames.Count() - 1; i++)
+                {
+                    next = lblsMonthNames.ElementAt(i).Content.ToString();
+                    lblsMonthNames.ElementAt(i).Content = lblsMonthNames.ElementAt(i - 1).Content.ToString();
+                    lblsMonthNames.ElementAt(i - 1).Content = next;
+                }
+
+            mondayFirst = !mondayFirst;
+        }
+
+        private void selectWeek(Border week, int index)
+        {
+            foreach (Border value in monthViewWeekBorders.Keys)
+            {
+                if (value.Equals( week )) {
+                    value.BorderBrush = System.Windows.Media.Brushes.Black;
+                    value.BorderThickness = new Thickness( 2 );
+                }
+                else {
+                    value.BorderBrush = System.Windows.Media.Brushes.Transparent;
+                    value.BorderThickness = new Thickness( 1 );
+                }
+            }
+
+            monthViewWeekBorders[week] = true;
+
+            ArrayList unselectedWeeks = new ArrayList();
+            unselectedWeeks.Cast<Border>();
+
+            foreach (Border value in monthViewWeekBorders.Keys)
+                if (!value.Equals(week))
+                    unselectedWeeks.Add(value);
+
+            foreach(Border value in unselectedWeeks)
+                monthViewWeekBorders[value] = false;
+
+            wkComboBox.SelectedIndex = index;
+        }
+
+        private int getWeekInMonth() {
+            int days =
+                DateTime.DaysInMonth( Int32.Parse( yrComboBox.SelectedValue.ToString() ),
+                                                        ( moComboBox.SelectedIndex + 1 ) );
+            int dayOffset = getFirstDayOfMonthOffset();
+
+            return ( DateTime.Now.Day + dayOffset ) / 7;
+        }
+
+        private int getFirstDayOfMonthOffset() {
+            DateTime first =
+                new DateTime( Int32.Parse( yrComboBox.SelectedValue.ToString() ),
+                                              ( moComboBox.SelectedIndex + 1 ), 1 );
+
+            switch (first.DayOfWeek.ToString()) {
+            case "Monday":
+                return 1;
+            case "Tuesday":
+                return 2;
+            case "Wednesday":
+                return 3;
+            case "Thursday":
+                return 4;
+            case "Friday":
+                return 5;
+            case "Saturday":
+                return 6;
+            default:
+                return 0;
+            }
+        }
+
+        #endregion
 
         #endregion
 
         #region Event Handlers
 
-        private void selectWeekOne_click(object sender, RoutedEventArgs e)
+        #region iPlan Main Window events
+
+        //Jon
+        private void iPlanMain_LocationChanged(object sender, EventArgs e)
         {
-            this.chgViewMode(sender, e);
-            this.wkComboBox.SelectedIndex = 0;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
+
+            tBlocks = timeBlocks.GetEnumerator();
+            if (tBlocks.Current == null)
+                tBlocks.MoveNext();
+            if (timeBlocks.Count != 0 && tBlocks.Current != null)
+            {
+                do
+                {
+                    if (tBlocks.Current.IsEnabled)
+                    {
+                        //tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
+                        //    - tBlocks.Current.getGO().getPxDiffs()[1]);
+                        //tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
+                        //    - tBlocks.Current.getGO().getPxDiffs()[0];
+                        tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left, tBlocks.Current.Top - this.Top);
+                    }
+                    else if (!tBlocks.Current.IsEnabled)
+                    {
+                        tmp = tBlocks.Current;
+                        break;
+                    }
+                } while (tBlocks.MoveNext());
+            }
+            tBlocks.Dispose();
+
+            if (tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+            }
         }
 
-        private void selectWeekTwo_click(object sender, RoutedEventArgs e)
+        //Jon
+        private void iPlanMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            this.chgViewMode(sender, e);
-            this.wkComboBox.SelectedIndex = 1;
+            System.Environment.Exit(System.Environment.ExitCode);
         }
 
-        private void selectWeekThree_click(object sender, RoutedEventArgs e)
+        private void iPlanMain_windowStateChanged(object sender, EventArgs e)
         {
-            this.chgViewMode(sender, e);
-            this.wkComboBox.SelectedIndex = 2;
+            tBlocks = timeBlocks.GetEnumerator();
+            if (this.WindowState == WindowState.Minimized)
+            {
+                if (tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if (timeBlocks.Count != 0 && tBlocks.Current != null)
+                {
+                    do
+                    {
+                        if (tBlocks.Current.IsEnabled)
+                        {
+                            tBlocks.Current.Topmost = false;
+                            tBlocks.Current.Visibility = Visibility.Hidden;
+                        }
+                        else if (!tBlocks.Current.IsEnabled)
+                        {
+                            tmp = tBlocks.Current;
+                            break;
+                        }
+                    } while (tBlocks.MoveNext());
+                }
+            }
+            else if (this.WindowState == WindowState.Maximized || this.WindowState == WindowState.Normal)
+            {
+                if (tBlocks.Current == null)
+                    tBlocks.MoveNext();
+                if (timeBlocks.Count != 0 && tBlocks.Current != null)
+                {
+                    do
+                    {
+                        if (tBlocks.Current.Visibility != Visibility.Visible
+                            && tBlocks.Current.IsEnabled)
+                        {
+                            tBlocks.Current.Topmost = true;
+                            tBlocks.Current.Visibility = Visibility.Visible;
+                        }
+                        else if (!tBlocks.Current.IsEnabled)
+                        {
+                            tmp = tBlocks.Current;
+                            break;
+                        }
+                    } while (tBlocks.MoveNext());
+                }
+            }
+            tBlocks.Dispose();
+            if (tmp != null && !tmp.IsEnabled)
+            {
+                timeBlocks.Remove(tmp);
+                tmp = null;
+            }
         }
 
-        private void selectWeekFour_click(object sender, RoutedEventArgs e)
+        private void iPlanMain_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.chgViewMode(sender, e);
-            this.wkComboBox.SelectedIndex = 3;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
         }
 
-        private void selectWeekFive_click(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region Click Events
+
+        private void calSaveAs_Click(object sender, RoutedEventArgs e)
         {
-            this.chgViewMode(sender, e);
-            this.wkComboBox.SelectedIndex = 4;
+            openOrSaveCal = new OpenFileDialog();
+            openOrSaveCal.ShowDialog();
+        }
+
+        private void calSave_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (newcal)
+                calSaveAs_Click(sender, e);
+            else
+                saveCurrentCal();
+        }
+
+        private void newCal_event_click(object sender, RoutedEventArgs e)
+        {
+            calSaveAs_Click(sender, e);
+            parent.Show();
+            this.Hide();
+        }
+
+        private void openCal_Click_1(object sender, RoutedEventArgs e)
+        {
+            openOrSaveCal = new OpenFileDialog();
+            openOrSaveCal.ShowDialog();
+        }
+
+        private void selectWeek_click(object sender, RoutedEventArgs e)
+        {
+            string buttonName = ((System.Windows.Controls.Button)sender).Name;
+
+            Console.WriteLine("\n\nButton name: {0}\n", buttonName);
+
+            int index = -1;
+
+            try
+            {
+                index = Int32.Parse(buttonName.Substring(buttonName.Length - 1));
+            }
+
+            #region Handle exceptions...
+
+            catch (FormatException formEx)
+            {
+                Console.WriteLine("\nIncorrect input format.\n\n" +
+                                  "Exception:\n{0}\n\nStack trace:\n{1}\n",
+                                            formEx.Message, formEx.StackTrace);
+            }
+            catch (ArgumentNullException argNullEx)
+            {
+                Console.WriteLine("\nNull input not accepted.\n\n" +
+                                  "Exception:\n{0}\n\nStack trace:\n{1}\n",
+                                            argNullEx.Message, argNullEx.StackTrace);
+            }
+            catch (OverflowException overflowEx)
+            {
+                Console.WriteLine("\nInput cause an overflow.\n\n" +
+                                  "Exception:\n{0}\n\nStack trace:\n{1}\n",
+                                            overflowEx.Message, overflowEx.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("\nUnknown error.\n\n" +
+                                  "Exception:\n{0}\n\nStack trace:\n{1}\n",
+                                            ex.Message, ex.StackTrace);
+            }
+
+            #endregion
+
+            #region Then decide what to do.
+
+            switch (index)
+            {
+                case 0:
+                    if (monthViewWeekBorders[moCalGridWkOneBorder])
+                    {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode(sender, e);
+                    }
+                    else
+                        selectWeek(moCalGridWkOneBorder, index);
+                    break;
+                case 1:
+                    if (monthViewWeekBorders[moCalGridWkTwoBorder])
+                    {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode(sender, e);
+                    }
+                    else
+                        selectWeek(moCalGridWkTwoBorder, index);
+                    break;
+                case 2:
+                    if (monthViewWeekBorders[moCalGridWkThreeBorder])
+                    {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode(sender, e);
+                    }
+                    else
+                        selectWeek(moCalGridWkThreeBorder, index);
+                    break;
+                case 3:
+                    if (monthViewWeekBorders[moCalGridWkFourBorder])
+                    {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode(sender, e);
+                    }
+                    else
+                        selectWeek(moCalGridWkFourBorder, index);
+                    break;
+                case 4:
+                    if (monthViewWeekBorders[moCalGridWkFiveBorder])
+                    {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode(sender, e);
+                    }
+                    else
+                        selectWeek(moCalGridWkFiveBorder, index);
+                    break;
+                case 5:
+                    if (monthViewWeekBorders[ moCalGridWkSixBorder ]) {
+
+                        wkComboBox.SelectedIndex = index;
+                        chgViewMode( sender, e );
+                    }
+                    else
+                        selectWeek( moCalGridWkSixBorder, index );
+                    break;
+            }
+
+            #endregion
         }
 
         //Jon
         private void file_quit(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        //Jon
-        private void labelTxtBoxFill(object sender, ToolTipEventArgs e)
-        {
-            if (ed)
-            {
-                System.Windows.Controls.Label clicked = (System.Windows.Controls.Label)sender;
-                if (txtboxStartTime.IsFocused)
-                    txtboxStartTime.Text = clicked.Content.ToString();
-                else if (txtboxEndTime.IsFocused)
-                    txtboxEndTime.Text = clicked.Content.ToString();
-            }
-            else if (!ed && (txtboxStartTime.IsFocused || txtboxEndTime.IsFocused))
-                System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
         }
 
         //Jon
@@ -234,15 +660,15 @@ namespace GUIProj1
                 // Make all the time blocks hidden if we
                 // move to month view
                 tBlocks = timeBlocks.GetEnumerator();
-                if(tBlocks.Current == null)
+                if (tBlocks.Current == null)
                     tBlocks.MoveNext();
-                if(timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
+                if (timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
                 {
                     do
                     {
                         tBlocks.Current.Topmost = false;
                         tBlocks.Current.Visibility = Visibility.Hidden;
-                    }while(tBlocks.MoveNext());
+                    } while (tBlocks.MoveNext());
                 }
                 // Clean up....
                 tBlocks.Dispose();
@@ -265,7 +691,7 @@ namespace GUIProj1
                     + "long term goals. Easily organize your "
                     + "thoughts and notify your team of changes"
                     + " and new ideas.";
-                
+
                 view = true;
             }
             else if (this.moCalGridContainerBorder.Visibility == Visibility.Visible)
@@ -273,26 +699,26 @@ namespace GUIProj1
                 this.wkCalGridContainerBorder.Visibility = Visibility.Visible;
 
                 tBlocks = timeBlocks.GetEnumerator();
-                if(tBlocks.Current == null)
+                if (tBlocks.Current == null)
                     tBlocks.MoveNext();
-                if(timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
+                if (timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
                 {
                     do
                     {
-                        if(tBlocks.Current.IsEnabled)
+                        if (tBlocks.Current.IsEnabled)
                         {
                             tBlocks.Current.Topmost = true;
                             tBlocks.Current.Visibility = Visibility.Visible;
                         }
-                        else if(!tBlocks.Current.IsEnabled)
+                        else if (!tBlocks.Current.IsEnabled)
                         {
                             tmp = tBlocks.Current;
                             break;
                         }
-                    }while(tBlocks.MoveNext());
+                    } while (tBlocks.MoveNext());
                 }
                 tBlocks.Dispose();
-                if(tmp != null && !tmp.IsEnabled)
+                if (tmp != null && !tmp.IsEnabled)
                 {
                     timeBlocks.Remove(tmp);
                     tmp = null;
@@ -329,7 +755,7 @@ namespace GUIProj1
                 else
                     System.Windows.MessageBox.Show("Edit mode disabled");
             }*/
-            if(ed)
+            if (ed)
                 System.Windows.MessageBox.Show("Edit mode enabled");
             else
                 System.Windows.MessageBox.Show("Edit mode disabled");
@@ -388,42 +814,6 @@ namespace GUIProj1
             }
         }
 
-        //Jon
-        private void iPlanMain_LocationChanged(object sender, EventArgs e)
-        {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
-            tBlocks = timeBlocks.GetEnumerator();
-            if (tBlocks.Current == null)
-                tBlocks.MoveNext();
-            if (timeBlocks.Count != 0 && tBlocks.Current != null)
-            {
-                do
-                {
-                    if (tBlocks.Current.IsEnabled)
-                    {
-                        //tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
-                        //    - tBlocks.Current.getGO().getPxDiffs()[1]);
-                        //tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
-                        //    - tBlocks.Current.getGO().getPxDiffs()[0];
-                        tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left, tBlocks.Current.Top - this.Top);
-                    }
-                    else if (!tBlocks.Current.IsEnabled)
-                    {
-                        tmp = tBlocks.Current;
-                        break;
-                    }
-                } while (tBlocks.MoveNext());
-            }
-            tBlocks.Dispose();
-
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-            }
-        }
-
         //Ryan
         private void openTeam_Click(object sender, RoutedEventArgs e)
         {
@@ -435,12 +825,6 @@ namespace GUIProj1
             catch (Exception ex) { System.Windows.Forms.MessageBox.Show(ex.ToString()); }
         }
 
-        //Jon
-        private void iPlanMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            System.Environment.Exit(System.Environment.ExitCode);
-        }
-
         //George
         private void newTeamMember_Click(object sender, RoutedEventArgs e)
         {
@@ -450,136 +834,23 @@ namespace GUIProj1
 
         }
 
-        private void iPlanMain_windowStateChanged(object sender, EventArgs e)
+        private void gridContextMenu_Click(object sender, RoutedEventArgs e)
         {
-            tBlocks = timeBlocks.GetEnumerator();
-            if (this.WindowState == WindowState.Minimized)
-            {
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null)
-                {
-                    do
-                    {
-                        if (tBlocks.Current.IsEnabled)
-                        {
-                            tBlocks.Current.Topmost = false;
-                            tBlocks.Current.Visibility = Visibility.Hidden;
-                        }
-                        else if (!tBlocks.Current.IsEnabled)
-                        {
-                            tmp = tBlocks.Current;
-                            break;
-                        }
-                    } while (tBlocks.MoveNext());
-                }
-            }
-            else if (this.WindowState == WindowState.Maximized || this.WindowState == WindowState.Normal)
-            {
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null)
-                {
-                    do
-                    {
-                        if (tBlocks.Current.Visibility != Visibility.Visible
-                            && tBlocks.Current.IsEnabled)
-                        {
-                            tBlocks.Current.Topmost = true;
-                            tBlocks.Current.Visibility = Visibility.Visible;
-                        }
-                        else if (!tBlocks.Current.IsEnabled)
-                        {
-                            tmp = tBlocks.Current;
-                            break;
-                        }
-                    } while (tBlocks.MoveNext());
-                }
-            }
-            tBlocks.Dispose();
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-            }
-        }
-
-        private void iPlanMain_mouseOver(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            tBlocks = timeBlocks.GetEnumerator();
-            if (tBlocks.Current == null)
-                tBlocks.MoveNext();
-            if (timeBlocks.Count != 0 && tBlocks.Current != null)
-            {
-                do
-                {
-                    if (tBlocks.Current.IsEnabled)
-                    {
-                        tBlocks.Current.Topmost = true;
-                        tBlocks.Current.Visibility = Visibility.Visible;
-                    }
-                    else if (!tBlocks.Current.IsEnabled)
-                    {
-                        tmp = tBlocks.Current;
-                        break;
-                    }
-                } while (tBlocks.MoveNext());
-            }
-            tBlocks.Dispose();
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-            }
-        }
-
-        private void iPlanMain_mouseNotOver(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            bool overAny = false;
-            int activeBlock;
-            tBlocks = timeBlocks.GetEnumerator();
-            if (timeBlocks.Count > 0)
-            {
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-
-                do
-                {
-                    if (tBlocks.Current != null
-                        && tBlocks.Current.IsMouseOver)
-                    {
-                        overAny = true;
-                        break;
-                    }
-                } while (tBlocks.MoveNext());
-                tBlocks.Dispose();
-
-                if (!overAny)
-                {
-                    tBlocks = timeBlocks.GetEnumerator();
-                    if (tBlocks.Current == null)
-                        tBlocks.MoveNext();
-                    do
-                    {
-                        tBlocks.Current.Topmost = false;
-                        tBlocks.Current.Visibility = Visibility.Hidden;
-                    } while (tBlocks.MoveNext());
-                    tBlocks.Dispose();
-                }
-            }
-        }
-
-        private void iPlanMain_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            contextClckMkBlck = true;
+            addTimeBlock_Click(this, e);
         }
 
         private void propCalButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
                 + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
-                + "\nMainGrdHght: " + monthGrid.ActualHeight + "\nMainGrdWdth: "
-                + monthGrid.ActualWidth);
+                + "\nMonthGrdHght: " + monthGrid.ActualHeight + "\nMonthGrdWdth: "
+                + monthGrid.ActualWidth + "\n" + mainGrid.ActualHeight + "\n" + mainGrid.ActualWidth);
+        }
+
+        private void detailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO write this.
         }
 
         /* Ryan */
@@ -590,6 +861,10 @@ namespace GUIProj1
                 tb.Value = 0;
             }
         }
+
+        #endregion
+
+        #region Week Grid Events
 
         private void wkCalGridContainer_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
@@ -612,12 +887,6 @@ namespace GUIProj1
             mousePositionTmp = System.Windows.Input.Mouse.GetPosition((IInputElement)this);
         }
 
-        private void gridContextMenu_Click(object sender, RoutedEventArgs e)
-        {
-            contextClckMkBlck = true;
-            addTimeBlock_Click(this, e);
-        }
-
         private void wkCalGridContainer_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             mouseWheelDeltaTmp = e.Delta;
@@ -633,53 +902,76 @@ namespace GUIProj1
             }
         }
 
-        private void openCal_Click_1(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region Main window Combo/Text Box events
+
+        private void moComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            openOrSaveCal = new OpenFileDialog();
-            openOrSaveCal.ShowDialog();
+            if (yrComboBox.SelectedValue != null &&
+                ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
+                 (getFirstDayOfMonthOffset() > 4 && !mondayFirst)))
+
+                switchDayOrder();
+
+            if (yrComboBox.SelectedValue != null)
+                populateMonthViewDayLabels();
         }
 
-        //private 
-
-        private void calSaveAs_Click(object sender, RoutedEventArgs e)
+        private void wkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            openOrSaveCal = new OpenFileDialog();
-            openOrSaveCal.ShowDialog();
+            int index = wkComboBox.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    selectWeek(moCalGridWkOneBorder, index);
+                    break;
+                case 1:
+                    selectWeek(moCalGridWkTwoBorder, index);
+                    break;
+                case 2:
+                    selectWeek(moCalGridWkThreeBorder, index);
+                    break;
+                case 3:
+                    selectWeek(moCalGridWkFourBorder, index);
+                    break;
+                case 4:
+                    selectWeek(moCalGridWkFiveBorder, index);
+                    break;
+            }
         }
 
-        private void calSave_Button_Click(object sender, RoutedEventArgs e)
+        private void yrComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (newcal)
-                calSaveAs_Click(sender, e);
-            else
-                saveCurrentCal();
+            if (moComboBox.SelectedValue != null &&
+                ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
+                 (getFirstDayOfMonthOffset() > 4 && !mondayFirst)    ))
+
+                switchDayOrder();
+
+            if(moComboBox.SelectedValue != null)
+                populateMonthViewDayLabels();
         }
 
-        private void newCal_event_click(object sender, RoutedEventArgs e)
-        {
-            calSaveAs_Click(sender, e);
-            parent.Show();
-            this.Hide();
+        //Jon
+        private void labelTxtBoxFill( object sender, ToolTipEventArgs e ) {
+            if (ed) {
+                System.Windows.Controls.Label clicked = (System.Windows.Controls.Label)sender;
+                if (txtboxStartTime.IsFocused)
+                    txtboxStartTime.Text = clicked.Content.ToString();
+                else if (txtboxEndTime.IsFocused)
+                    txtboxEndTime.Text = clicked.Content.ToString();
+            }
+            else if (!ed && ( txtboxStartTime.IsFocused || txtboxEndTime.IsFocused ))
+                System.Windows.Forms.MessageBox.Show( "Please Enable Edit Mode to change the schedule." );
         }
 
         #endregion
 
+        #endregion
+
         #region GridObject Operations
-
-        //Jon
-        private String[] getNamesOfCurrentTeam()
-        {
-            int i = 0;
-            String[] participNames = new String[teamSize];
-
-            foreach (TeamMember member in team.getMemberList())
-            {
-                participNames[i] = member.getName();
-                i++;
-            }
-
-            return participNames;
-        }
 
         //Jon
         private void setObjSlot(GridObject o, ArrayList gridObjects)
@@ -691,17 +983,6 @@ namespace GUIProj1
             }
             else
                 System.Windows.Forms.MessageBox.Show("Please Enable Edit Mode to change the schedule.");
-        }
-
-        //Jon
-        public ArrayList getTeam()
-        {
-            return gridContents;
-        }
-
-        public string toString()
-        {
-            return gridContents.ToString();
         }
 
         //Jon
@@ -847,7 +1128,55 @@ namespace GUIProj1
 
         #endregion
 
+        #region Team Operations
+
+        //Jon
+        private ArrayList getNamesOfTeamMembers()
+        {
+            String[] participNames;
+            ArrayList teamMemberNames = new ArrayList();
+
+            teamMemberNames.Cast<String[]>();
+
+            foreach (Team team in teams)
+            {
+                participNames = new String[team.getMemberList().Count()];
+
+                TeamMember[] members = team.getMemberList();
+
+                for (int i = 0; i < participNames.Length; )
+                    participNames[i] = members[i].getName();
+
+                teamMemberNames.Add(participNames);
+            }
+
+            return teamMemberNames;
+        }
+
+        //Jon
+        public Team getTeam(string name)
+        {
+            foreach(Team t in teams)
+                if (t.teamName.Equals(name))
+                    return t;
+
+            return null;
+        }
+
+        public ArrayList getTeams()
+        {
+            return teams;
+        }
+
+        #endregion
+
         #region Miscellaneous Functions
+
+        public override string ToString()
+        {
+            // TODO Write some string stuff.
+            return this.Name;
+        }
 
         /* Ryan */
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
@@ -883,13 +1212,17 @@ namespace GUIProj1
             //TODO write save calendar code
         }
 
+        /// <summary>
+        /// Parses a saved iPlan CSV file.
+        /// </summary>
+        /// <param name="calendar">Stream that contains the open CSV calendar file</param>
+        /// <returns>True if the calendar successfully loaded, otherwise false.</returns>
         private bool parseIPlanCal(System.IO.Stream calendar)
         {
-            System.IO.StreamReader calReader = new System.IO.StreamReader(calendar);
+            StreamReader calReader = new StreamReader(calendar);
             string rawCalData = calReader.ReadLine();
-            
-            char[] delimiter = { ',' };
-            string[] calData = rawCalData.Split(delimiter);
+
+            string[] calData = rawCalData.Split(new char[] {','});
             
             foreach(string str in calData)
                 str.Trim();

@@ -65,6 +65,7 @@ namespace GUIProj1
             }
             catch(InvalidOperationException invOpEx)
             {
+                Console.WriteLine(invOpEx);
                 OnMouseLeftButtonUp(e);
             }
         }

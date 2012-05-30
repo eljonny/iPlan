@@ -3,6 +3,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     StartupUri="iPlan_Welcome.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type TextBlock}" x:Key="txtBlckFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style TargetType="{x:Type Menu}" x:Key="menuFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+        <Style TargetType="{x:Type Label}" x:Key="lblFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" x:Key="cmbBoxFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}" x:Key="txtBoxFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="btnFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+        <Style TargetType="{x:Type StatusBarItem}" x:Key="statBarItmFontStyle">
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
     </Application.Resources>
 </Application>
