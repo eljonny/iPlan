@@ -396,7 +396,7 @@
 
                 <!-- Calander week grid scrolling container to control content overflow. -->
                 <ScrollViewer Name="wkCalGridContainerScrollViewer" Grid.ColumnSpan="8" ContextMenuOpening="weekGrid_ContextMenuOpening"
-                              ScrollChanged="wkCalGridContainer_ScrollChanged" Style="{StaticResource scrVwrStyle}">
+                              ScrollChanged="wkCalGridContainerScrollViewer_ScrollChanged" Style="{StaticResource scrVwrStyle}">
 
                     <!-- Context menu to add a time block at the position where the context menu was opened. -->
                     <ScrollViewer.ContextMenu>

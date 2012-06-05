@@ -53,7 +53,7 @@ namespace GUIProj1
         private int mouseWheelDeltaTmp;
         private string calName = null;
         private double pxDiffBlockTop, pxDiffBlockLeft,
-                       wkCalGridContainerHeight, wkCalGridContainerWidth;
+                       wkCalGridContainerScrollViewerHeight, wkCalGridContainerScrollViewerWidth;
         private System.Windows.Point mousePositionTmp;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
         private LinkedList<TimeBlock>.Enumerator tBlocks;
@@ -129,12 +129,12 @@ namespace GUIProj1
 
             this.Activate();
 
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
+            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
 
             System.Windows.Input.Mouse.AddMouseWheelHandler
-                ((DependencyObject)wkCalGridContainer,
-                  new MouseWheelEventHandler(wkCalGridContainer_MouseWheel));
+                ((DependencyObject)wkCalGridContainerScrollViewer,
+                  new MouseWheelEventHandler(wkCalGridContainerScrollViewer_MouseWheel));
         }
 
         private void initCombos()
@@ -507,8 +507,8 @@ namespace GUIProj1
 
         private void iPlanMain_LocationChanged(object sender, EventArgs e)
         {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
+            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
 
             if (timeBlocks.Count > 0)
                 while (tBlocks.MoveNext())
@@ -548,7 +548,7 @@ namespace GUIProj1
 
         private void iPlanMain_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
         }
 
         #endregion
@@ -860,8 +860,8 @@ namespace GUIProj1
 
         private void propCalButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
-                + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
+            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainerScrollViewer.ActualHeight
+                + "\nCalGrdWdth: " + wkCalGridContainerScrollViewer.ActualWidth
                 + "\nMonthGrdHght: " + monthGrid.ActualHeight + "\nMonthGrdWdth: "
                 + monthGrid.ActualWidth + "\n" + mainGrid.ActualHeight + "\n" + mainGrid.ActualWidth);
         }
@@ -892,14 +892,14 @@ namespace GUIProj1
 
         #region Week Grid Events
 
-        private void wkCalGridContainer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        private void wkCalGridContainerScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             if (timeBlocks.Count > 0)
             {
                 tBlocks = timeBlocks.GetEnumerator();
 
                 while (tBlocks.MoveNext())
-                    tBlocks.Current.setScrollContentOffset(wkCalGridContainer.VerticalOffset);
+                    tBlocks.Current.setScrollContentOffset(wkCalGridContainerScrollViewer.VerticalOffset);
 
                 tBlocks.Dispose();
             }
@@ -910,7 +910,7 @@ namespace GUIProj1
             mousePositionTmp = System.Windows.Input.Mouse.GetPosition((IInputElement)this);
         }
 
-        private void wkCalGridContainer_MouseWheel(object sender, MouseWheelEventArgs e)
+        private void wkCalGridContainerScrollViewer_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             mouseWheelDeltaTmp = e.Delta;
 
