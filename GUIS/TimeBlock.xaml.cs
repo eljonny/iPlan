@@ -55,6 +55,7 @@ namespace GUIProj1
             maxPxDiffTop = iPlMain.menuComboLabelRow.ActualHeight + iPlMain.moCalGridLabelRow.ActualHeight;
             maxPxDiffRight = maxPxDiffLeft + iPlMain.wkCalGridContainerScrollViewer.ActualWidth;
             maxPxDiffBottomMax = maxPxDiffTop + iPlMain.wkGrid.ActualHeight;
+            setParental(parent);
         }
 
         #endregion

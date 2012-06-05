@@ -23,7 +23,7 @@ using System.IO;
 
 #endregion
 
-//   Author Jonathan Hyry, Ryan Soushek
+//   Author Jonathan Hyry, Ryan Soushek, George Wanjiru
 namespace GUIProj1
 {
     /// <summary>
@@ -39,7 +39,8 @@ namespace GUIProj1
         private ArrayList gridContents = new ArrayList(),
                           monthViewDayNumbers = new ArrayList(),
                           monthViewLabels = new ArrayList(),
-                          teams = new ArrayList();
+                          teams = new ArrayList(),
+                          inactiveBlocks = new ArrayList();
 
         // <Border object, is week selected?>
         private Dictionary<Border, Boolean> monthViewWeekBorders = new Dictionary<Border, Boolean>();
@@ -52,8 +53,7 @@ namespace GUIProj1
         private int mouseWheelDeltaTmp;
         private string calName = null;
         private double pxDiffBlockTop, pxDiffBlockLeft,
-                       wkCalGridContainerScrollViewerHeight, wkCalGridContainerScrollViewerWidth;
-        private TimeBlock tmp;
+                       wkCalGridContainerHeight, wkCalGridContainerWidth;
         private System.Windows.Point mousePositionTmp;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
         private LinkedList<TimeBlock>.Enumerator tBlocks;
@@ -102,6 +102,7 @@ namespace GUIProj1
             monthViewLabels.Cast<System.Windows.Controls.Label>();
             monthViewWeekBorders.Cast<Border>();
             teams.Cast<Team>();
+            inactiveBlocks.Cast<TimeBlock>();
             #endregion
 
             #region Set initial status bars texts
@@ -120,7 +121,6 @@ namespace GUIProj1
             findMonthViewWeekBorders();
             initCombos();
             populateMonthViewDayLabels();
-            selectWeek(monthViewWeekBorders.ElementAt(moComboBox.SelectedIndex).Key, wkComboBox.SelectedIndex);
             #endregion
 
             // For rearranging the day labels later.
@@ -129,11 +129,11 @@ namespace GUIProj1
 
             this.Activate();
 
-            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
-            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
 
             System.Windows.Input.Mouse.AddMouseWheelHandler
-                ((DependencyObject)wkCalGridContainerScrollViewer,
+                ((DependencyObject)wkCalGridContainer,
                   new MouseWheelEventHandler(wkCalGridContainer_MouseWheel));
         }
 
@@ -143,14 +143,36 @@ namespace GUIProj1
             ItemCollection years = yrComboBox.Items;
             ItemCollection days = dayComboBox.Items;
 
-            for(int i = 0; ++i < 6; weeks.Add(i.ToString()));
-            for (int i = 0; ++i < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString())) ;
+            for(int i = 0; ++i < 7; weeks.Add(i.ToString()));
+            for (int i = 0; i++ < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString()));
             for (int i = (DateTime.Today.Year - 1); ++i < MAX_YEAR; years.Add(i.ToString()));
 
+            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
             moComboBox.SelectedIndex = DateTime.Now.Month - 1;
             yrComboBox.SelectedItem = DateTime.Now.Year.ToString();
-            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
-            wkComboBox.SelectedIndex = getWeekInMonth();
+            wkComboBox.SelectedIndex = getWeekInMonth() - 1;
+        }
+
+        private void resetDayItemCollection()
+        {
+            int selectedDayIndex = dayComboBox.SelectedIndex;
+#if DEBUG
+            Console.WriteLine("Rebuilding day combo box... selected day: {0}", selectedDayIndex + 1);
+#endif
+            ItemCollection days = dayComboBox.Items;
+
+            days.Clear();
+
+            for (int i = 0;
+                i++ < DateTime.DaysInMonth
+                        (Int32.Parse
+                            ((string)yrComboBox.SelectedValue),
+                                   moComboBox.SelectedIndex + 1);
+                days.Add(i.ToString()));
+#if DEBUG
+            Console.WriteLine("Selecting day with index {0}", selectedDayIndex);
+#endif
+            dayComboBox.SelectedIndex = selectedDayIndex;
         }
 
         #endregion
@@ -159,38 +181,45 @@ namespace GUIProj1
 
         private void findMonthViewNumberTextBlocks()
         {
+#if DEBUG
             Console.WriteLine("\n\nFinding day number text blocks....\n");
-
+#endif
             FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields( BindingFlags.NonPublic |
                                                                     BindingFlags.Public    |
                                                                     BindingFlags.Instance    );
             foreach (FieldInfo field in iPlanFields)
                 if (field.Name.EndsWith("Number"))
                 {
+#if DEBUG
                     Console.WriteLine("Adding {0}", field.Name);
+#endif
                     monthViewDayNumbers.Add(field.GetValue(this));
                 }
         }
 
         private void findMonthViewLabels()
         {
+#if DEBUG
             Console.WriteLine("\n\nFinding month labels....\n");
-
+#endif
             FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields( BindingFlags.NonPublic |
                                                                     BindingFlags.Public    |
                                                                     BindingFlags.Instance    );
             foreach (FieldInfo field in iPlanFields)
                 if (field.Name.StartsWith("lblMonthView"))
                 {
+#if DEBUG
                     Console.WriteLine("Adding {0}", field.Name);
+#endif           
                     monthViewLabels.Add(field.GetValue(this));
                 }
         }
 
         private void findMonthViewWeekBorders()
         {
+#if DEBUG
             Console.WriteLine("\n\nFinding month view week borders....\n");
-
+#endif
             FieldInfo[] iPlanFields = typeof(iPlan_Main).GetFields(BindingFlags.NonPublic |
                                                                     BindingFlags.Public |
                                                                     BindingFlags.Instance);
@@ -198,7 +227,9 @@ namespace GUIProj1
                 if (field.Name.StartsWith("moCalGridWk") &&
                     field.Name.EndsWith("Border") )
                 {
+#if DEBUG
                     Console.WriteLine("Adding {0}", field.Name);
+#endif           
                     monthViewWeekBorders.Add(((Border)field.GetValue(this)),false);
                 }
         }
@@ -209,16 +240,17 @@ namespace GUIProj1
 
         private void populateMonthViewDayLabels()
         {
+#if DEBUG
             Console.WriteLine("\n\nPopulating month grid for {0}...", moComboBox.SelectedValue.ToString());
-
+#endif
             int startDay = getFirstDayOfMonthOffset(), numDaysPrevious, numDaysCurrent;
-
+#if DEBUG
             Console.WriteLine("Start day for this month: {0}",startDay.ToString());
-
+#endif
             if (mondayFirst && startDay > 0)
                 startDay--;
 
-            // Get number of days in the previous month.
+            #region Get number of days in the previous month.
             if (moComboBox.SelectedIndex == 0)
                 numDaysPrevious =
                     DateTime.DaysInMonth((Int32.Parse(yrComboBox.SelectedValue.ToString()) - 1),
@@ -226,34 +258,40 @@ namespace GUIProj1
             else
                 numDaysPrevious =
                     DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
-                                                                  (moComboBox.SelectedIndex + 1));
+                                                                  (moComboBox.SelectedIndex));
+#if DEBUG
+            Console.WriteLine("Number of days in previous-to-the-current month, {0}: {1}",moComboBox.SelectedIndex,numDaysPrevious.ToString());
+#endif
+            #endregion
 
-            Console.WriteLine("Number of days in previous-to-the-current month, {0}: {1}",moComboBox.SelectedValue.ToString(),numDaysPrevious.ToString());
-
-            // Get number of days in current month.
+            #region Get number of days in current month.
             numDaysCurrent =
                 DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
                                                           moComboBox.SelectedIndex + 1);
-
-            Console.WriteLine("Number of days in current month, {0}: {1}", moComboBox.SelectedValue.ToString(), numDaysCurrent.ToString());
+#if DEBUG
+            Console.WriteLine("Number of days in current month, {0}: {1}", (moComboBox.SelectedIndex + 1), numDaysCurrent.ToString());
+#endif
+            #endregion
 
             IEnumerator labels = monthViewDayNumbers.GetEnumerator();
 
             TextBlock dayNumberTextBlock;
 
-            // Begin the iteration.
+            #region Begin the iteration.
             labels.MoveNext();
 
-            // Populate day values pertaining to the previous month,
-            // if there are any.
+            #region Populate day values pertaining to the previous month, if there are any.
             while (numDaysPrevious - startDay < numDaysPrevious)
             {
                 dayNumberTextBlock = (TextBlock)labels.Current;
                 dayNumberTextBlock.Opacity = .5;
                 dayNumberTextBlock.Text = (numDaysPrevious - (startDay--)).ToString();
+#if DEBUG
                 Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+#endif
                 labels.MoveNext();
             }
+            #endregion
 
             /* Might need this later....
              * 
@@ -264,20 +302,23 @@ namespace GUIProj1
             else
              * */
             startDay++;
-            
-            // Populate the day values of the current month...
+
+            #region Populate the day values of the current month...
             while (startDay <= numDaysCurrent)
             {
                 dayNumberTextBlock = (TextBlock)labels.Current;
                 dayNumberTextBlock.Opacity = 1;
                 dayNumberTextBlock.Text = (startDay++).ToString();
+#if DEBUG
                 Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+#endif
                 labels.MoveNext();
             }
+            #endregion
 
             startDay = 1;
 
-            // Populate the remaining days in the calendar grid.
+            #region Populate the remaining days in the calendar grid.
             try
             {
                 do
@@ -285,7 +326,9 @@ namespace GUIProj1
                     dayNumberTextBlock = (TextBlock)labels.Current;
                     dayNumberTextBlock.Opacity = .5;
                     dayNumberTextBlock.Text = (startDay++).ToString();
+#if DEBUG
                     Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+#endif
                 } while (labels.MoveNext());
             }
             catch (InvalidOperationException invOpEx)
@@ -295,10 +338,16 @@ namespace GUIProj1
                                     "\n\nException detail:\n{0}\n\nStack trace:\n{1}\n", invOpEx.Message,
                                                                                          invOpEx.StackTrace);
             }
+            #endregion
+
+            #endregion
         }
 
         private void switchDayOrder()
         {
+            if (lblsMonthNames == null)
+                return;
+
             string first = lblsMonthNames.First().Content.ToString(), previous, next;
 
             lblsMonthNames.First().Content = lblsMonthNames.Last().Content.ToString();
@@ -324,13 +373,22 @@ namespace GUIProj1
 
         private void selectWeek(Border week, int index)
         {
+#if DEBUG
+            Console.WriteLine("Week index: {0}",index);
+#endif
             foreach (Border value in monthViewWeekBorders.Keys)
             {
-                if (value.Equals( week )) {
+                if (value.Name.Equals( week.Name )) {
+#if DEBUG
+                    Console.WriteLine("\nWeek set to {0}", value.Name);
+#endif
                     value.BorderBrush = System.Windows.Media.Brushes.Black;
                     value.BorderThickness = new Thickness( 2 );
                 }
                 else {
+#if DEBUG
+                    Console.WriteLine("Not selecting week {0}!", value.Name);
+#endif           
                     value.BorderBrush = System.Windows.Media.Brushes.Transparent;
                     value.BorderThickness = new Thickness( 1 );
                 }
@@ -351,16 +409,72 @@ namespace GUIProj1
             wkComboBox.SelectedIndex = index;
         }
 
-        private int getWeekInMonth() {
-            int days =
-                DateTime.DaysInMonth( Int32.Parse( yrComboBox.SelectedValue.ToString() ),
-                                                        ( moComboBox.SelectedIndex + 1 ) );
-            int dayOffset = getFirstDayOfMonthOffset();
+        private void selectDay(int dayNumber)
+        {
+            foreach (TextBlock t in monthViewDayNumbers)
+            {
+                if (t.Text.Equals(dayNumber.ToString()) && (t.Opacity == 1))
+                {
 
-            return ( DateTime.Now.Day + dayOffset ) / 7;
+                    ((Border)((System.Windows.Controls.Label)t.Parent).Parent).BorderThickness = new Thickness(1.5);
+                    ((Border)((System.Windows.Controls.Label)t.Parent).Parent).BorderBrush = System.Windows.Media.Brushes.Black;
+                    ((System.Windows.Controls.Label)t.Parent).BorderThickness = new Thickness(1);
+                    ((System.Windows.Controls.Label)t.Parent).BorderBrush = System.Windows.Media.Brushes.Black;
+                    t.FontWeight = FontWeights.Bold;
+                    t.FontSize++;
+                }
+                else
+                {
+                    if (t.FontWeight.Equals(FontWeights.Bold))
+                    {
+                        ((Border)((System.Windows.Controls.Label)t.Parent).Parent).BorderThickness = new Thickness(1);
+                        ((Border)((System.Windows.Controls.Label)t.Parent).Parent).BorderBrush = System.Windows.Media.Brushes.DimGray;
+                        ((System.Windows.Controls.Label)t.Parent).BorderThickness = new Thickness(.5);
+                        ((System.Windows.Controls.Label)t.Parent).BorderBrush = System.Windows.Media.Brushes.DimGray;
+                        t.FontWeight = FontWeights.Normal;
+                        t.FontSize--;
+                    }
+                }
+            }
+        }
+
+        private int getWeekInMonth() {
+
+            int dayOffset = 0;
+
+            if(mondayFirst)
+                dayOffset = getFirstDayOfMonthOffset() - 1;
+            else
+                dayOffset = getFirstDayOfMonthOffset();
+
+            int wk =
+                (int)Math.Ceiling
+                    ((double)(DateTime.Now.Day + dayOffset) / 7.0);
+#if DEBUG
+            Console.WriteLine("\nDetected week: {0}",wk);
+#endif
+            return wk;
+        }
+
+        private int getWeekOfSelectedDay()
+        {
+            int dayOffset = mondayFirst ? getFirstDayOfMonthOffset() - 1 :
+                                            getFirstDayOfMonthOffset();
+#if DEBUG
+            Console.WriteLine("Current first-day offset: {0}", dayOffset);
+#endif
+            int wk = (int)Math.Ceiling
+                        ((double)(dayComboBox.SelectedIndex + 1 + dayOffset) / 7.0);
+
+            if (wk < 1) wk = 1;
+#if DEBUG
+            Console.WriteLine("\nDetected week from selected day: {0}", wk);
+#endif
+            return wk;
         }
 
         private int getFirstDayOfMonthOffset() {
+
             DateTime first =
                 new DateTime( Int32.Parse( yrComboBox.SelectedValue.ToString() ),
                                               ( moComboBox.SelectedIndex + 1 ), 1 );
@@ -391,44 +505,22 @@ namespace GUIProj1
 
         #region iPlan Main Window events
 
-        //Jon
         private void iPlanMain_LocationChanged(object sender, EventArgs e)
         {
-            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
-            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
 
-            tBlocks = timeBlocks.GetEnumerator();
-            if (tBlocks.Current == null)
-                tBlocks.MoveNext();
-            if (timeBlocks.Count != 0 && tBlocks.Current != null)
-            {
-                do
-                {
+            if (timeBlocks.Count > 0)
+                while (tBlocks.MoveNext())
                     if (tBlocks.Current.IsEnabled)
-                    {
-                        //tBlocks.Current.Top = tBlocks.Current.Top - ((tBlocks.Current.Top - this.Top)
-                        //    - tBlocks.Current.getGO().getPxDiffs()[1]);
-                        //tBlocks.Current.Left = tBlocks.Current.Left - (tBlocks.Current.Left - this.Left)
-                        //    - tBlocks.Current.getGO().getPxDiffs()[0];
-                        tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left, tBlocks.Current.Top - this.Top);
-                    }
-                    else if (!tBlocks.Current.IsEnabled)
-                    {
-                        tmp = tBlocks.Current;
-                        break;
-                    }
-                } while (tBlocks.MoveNext());
-            }
+                        tBlocks.Current.setPxDiff(tBlocks.Current.Left - this.Left,
+                                                        tBlocks.Current.Top - this.Top);
             tBlocks.Dispose();
 
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-            }
+            if(!checkTBlockVisibleState())
+                normalizeTBlockVisibility();
         }
 
-        //Jon
         private void iPlanMain_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             System.Environment.Exit(System.Environment.ExitCode);
@@ -437,60 +529,26 @@ namespace GUIProj1
         private void iPlanMain_windowStateChanged(object sender, EventArgs e)
         {
             tBlocks = timeBlocks.GetEnumerator();
+
             if (this.WindowState == WindowState.Minimized)
-            {
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null)
-                {
-                    do
-                    {
-                        if (tBlocks.Current.IsEnabled)
-                        {
-                            tBlocks.Current.Topmost = false;
-                            tBlocks.Current.Visibility = Visibility.Hidden;
-                        }
-                        else if (!tBlocks.Current.IsEnabled)
-                        {
-                            tmp = tBlocks.Current;
-                            break;
-                        }
-                    } while (tBlocks.MoveNext());
-                }
-            }
-            else if (this.WindowState == WindowState.Maximized || this.WindowState == WindowState.Normal)
-            {
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null)
-                {
-                    do
-                    {
-                        if (tBlocks.Current.Visibility != Visibility.Visible
-                            && tBlocks.Current.IsEnabled)
-                        {
-                            tBlocks.Current.Topmost = true;
-                            tBlocks.Current.Visibility = Visibility.Visible;
-                        }
-                        else if (!tBlocks.Current.IsEnabled)
-                        {
-                            tmp = tBlocks.Current;
-                            break;
-                        }
-                    } while (tBlocks.MoveNext());
-                }
-            }
+                while (tBlocks.MoveNext())
+                    tBlocks.Current.Hide();
+
+            else if (this.WindowState == WindowState.Maximized ||
+                            this.WindowState == WindowState.Normal)
+                while (tBlocks.MoveNext())
+                    if (!tBlocks.Current.IsVisible)
+                        tBlocks.Current.Show();
+
             tBlocks.Dispose();
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-            }
+
+            if (!checkTBlockVisibleState())
+                normalizeTBlockVisibility();
         }
 
         private void iPlanMain_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
+            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
         }
 
         #endregion
@@ -527,9 +585,9 @@ namespace GUIProj1
         private void selectWeek_click(object sender, RoutedEventArgs e)
         {
             string buttonName = ((System.Windows.Controls.Button)sender).Name;
-
+#if DEBUG
             Console.WriteLine("\n\nButton name: {0}\n", buttonName);
-
+#endif
             int index = -1;
 
             try
@@ -573,7 +631,6 @@ namespace GUIProj1
                 case 0:
                     if (monthViewWeekBorders[moCalGridWkOneBorder])
                     {
-
                         wkComboBox.SelectedIndex = index;
                         chgViewMode(sender, e);
                     }
@@ -583,7 +640,6 @@ namespace GUIProj1
                 case 1:
                     if (monthViewWeekBorders[moCalGridWkTwoBorder])
                     {
-
                         wkComboBox.SelectedIndex = index;
                         chgViewMode(sender, e);
                     }
@@ -593,7 +649,6 @@ namespace GUIProj1
                 case 2:
                     if (monthViewWeekBorders[moCalGridWkThreeBorder])
                     {
-
                         wkComboBox.SelectedIndex = index;
                         chgViewMode(sender, e);
                     }
@@ -603,7 +658,6 @@ namespace GUIProj1
                 case 3:
                     if (monthViewWeekBorders[moCalGridWkFourBorder])
                     {
-
                         wkComboBox.SelectedIndex = index;
                         chgViewMode(sender, e);
                     }
@@ -613,7 +667,6 @@ namespace GUIProj1
                 case 4:
                     if (monthViewWeekBorders[moCalGridWkFiveBorder])
                     {
-
                         wkComboBox.SelectedIndex = index;
                         chgViewMode(sender, e);
                     }
@@ -634,14 +687,11 @@ namespace GUIProj1
             #endregion
         }
 
-        //Jon
         private void file_quit(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //Jon
-        //
         // Open the "About" information window.
         private void about_Click(object sender, RoutedEventArgs e)
         {
@@ -649,123 +699,109 @@ namespace GUIProj1
             aboutWin.ShowDialog();
         }
 
-        // Jon
-        //
         // Changes the view mode of the main iPlan window from week
         // view to month view.
         private void chgViewMode(object sender, RoutedEventArgs e)
         {
+#if DEBUG
             this.rStatBarTxt.Text = "Changing views...";
-
-            if (this.wkCalGridContainerBorder.Visibility == Visibility.Visible)
+#endif      
+            #region If we are in week view...
+            
+            if (!view)
             {
+                view = true;
+
                 // Make the week view hidden
                 this.wkCalGridContainerBorder.Visibility = Visibility.Hidden;
-                // Make all the time blocks hidden if we
-                // move to month view
+                
+                // Make all the time blocks hidden
                 tBlocks = timeBlocks.GetEnumerator();
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
-                {
-                    do
-                    {
-                        tBlocks.Current.Topmost = false;
-                        tBlocks.Current.Visibility = Visibility.Hidden;
-                    } while (tBlocks.MoveNext());
-                }
-                // Clean up....
+
+                // Hide all the timeblocks if we have existing time blocks.
+                if (timeBlocks.Count > 0 && this.IsActive)
+                    while (tBlocks.MoveNext())
+                        tBlocks.Current.Hide();
+
                 tBlocks.Dispose();
 
                 // Make the month view visible
                 this.moCalGridContainerBorder.Visibility = Visibility.Visible;
-
-                this.rStatBarTxt.Text = "Checking tBlocks visibility...";
-
-                if (timeBlocks.Count > 0 && !checkTBlockVisibleState())
-                {
-                    this.rStatBarTxt.Text = "Normalizing visibility...";
+#if DEBUG
+                Console.WriteLine("Checking tBlocks visibility...");
+#endif
+                if (timeBlocks.Count > 0 && !checkTBlockVisibleState()) {
+#if DEBUG
+                    Console.WriteLine("Normalizing visibility...");
+#endif
                     normalizeTBlockVisibility();
                 }
                 else
-                    this.rStatBarTxt.Text = "Ok.";
-
+#if DEBUG
+                    Console.WriteLine("Ok.");
+#endif
                 this.rStatBarTxt.Text = "Month View."
                     + " View schedule details to help plan for "
                     + "long term goals. Easily organize your "
                     + "thoughts and notify your team of changes"
                     + " and new ideas.";
-
-                view = true;
             }
-            else if (this.moCalGridContainerBorder.Visibility == Visibility.Visible)
-            {
-                this.wkCalGridContainerBorder.Visibility = Visibility.Visible;
 
-                tBlocks = timeBlocks.GetEnumerator();
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                if (timeBlocks.Count != 0 && tBlocks.Current != null && this.IsActive)
-                {
-                    do
-                    {
-                        if (tBlocks.Current.IsEnabled)
-                        {
-                            tBlocks.Current.Topmost = true;
-                            tBlocks.Current.Visibility = Visibility.Visible;
-                        }
-                        else if (!tBlocks.Current.IsEnabled)
-                        {
-                            tmp = tBlocks.Current;
-                            break;
-                        }
-                    } while (tBlocks.MoveNext());
-                }
-                tBlocks.Dispose();
-                if (tmp != null && !tmp.IsEnabled)
-                {
-                    timeBlocks.Remove(tmp);
-                    tmp = null;
-                }
+            #endregion
+
+            #region If we are in month view...
+
+            else
+            {
+                view = false;
 
                 this.moCalGridContainerBorder.Visibility = Visibility.Hidden;
+                
+                this.wkCalGridContainerBorder.Visibility = Visibility.Visible;
 
-                this.rStatBarTxt.Text = "Checking tBlocks visibility...";
+                // Make all the time blocks visible.
+                tBlocks = timeBlocks.GetEnumerator();
 
-                if (timeBlocks.Count > 0 && !checkTBlockVisibleState())
-                {
-                    this.rStatBarTxt.Text = "Normalizing visibility...";
+                // Show all the timeblocks if we have existing time blocks.
+                if (timeBlocks.Count > 0 && this.IsActive)
+                    while (tBlocks.MoveNext())
+                        tBlocks.Current.Show();
+
+                tBlocks.Dispose();
+#if DEBUG
+                Console.WriteLine("Checking tBlocks visibility...");
+#endif
+                if (timeBlocks.Count > 0 && !checkTBlockVisibleState()) {
+#if DEBUG
+                    Console.WriteLine("Normalizing visibility...");
+#endif
                     normalizeTBlockVisibility();
                 }
                 else
-                    this.rStatBarTxt.Text = "Ok.";
-
+#if DEBUG
+                    Console.WriteLine("Ok.");
+#endif
                 this.rStatBarTxt.Text = "Week View. Build your "
                     + "Schedule here and send notifications about"
                     + " schedule changes.";
-
-                view = false;
             }
+
+            #endregion
         }
 
-        //Jon
         private void enterOrLeaveEditMode(object sender, RoutedEventArgs e)
         {
             ed = !ed;
-            /*if(passWd(Team))
-            {
-                if(ed)
-                    System.Windows.MessageBox.Show("Edit mode enabled");
-                else
-                    System.Windows.MessageBox.Show("Edit mode disabled");
-            }*/
             if (ed)
-                System.Windows.MessageBox.Show("Edit mode enabled");
+                rStatBarTxt.Text = "Edit mode enabled";
             else
-                System.Windows.MessageBox.Show("Edit mode disabled");
+                rStatBarTxt.Text = "Edit mode disabled";
+
+#if DEBUG
+            Console.WriteLine("Edit mode status: {0}", ed);
+#endif
         }
 
-        //Jon
         private void startEmail(object sender, RoutedEventArgs e)
         {
             Process.Start("mail.exe");
@@ -785,29 +821,15 @@ namespace GUIProj1
             t.Show();
         }
 
-        //Jon
         private void addTimeBlock_Click(object sender, RoutedEventArgs e)
         {
             if (!view)
-            {
-                TimeBlock memberTimeBlock = new TimeBlock(this);
-
-                if (contextClckMkBlck)
-                {
-                    memberTimeBlock.setWindowStartup(mousePositionTmp);
-                    contextClckMkBlck = false;
-                }
-                else
-                {
-                    memberTimeBlock.setWindowStartup();
-                    memberTimeBlock.setPxDiff(pxDiffBlockLeft, pxDiffBlockTop);
-                }
-
-                timeBlocks.AddFirst(memberTimeBlock);
-                memberTimeBlock.Show();
-            }
+                addBlock();
             else
             {
+                System.Windows.MessageBox.Show("You can not add a timeblock"
+                    + " in Month View. Please change to Week View to add "
+                    + "a time block.");
                 this.rStatBarTxt.Text = "Can't add time block in Month View";
             }
         }
@@ -823,13 +845,11 @@ namespace GUIProj1
             catch (Exception ex) { System.Windows.Forms.MessageBox.Show(ex.ToString()); }
         }
 
-        //George
         private void newTeamMember_Click(object sender, RoutedEventArgs e)
         {
             /*
             NewMember m = new NewMember();
             m.ShowDialog();*/
-
         }
 
         private void gridContextMenu_Click(object sender, RoutedEventArgs e)
@@ -840,8 +860,8 @@ namespace GUIProj1
 
         private void propCalButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainerScrollViewer.ActualHeight
-                + "\nCalGrdWdth: " + wkCalGridContainerScrollViewer.ActualWidth
+            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
+                + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
                 + "\nMonthGrdHght: " + monthGrid.ActualHeight + "\nMonthGrdWdth: "
                 + monthGrid.ActualWidth + "\n" + mainGrid.ActualHeight + "\n" + mainGrid.ActualWidth);
         }
@@ -860,6 +880,14 @@ namespace GUIProj1
             }
         }
 
+        private void selectToday_Click(object sender, RoutedEventArgs e)
+        {
+            moComboBox.SelectedIndex = DateTime.Today.Month - 1;
+            dayComboBox.SelectedIndex = DateTime.Today.Day - 1;
+            yrComboBox.SelectedValue = DateTime.Today.Year.ToString();
+            wkComboBox.SelectedIndex = getWeekInMonth() - 1;
+        }
+
         #endregion
 
         #region Week Grid Events
@@ -869,13 +897,10 @@ namespace GUIProj1
             if (timeBlocks.Count > 0)
             {
                 tBlocks = timeBlocks.GetEnumerator();
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                cleanTimeBlockList();
-                do
-                {
-                    tBlocks.Current.setScrollContentOffset(wkCalGridContainerScrollViewer.VerticalOffset);
-                } while (tBlocks.MoveNext());
+
+                while (tBlocks.MoveNext())
+                    tBlocks.Current.setScrollContentOffset(wkCalGridContainer.VerticalOffset);
+
                 tBlocks.Dispose();
             }
         }
@@ -888,16 +913,14 @@ namespace GUIProj1
         private void wkCalGridContainer_MouseWheel(object sender, MouseWheelEventArgs e)
         {
             mouseWheelDeltaTmp = e.Delta;
-            System.Windows.MessageBox.Show("tester");
+
+            Console.WriteLine("tester");
             scroller = (ScrollViewer)sender;
+
             if (mouseWheelDeltaTmp > 0)
-            {
                 scroller.LineUp();
-            }
             else
-            {
                 scroller.LineDown();
-            }
         }
 
         #endregion
@@ -909,47 +932,76 @@ namespace GUIProj1
             if (yrComboBox.SelectedValue != null &&
                 ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
                  (getFirstDayOfMonthOffset() > 4 && !mondayFirst)))
-
+            {
                 switchDayOrder();
+            }
 
             if (yrComboBox.SelectedValue != null)
+            {
+                selectWeek(monthViewWeekBorders.ElementAt(getWeekOfSelectedDay() - 1).Key, getWeekOfSelectedDay() - 1);
                 populateMonthViewDayLabels();
+                resetDayItemCollection();
+            }
         }
 
         private void wkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = wkComboBox.SelectedIndex;
+#if DEBUG
+            Console.WriteLine("Week combo box modified....");
+#endif
+            selectWeek
+               (monthViewWeekBorders.ElementAt(wkComboBox.SelectedIndex).Key,
+                                                     wkComboBox.SelectedIndex);
+            int daysInSelectedMonth = DateTime.DaysInMonth
+                                        (Int32.Parse
+                                            ((string)yrComboBox.SelectedValue),
+                                                    moComboBox.SelectedIndex + 1);
 
-            switch (index)
-            {
-                case 0:
-                    selectWeek(moCalGridWkOneBorder, index);
-                    break;
-                case 1:
-                    selectWeek(moCalGridWkTwoBorder, index);
-                    break;
-                case 2:
-                    selectWeek(moCalGridWkThreeBorder, index);
-                    break;
-                case 3:
-                    selectWeek(moCalGridWkFourBorder, index);
-                    break;
-                case 4:
-                    selectWeek(moCalGridWkFiveBorder, index);
-                    break;
-            }
+            int wkDelta = wkComboBox.SelectedIndex - (getWeekOfSelectedDay() - 1);
+            int daysToShift = wkDelta * 7;
+            int newDay = daysToShift + dayComboBox.SelectedIndex;
+#if DEBUG
+            Console.WriteLine("Week delta: {0}\nDays to shift:{1}\nNew Day: {2}",
+                                                        wkDelta, daysToShift, newDay);
+#endif
+            if (newDay >= 0 &&
+                newDay < daysInSelectedMonth)
+                dayComboBox.SelectedIndex += daysToShift;
+            else
+#if DEBUG
+                Console.WriteLine("\nNew day out of range...");
+#endif
+        }
+
+        private void dayComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+#if DEBUG
+            Console.WriteLine("Day combo box modified....");
+            Console.WriteLine("Selected day index: {0}", dayComboBox.SelectedIndex);
+#endif
+            selectDay(dayComboBox.SelectedIndex + 1);
+
+            if(moComboBox.SelectedValue != null  &&
+                yrComboBox.SelectedValue != null   )
+                wkComboBox.SelectedIndex = getWeekOfSelectedDay() - 1;
         }
 
         private void yrComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (moComboBox.SelectedValue != null &&
                 ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
-                 (getFirstDayOfMonthOffset() > 4 && !mondayFirst)    ))
-
+                 (getFirstDayOfMonthOffset() > 4 && !mondayFirst)))
+            {
                 switchDayOrder();
+            }
 
-            if(moComboBox.SelectedValue != null)
+            if (moComboBox.SelectedValue != null)
+            {
+                selectWeek(monthViewWeekBorders.ElementAt(getWeekInMonth() - 1).Key, getWeekInMonth() - 1);
                 populateMonthViewDayLabels();
+            }
+
+            selectDay(dayComboBox.SelectedIndex + 1);
         }
 
         //Jon
@@ -1005,32 +1057,47 @@ namespace GUIProj1
 
         #region TimeBlock Operations
 
-        // Detect visibility of time blocks (for potential cleaning)
+        // Detect visibility of time blocks,
+        // clean up if necessary.
         private bool checkTBlockVisibleState()
         {
-            // If there is at least one time block...
+#if DEBUG
+            Console.WriteLine("Checking time block visibility normality...\n");
+#endif
+            //Just in case.
+            inactiveBlocks.Clear();
+
+            #region If there is at least one time block...
             if (timeBlocks.Count > 0)
             {
                 bool prev = false;
                 tBlocks = timeBlocks.GetEnumerator();
-                if (tBlocks.Current == null)
-                    tBlocks.MoveNext();
-                // Is the previous time block visible?
+                tBlocks.MoveNext();
+
                 prev = tBlocks.Current.IsVisible;
+
                 do
                 {
                     // If the current time block isn't enabled...
                     // make sure to remove it from the list.
-                    if (!tBlocks.Current.IsEnabled)
-                    {
-                        // Assign the ref to a temp var
-                        // for later disposal
-                        tmp = tBlocks.Current;
-                        break;
+                    if (!tBlocks.Current.IsEnabled) {
+#if DEBUG
+                        Console.WriteLine("Inactive block {0} will be removed.", tBlocks.Current);
+#endif
+                        inactiveBlocks.Add(tBlocks.Current);
                     }
+
                     // If there's a time b
-                    if (prev != tBlocks.Current.IsVisible)
+                    else if (prev != tBlocks.Current.IsVisible)
+                    {
+                        inactiveBlocks.Clear();
+#if DEBUG
+                        Console.WriteLine("Visibility requires normalization!");
+#endif
                         return false;
+                    }
+
+                    // Is the previous time block visible?
                     prev = tBlocks.Current.IsVisible;
 
                 } while (tBlocks.MoveNext());
@@ -1038,90 +1105,110 @@ namespace GUIProj1
                 // Clean up...
                 tBlocks.Dispose();
 
-                if (tmp != null && !tmp.IsEnabled)
-                {
-                    // Remove the time block that is
-                    // no longer active.
-                    timeBlocks.Remove(tmp);
-                    tmp = null;
-                    checkTBlockVisibleState();
-                }
-
-                // Clean up...
-                System.GC.Collect();
+                // Get rid of inactive timeblocks from the list.
+                if (inactiveBlocks.Count > 0)
+                    cleanTimeBlockList(inactiveBlocks);
             }
+            #endregion
+
             // Else all is well by default since
             // there are no time blocks.
             return true;
         }
 
+        // Normalize and clean the block list.
         private void normalizeTBlockVisibility()
         {
+#if DEBUG
+            Console.WriteLine("Normalizing blocks...");
+#endif
+            //Just in case.
+            inactiveBlocks.Clear();
+
             tBlocks = timeBlocks.GetEnumerator();
-            if (tBlocks.Current == null)
-                tBlocks.MoveNext();
+
+            #region If we are in week view...
+            // Normalize to Visible.
+            // Check for inactive blocks.
             if (!view)
-            {
-                do
+                while (tBlocks.MoveNext())
                 {
                     if (!tBlocks.Current.IsEnabled)
                     {
-                        tmp = tBlocks.Current;
-                        break;
+#if DEBUG
+                        Console.WriteLine("Inactive block {0} will be removed.", tBlocks.Current);
+#endif
+                        inactiveBlocks.Add(tBlocks.Current);
                     }
-                    tBlocks.Current.Visibility = Visibility.Visible;
-                } while (tBlocks.MoveNext());
+                    else
+                        tBlocks.Current.Visibility = Visibility.Visible;
+                }
+            #endregion
+
+            #region If we are in Month view...
+            // Normalize to hidden.
+            // Check for inactive blocks.
+            else
+                while (tBlocks.MoveNext())
+                {
+                    if (!tBlocks.Current.IsEnabled)
+                    {
+#if DEBUG
+                        Console.WriteLine("Inactive block {0} will be removed.", tBlocks.Current);
+#endif
+                        inactiveBlocks.Add(tBlocks.Current);
+                    }
+                    else
+                        tBlocks.Current.Visibility = Visibility.Hidden;
+                }
+            #endregion
+
+            tBlocks.Dispose();
+
+            if (inactiveBlocks.Count > 0)
+                cleanTimeBlockList(inactiveBlocks);
+        }
+
+        private void cleanTimeBlockList(ArrayList blocks)
+        {
+            // Get rid of inactive timeblocks from the list.
+            if (blocks.Count > 0)
+            {
+#if DEBUG
+                Console.WriteLine("Removing inactive blocks...");
+#endif
+                foreach (TimeBlock block in inactiveBlocks)
+                    timeBlocks.Remove(block);
+            }
+
+            blocks.Clear();
+        }
+
+        private void addBlock()
+        {
+            TimeBlock memberTimeBlock = new TimeBlock(this);
+            if (contextClckMkBlck)
+            {
+                memberTimeBlock.setWindowStartup(mousePositionTmp);
+                contextClckMkBlck = false;
             }
             else
             {
-                do
-                {
-                    if (!tBlocks.Current.IsEnabled)
-                    {
-                        tmp = tBlocks.Current;
-                        break;
-                    }
-                    tBlocks.Current.Visibility = Visibility.Hidden;
-                } while (tBlocks.MoveNext());
+                memberTimeBlock.setWindowStartup();
+                memberTimeBlock.setPxDiff(pxDiffBlockLeft, pxDiffBlockTop);
             }
 
-            tBlocks.Dispose();
+            // Add it to the block list.
+            timeBlocks.AddFirst(memberTimeBlock);
 
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-                normalizeTBlockVisibility();
-            }
+            // Show the block.
+            memberTimeBlock.UpdateLayout();
+            memberTimeBlock.Focusable = true;
+            memberTimeBlock.Show();
 
-            System.GC.Collect();
-        }
-
-        private void cleanTimeBlockList()
-        {
-            tBlocks = timeBlocks.GetEnumerator();
-            if (tBlocks.Current == null)
-                tBlocks.MoveNext();
-            do
-            {
-                if (!tBlocks.Current.IsEnabled)
-                {
-                    tmp = tBlocks.Current;
-                    break;
-                }
-            } while (tBlocks.MoveNext());
-
-            tBlocks.Dispose();
-
-            if (tmp != null && !tmp.IsEnabled)
-            {
-                timeBlocks.Remove(tmp);
-                tmp = null;
-                cleanTimeBlockList();
-            }
-
-            System.GC.Collect();
-            this.rStatBarTxt.Text = "TimeBlock list cleaned.";
+            // Set block position vars.
+            pxDiffBlockLeft = memberTimeBlock.Left - this.Left;
+            pxDiffBlockTop = memberTimeBlock.Top - this.Top;
         }
 
         #endregion
