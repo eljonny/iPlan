@@ -2,7 +2,6 @@
 <Window x:Class="GUIProj1.iPlan_Main"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mdi="clr-namespace:WPF.MDI;assembly=WPF.MDI"
         Title="iPlan - New Calendar" Height="590" Width="985" Name="iPlanMain" 
         WindowStartupLocation="CenterScreen" MinWidth="985" MinHeight="620"
         MaxWidth="995" ToolTipService.HasDropShadow="True" MaxHeight="900"
@@ -453,8 +452,6 @@
                                 <ColumnDefinition Style="{StaticResource wkGrdColDefStyle}" Name="wkSaturdayColumn"  />
                                 <ColumnDefinition Style="{StaticResource wkGrdColDefStyle}" Name="wkSundayColumn"    />
                             </Grid.ColumnDefinitions>
-                            
-                            <mdi:MdiContainer Name="timeblockContainer" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="24" />
 
                             <!-- Time labels. Static tooltips affect value of a time start/end text boxes,
                              if one has focus. Automatically copies the time to the focused text box -->

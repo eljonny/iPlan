@@ -1,7 +1,6 @@
-﻿<AttachableWindow x:Class="GUIProj1.TimeBlock"
+﻿<Window x:Class="GUIProj1.TimeBlock"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="clr-namespace:WPFMwiWindows.Controls"
         Width="97" Height="173" Opacity=".7" Background="LightGray" MaxWidth="97" MinWidth="97"
         SnapsToDevicePixels="True" ShowInTaskbar="False" SizeToContent="Width" WindowStyle="None"
         WindowStartupLocation="Manual" AllowsTransparency="True" BorderThickness="1"
@@ -30,4 +29,4 @@
             </Rectangle>
         </Border>
     </Canvas>
-</AttachableWindow>
+</Window>

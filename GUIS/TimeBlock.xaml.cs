@@ -13,8 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF.MDI;
-using WPFMwiWindows.Controls;
 
 #endregion
 
@@ -24,7 +22,7 @@ namespace GUIProj1
     /// Interaction logic for TimeBlock.xaml
     /// </summary>
     /// Author: Jonathan Hyry
-    public partial class TimeBlock : AttachableWindow
+    public partial class TimeBlock : Window
     {
         #region Time Block Variables
 
