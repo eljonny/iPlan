@@ -52,7 +52,7 @@ namespace GUIProj1
         private int mouseWheelDeltaTmp;
         private string calName = null;
         private double pxDiffBlockTop, pxDiffBlockLeft,
-                       wkCalGridContainerHeight, wkCalGridContainerWidth;
+                       wkCalGridContainerScrollViewerHeight, wkCalGridContainerScrollViewerWidth;
         private TimeBlock tmp;
         private System.Windows.Point mousePositionTmp;
         private LinkedList<TimeBlock> timeBlocks = new LinkedList<TimeBlock>();
@@ -129,11 +129,11 @@ namespace GUIProj1
 
             this.Activate();
 
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
+            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
 
             System.Windows.Input.Mouse.AddMouseWheelHandler
-                ((DependencyObject)wkCalGridContainer,
+                ((DependencyObject)wkCalGridContainerScrollViewer,
                   new MouseWheelEventHandler(wkCalGridContainer_MouseWheel));
         }
 
@@ -394,8 +394,8 @@ namespace GUIProj1
         //Jon
         private void iPlanMain_LocationChanged(object sender, EventArgs e)
         {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
-            wkCalGridContainerWidth = wkCalGridContainer.ActualWidth;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
+            wkCalGridContainerScrollViewerWidth = wkCalGridContainerScrollViewer.ActualWidth;
 
             tBlocks = timeBlocks.GetEnumerator();
             if (tBlocks.Current == null)
@@ -490,7 +490,7 @@ namespace GUIProj1
 
         private void iPlanMain_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            wkCalGridContainerHeight = wkCalGridContainer.ActualHeight;
+            wkCalGridContainerScrollViewerHeight = wkCalGridContainerScrollViewer.ActualHeight;
         }
 
         #endregion
@@ -790,8 +790,8 @@ namespace GUIProj1
         {
             if (!view)
             {
-                TimeBlock memberTimeBlock = new TimeBlock();
-                memberTimeBlock.setParental(this);
+                TimeBlock memberTimeBlock = new TimeBlock(this);
+
                 if (contextClckMkBlck)
                 {
                     memberTimeBlock.setWindowStartup(mousePositionTmp);
@@ -802,18 +802,12 @@ namespace GUIProj1
                     memberTimeBlock.setWindowStartup();
                     memberTimeBlock.setPxDiff(pxDiffBlockLeft, pxDiffBlockTop);
                 }
+
                 timeBlocks.AddFirst(memberTimeBlock);
-                memberTimeBlock.UpdateLayout();
-                memberTimeBlock.Focusable = true;
                 memberTimeBlock.Show();
-                pxDiffBlockLeft = memberTimeBlock.Left - this.Left;
-                pxDiffBlockTop = memberTimeBlock.Top - this.Top;
             }
             else
             {
-                System.Windows.MessageBox.Show("You can not add a timeblock"
-                    + " in Month View. Please change to Week View to add "
-                    + "a time block.");
                 this.rStatBarTxt.Text = "Can't add time block in Month View";
             }
         }
@@ -846,8 +840,8 @@ namespace GUIProj1
 
         private void propCalButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainer.ActualHeight
-                + "\nCalGrdWdth: " + wkCalGridContainer.ActualWidth
+            System.Windows.MessageBox.Show("CalGrdHght: " + wkCalGridContainerScrollViewer.ActualHeight
+                + "\nCalGrdWdth: " + wkCalGridContainerScrollViewer.ActualWidth
                 + "\nMonthGrdHght: " + monthGrid.ActualHeight + "\nMonthGrdWdth: "
                 + monthGrid.ActualWidth + "\n" + mainGrid.ActualHeight + "\n" + mainGrid.ActualWidth);
         }
@@ -880,7 +874,7 @@ namespace GUIProj1
                 cleanTimeBlockList();
                 do
                 {
-                    tBlocks.Current.setScrollContentOffset(wkCalGridContainer.VerticalOffset);
+                    tBlocks.Current.setScrollContentOffset(wkCalGridContainerScrollViewer.VerticalOffset);
                 } while (tBlocks.MoveNext());
                 tBlocks.Dispose();
             }

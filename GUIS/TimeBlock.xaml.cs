@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using Assemblies
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.MDI;
+using WPFMwiWindows.Controls;
+
+#endregion
 
 namespace GUIProj1
 {
@@ -18,20 +24,20 @@ namespace GUIProj1
     /// Interaction logic for TimeBlock.xaml
     /// </summary>
     /// Author: Jonathan Hyry
-    public partial class TimeBlock : Window
+    public partial class TimeBlock : AttachableWindow
     {
         #region Time Block Variables
 
         string[] content = new string[100];
-        double[,] probData = new double[100,2];
+        LinkedList<ProbabilityFactor> probData = new LinkedList<ProbabilityFactor>();
         private Random tmp;
         private double pxDiffL = 0, pxDiffT = 0,
             maxPxDiffLeft,maxPxDiffRight,maxPxDiffTop,
             maxPxDiffBottomMax,maxPxDiffBottomCurrent,
             maxPxDiffTopScrollCompensation,scrollVertOffsetTmp=0,
             offSetDelta;
-        //private bool delta = true;
-        private GridObject gO;
+
+        private GridObject gObj;
         private Point temp1;//, temp2;
         private iPlan_Main iPlMain;
 
@@ -39,10 +45,18 @@ namespace GUIProj1
 
         #region Construction
 
-        public TimeBlock()
+        public TimeBlock(iPlan_Main parent)
         {
+            setParental( parent );
+
             InitializeComponent();
-            // This needs a GridObject.
+
+            gObj = new GridObject();
+
+            maxPxDiffLeft = iPlMain.mainGridButtonMenuColumn.ActualWidth + iPlMain.timeLabels.ActualWidth;
+            maxPxDiffTop = iPlMain.menuComboLabelRow.ActualHeight + iPlMain.moCalGridLabelRow.ActualHeight;
+            maxPxDiffRight = maxPxDiffLeft + iPlMain.wkCalGridContainerScrollViewer.ActualWidth;
+            maxPxDiffBottomMax = maxPxDiffTop + iPlMain.wkGrid.ActualHeight;
         }
 
         #endregion
@@ -84,51 +98,11 @@ namespace GUIProj1
         private void tBlockLocationChanged(object sender, EventArgs e)
         {
             double currentBlockHeight = this.ActualHeight;
-            maxPxDiffLeft = iPlMain.Left + 192;
-            maxPxDiffTop = iPlMain.Top + 101;
-            maxPxDiffRight = iPlMain.Left + 821;
-            maxPxDiffBottomMax = iPlMain.Top + 771;
-            maxPxDiffBottomCurrent = iPlMain.Top
-                + iPlMain.gridHolder.ActualHeight + 42;
-            if (this.Top < maxPxDiffTop)
-            {
-                if (iPlMain.wkCalGridContainer.VerticalOffset <= 30
-                    && iPlMain.wkCalGridContainer.VerticalOffset != 0)
-                    this.Top = maxPxDiffTop - maxPxDiffTopScrollCompensation;
-                else if (iPlMain.wkCalGridContainer.VerticalOffset > 30)
-                    this.Top = maxPxDiffTop - maxPxDiffTopScrollCompensation;
-                else
-                    this.Top = maxPxDiffTop;
-                if (iPlMain.wkCalGridContainer.VerticalScrollBarVisibility
-                   == ScrollBarVisibility.Auto)
-                    iPlMain.wkCalGridContainer.LineUp();
-            }
-            if (this.Left < maxPxDiffLeft)
-                this.Left = maxPxDiffLeft;
-            if (this.Left > maxPxDiffRight)
-                this.Left = maxPxDiffRight;
-            if (iPlMain.WindowState == WindowState.Normal)
-            {
-                if (this.Top + currentBlockHeight > maxPxDiffBottomCurrent)
-                {
-                    this.Top = maxPxDiffBottomCurrent - currentBlockHeight;
-                    if (iPlMain.wkCalGridContainer.VerticalScrollBarVisibility
-                        == ScrollBarVisibility.Auto)
-                    {
-                        iPlMain.wkCalGridContainer.LineDown();
-                    }
-                }
-            }
-            else if (iPlMain.WindowState == WindowState.Maximized)
-            {
-                if (this.Top + currentBlockHeight > maxPxDiffBottomMax)
-                {
-                    this.Top = maxPxDiffBottomMax - currentBlockHeight;
-                    if (iPlMain.wkCalGridContainer.VerticalScrollBarVisibility
-                       == ScrollBarVisibility.Auto)
-                        iPlMain.wkCalGridContainer.LineDown();
-                }
-            }
+
+            maxPxDiffBottomCurrent = maxPxDiffTop + iPlMain.wkCalGridContainerScrollViewer.ActualHeight;
+
+            if (iPlMain.wkCalGridContainerScrollViewer.ComputedVerticalScrollBarVisibility == Visibility.Visible)
+                maxPxDiffRight -= 15; // Scrollbar width == 15px
         }
 
         private void snapToClosest()
@@ -224,7 +198,7 @@ namespace GUIProj1
 
         public GridObject getGO()
         {
-            return gO;
+            return gObj;
         }
 
         #endregion

@@ -37,8 +37,8 @@
     <ProductName>iPlan</ProductName>
     <PublisherName>Jonathan Hyry</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>527</ApplicationRevision>
-    <ApplicationVersion>2.0.87.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -52,7 +52,8 @@
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>bin\Debug\iPlan.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +63,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -93,12 +97,20 @@
     <Reference Include="WindowsFormsIntegration">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WPF.MDI, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WPF.MDI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AttachableWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Customizable.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,6 +120,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="LanguagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MwiChild.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MwiWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -153,12 +173,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachableWindow.xaml.cs">
+      <DependentUpon>AttachableWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customizable.xaml.cs">
       <DependentUpon>Customizable.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomizableHome.xaml.cs">
       <DependentUpon>CustomizableHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DragCanvas.cs" />
     <Compile Include="GridObject.cs" />
     <Compile Include="iPlAbout.cs">
       <SubType>Form</SubType>
@@ -168,6 +192,13 @@
     </Compile>
     <Compile Include="LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MdiChild.cs" />
+    <Compile Include="MwiChild.xaml.cs">
+      <DependentUpon>MwiChild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MwiWindow.xaml.cs">
+      <DependentUpon>MwiWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProbabilityFactor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -183,6 +214,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ResizeAdorner.cs" />
     <Compile Include="SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -206,6 +238,7 @@
     <Compile Include="iPlan_Welcome.xaml.cs">
       <DependentUpon>iPlan_Welcome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VisualTreeSearch.cs" />
     <EmbeddedResource Include="iPlAbout.resx">
       <DependentUpon>iPlAbout.cs</DependentUpon>
       <SubType>Designer</SubType>
