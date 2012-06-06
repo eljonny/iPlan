@@ -145,7 +145,7 @@ namespace GUIProj1
 
             for(int i = 0; ++i < 7; weeks.Add(i.ToString()));
             for (int i = 0; i++ < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString()));
-            for (int i = (DateTime.Today.Year - 1); ++i < MAX_YEAR; years.Add(i.ToString()));
+            for (int i = (DateTime.Today.Year - 20); ++i < MAX_YEAR; years.Add(i.ToString()));
 
             dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
             moComboBox.SelectedIndex = DateTime.Now.Month - 1;
@@ -956,17 +956,64 @@ namespace GUIProj1
                                         (Int32.Parse
                                             ((string)yrComboBox.SelectedValue),
                                                     moComboBox.SelectedIndex + 1);
+            int daysInPreviousMonth = DateTime.DaysInMonth
+                                        (Int32.Parse
+                                            ((string)yrComboBox.SelectedValue),
+                                                    moComboBox.SelectedIndex);
 
             int wkDelta = wkComboBox.SelectedIndex - (getWeekOfSelectedDay() - 1);
             int daysToShift = wkDelta * 7;
             int newDay = daysToShift + dayComboBox.SelectedIndex;
 #if DEBUG
             Console.WriteLine("Week delta: {0}\nDays to shift:{1}\nNew Day: {2}",
-                                                        wkDelta, daysToShift, newDay);
+                                                      wkDelta, daysToShift, newDay);
 #endif
             if (newDay >= 0 &&
                 newDay < daysInSelectedMonth)
                 dayComboBox.SelectedIndex += daysToShift;
+            else if (newDay < 0)
+            {
+                dayComboBox.SelectedIndex = newDay + daysInPreviousMonth;
+
+                if (moComboBox.SelectedIndex == 0)
+                {
+                    if (yrComboBox.SelectedIndex == 0)
+                    {
+                        // TODO make it dynamically add and remove years.
+#if DEBUG
+                        Console.WriteLine("Unsupported operation; Calendar does not go back that far.");
+#else
+                        rStatBarTxt.Text = "Calendar does not go back that far.";
+#endif
+                        return;
+                    }
+                    else
+                    {
+                        moComboBox.SelectedIndex = 11;
+                        --yrComboBox.SelectedIndex;
+                    }
+                }
+                else if (moComboBox.SelectedIndex == moComboBox.Items.Count - 1)
+                {
+                    if (yrComboBox.SelectedIndex == yrComboBox.Items.Count - 1)
+                    {
+                        // TODO make it dynamically add and remove years.
+#if DEBUG
+                        Console.WriteLine("Unsupported operation; You have reached the end of the calendar.");
+#else
+                        rStatBarTxt.Text = "You have reached the end of the calendar.";
+#endif
+                        return;
+                    }
+                    else
+                    {
+                        moComboBox.SelectedIndex = 0;
+                        ++yrComboBox.SelectedIndex;
+                    }
+                }
+                else
+                    --moComboBox.SelectedIndex;
+            }
             else
 #if DEBUG
                 Console.WriteLine("\nNew day out of range...");

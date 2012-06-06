@@ -299,7 +299,8 @@
                       SelectionChanged="wkComboBox_SelectionChanged"  />
             <Label ToolTip="Change the current calendar schedule day." Name="lblDayCmboLbl"
                    Style="{StaticResource lblMoWkDayYrStyle}">Day:</Label>
-            <ComboBox Width="48" Name="dayComboBox" Style="{StaticResource cmbBoxMoWkDayYrStyle}"/>
+            <ComboBox Width="48" Name="dayComboBox" Style="{StaticResource cmbBoxMoWkDayYrStyle}"
+                      SelectionChanged="dayComboBox_SelectionChanged"/>
             <Label ToolTip="Change the current calendar schedule year." Name="lblYrCmboLbl"
                    Style="{StaticResource lblMoWkDayYrStyle}">Year:</Label>
             <ComboBox Width="64" Name="yrComboBox" Style="{StaticResource cmbBoxMoWkDayYrStyle}"
