@@ -49,7 +49,7 @@ namespace GUIProj1
         private IEnumerable<System.Windows.Controls.Label> lblsMonthNames;
 
         private bool ed = true, view = false, contextClckMkBlck = false,
-                     newcal = true, calEdited = false, mondayFirst = true;
+            justRebuilt = false, newcal = true, calEdited = false, mondayFirst = true;
         private int mouseWheelDeltaTmp;
         private string calName = null;
         private double pxDiffBlockTop, pxDiffBlockLeft,
@@ -147,10 +147,9 @@ namespace GUIProj1
             for (int i = 0; i++ < getCurrentDaysInMonth(); days.Add(i.ToString()));
             for (int i = (DateTime.Today.Year - 20); ++i < MAX_YEAR; years.Add(i.ToString()));
 
-            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
             moComboBox.SelectedIndex = DateTime.Now.Month - 1;
             yrComboBox.SelectedItem = DateTime.Now.Year.ToString();
-            wkComboBox.SelectedIndex = getWeekInMonth() - 1;
+            dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
         }
 
         private int resetDayItemCollection()
@@ -164,6 +163,8 @@ namespace GUIProj1
             days.Clear();
 
             for (int i = 0; i++ < getDaysInCurrentMonth(); days.Add(i.ToString()));
+
+            justRebuilt = true;
 
             return currentDay;
         }
@@ -1072,9 +1073,15 @@ namespace GUIProj1
                 int daySelect = resetDayItemCollection();
 
                 if (daySelect + 1 >= getDaysInCurrentMonth())
+                {
                     dayComboBox.SelectedIndex = getDaysInCurrentMonth() - 1;
+                    wkComboBox.SelectedIndex = getWeekOfSelectedDay() - 1;
+                }
                 else
+                {
                     dayComboBox.SelectedIndex = daySelect;
+                    wkComboBox.SelectedIndex = getWeekOfSelectedDay() - 1;
+                }
             }
         }
 
@@ -1099,7 +1106,6 @@ namespace GUIProj1
                 newDay < getDaysInCurrentMonth())
             {
                 dayComboBox.SelectedIndex += daysToShift;
-
                 selectWeek(monthViewWeekBorders.
                             ElementAt(wkComboBox.SelectedIndex).Key,
                                             wkComboBox.SelectedIndex);
@@ -1119,10 +1125,16 @@ namespace GUIProj1
                            ElementAt(getWeekOfSelectedDay() - 1).Key,
                                            getWeekOfSelectedDay() - 1);
             }
-#if DEBUG
             else
+            {
+#if DEBUG
                 Console.WriteLine("\nNew day out of range...");
 #endif
+            }
+            if (wkComboBox.SelectedIndex > 2)
+                moCalGridContainer.ScrollToBottom();
+            else
+                moCalGridContainer.ScrollToTop();
         }
 
         private void dayComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1133,9 +1145,7 @@ namespace GUIProj1
 #endif
             selectDay(dayComboBox.SelectedIndex + 1);
 
-            if(moComboBox.SelectedValue != null  &&
-                yrComboBox.SelectedValue != null &&
-                !isCalledFromSelectWeekOfPrevMonth())
+            if (isDirectlyManipulated())
                 wkComboBox.SelectedIndex = getWeekOfSelectedDay() - 1;
         }
 
@@ -1499,6 +1509,35 @@ namespace GUIProj1
             }
 
             return false;
+        }
+
+        private bool isDirectlyManipulated()
+        {
+#if DEBUG
+            Console.WriteLine("Checking stack trace for automated manipulation...");
+#endif
+            StackTrace trace = new StackTrace();
+
+            StackFrame[] frames = trace.GetFrames();
+
+            StackFrame prev = frames[0];
+
+            foreach (StackFrame frame in frames)
+            {
+#if DEBUG
+                Console.WriteLine("Current frame: {0}", frame);
+#endif
+                if (frame.GetMethod().Name.Equals("moComboBox_SelectionChanged"))
+                    return false;
+                else if (frame.GetMethod().Name.Equals("wkComboBox_SelectionChanged"))
+                    return false;
+                else if (frame.GetMethod().Name.Equals("yrComboBox_SelectionChanged"))
+                    return false;
+            }
+#if DEBUG
+            Console.WriteLine("No unwanted automated manipulation detected.");
+#endif
+            return true;
         }
 
         #endregion
