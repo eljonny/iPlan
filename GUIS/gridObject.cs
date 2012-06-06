@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace GUIProj1
 {
+    /// <summary>
+    /// This gridobject is the class that holds 
+    /// </summary>
     public class GridObject
     {
         #region GridObject Variables
@@ -56,10 +59,10 @@ namespace GUIProj1
             blockEnd = new DateTime(DateTime.Now.Year,
                                     DateTime.Now.Month,
                                     DateTime.Now.Day,
-                                    blockBegin.Hour + 8,
-                                    blockBegin.Minute,
-                                    blockBegin.Second,
-                                    blockBegin.Millisecond);
+                                    DateTime.Now.Hour + 1,
+                                    DateTime.Now.Minute,
+                                    DateTime.Now.Second,
+                                    DateTime.Now.Millisecond);
             isPopulated = false;
             factors = new LinkedList<ProbabilityFactor>();
         }

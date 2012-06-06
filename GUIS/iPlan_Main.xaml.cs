@@ -144,7 +144,7 @@ namespace GUIProj1
             ItemCollection days = dayComboBox.Items;
 
             for(int i = 0; ++i < 7; weeks.Add(i.ToString()));
-            for (int i = 0; i++ < DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month); days.Add(i.ToString()));
+            for (int i = 0; i++ < getCurrentDaysInMonth(); days.Add(i.ToString()));
             for (int i = (DateTime.Today.Year - 20); ++i < MAX_YEAR; years.Add(i.ToString()));
 
             dayComboBox.SelectedIndex = DateTime.Now.Day - 1;
@@ -153,26 +153,19 @@ namespace GUIProj1
             wkComboBox.SelectedIndex = getWeekInMonth() - 1;
         }
 
-        private void resetDayItemCollection()
+        private int resetDayItemCollection()
         {
-            int selectedDayIndex = dayComboBox.SelectedIndex;
+            int currentDay = dayComboBox.SelectedIndex;
 #if DEBUG
-            Console.WriteLine("Rebuilding day combo box... selected day: {0}", selectedDayIndex + 1);
+            Console.WriteLine("Rebuilding day combo box... selected day: {0}", currentDay + 1);
 #endif
             ItemCollection days = dayComboBox.Items;
 
             days.Clear();
 
-            for (int i = 0;
-                i++ < DateTime.DaysInMonth
-                        (Int32.Parse
-                            ((string)yrComboBox.SelectedValue),
-                                   moComboBox.SelectedIndex + 1);
-                days.Add(i.ToString()));
-#if DEBUG
-            Console.WriteLine("Selecting day with index {0}", selectedDayIndex);
-#endif
-            dayComboBox.SelectedIndex = selectedDayIndex;
+            for (int i = 0; i++ < getDaysInCurrentMonth(); days.Add(i.ToString()));
+
+            return currentDay;
         }
 
         #endregion
@@ -238,6 +231,9 @@ namespace GUIProj1
 
         #region Grid Population Methods
 
+        /// <summary>
+        /// Puts numbers in all the text blocks representing calendar day numbers.
+        /// </summary>
         private void populateMonthViewDayLabels()
         {
 #if DEBUG
@@ -252,22 +248,16 @@ namespace GUIProj1
 
             #region Get number of days in the previous month.
             if (moComboBox.SelectedIndex == 0)
-                numDaysPrevious =
-                    DateTime.DaysInMonth((Int32.Parse(yrComboBox.SelectedValue.ToString()) - 1),
-                                                  /*If january, previous month is December.*/ 12);
+                numDaysPrevious = getDaysInMonth(Int32.Parse((string)yrComboBox.SelectedValue) - 1, 12);
             else
-                numDaysPrevious =
-                    DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
-                                                                  (moComboBox.SelectedIndex));
+                numDaysPrevious = getDaysInMonth(moComboBox.SelectedIndex);
 #if DEBUG
             Console.WriteLine("Number of days in previous-to-the-current month, {0}: {1}",moComboBox.SelectedIndex,numDaysPrevious.ToString());
 #endif
             #endregion
 
             #region Get number of days in current month.
-            numDaysCurrent =
-                DateTime.DaysInMonth(Int32.Parse(yrComboBox.SelectedValue.ToString()),
-                                                          moComboBox.SelectedIndex + 1);
+            numDaysCurrent = getDaysInCurrentMonth();
 #if DEBUG
             Console.WriteLine("Number of days in current month, {0}: {1}", (moComboBox.SelectedIndex + 1), numDaysCurrent.ToString());
 #endif
@@ -275,42 +265,30 @@ namespace GUIProj1
 
             IEnumerator labels = monthViewDayNumbers.GetEnumerator();
 
-            TextBlock dayNumberTextBlock;
-
             #region Begin the iteration.
             labels.MoveNext();
 
             #region Populate day values pertaining to the previous month, if there are any.
             while (numDaysPrevious - startDay < numDaysPrevious)
             {
-                dayNumberTextBlock = (TextBlock)labels.Current;
-                dayNumberTextBlock.Opacity = .5;
-                dayNumberTextBlock.Text = (numDaysPrevious - (startDay--)).ToString();
+                ((TextBlock)labels.Current).Opacity = .5;
+                ((TextBlock)labels.Current).Text = (numDaysPrevious - (startDay--)).ToString();
 #if DEBUG
-                Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                Console.WriteLine("Setting text... {0}", ((TextBlock)labels.Current).Text);
 #endif
                 labels.MoveNext();
             }
             #endregion
 
-            /* Might need this later....
-             * 
-            // If there were days to populate from the previous month...
-            if (startDay < 0)
-                startDay *= -1;
-            // Else continue normally...
-            else
-             * */
             startDay++;
 
             #region Populate the day values of the current month...
             while (startDay <= numDaysCurrent)
             {
-                dayNumberTextBlock = (TextBlock)labels.Current;
-                dayNumberTextBlock.Opacity = 1;
-                dayNumberTextBlock.Text = (startDay++).ToString();
+                ((TextBlock)labels.Current).Opacity = 1;
+                ((TextBlock)labels.Current).Text = (startDay++).ToString();
 #if DEBUG
-                Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                Console.WriteLine("Setting text... {0}", ((TextBlock)labels.Current).Text);
 #endif
                 labels.MoveNext();
             }
@@ -323,11 +301,10 @@ namespace GUIProj1
             {
                 do
                 {
-                    dayNumberTextBlock = (TextBlock)labels.Current;
-                    dayNumberTextBlock.Opacity = .5;
-                    dayNumberTextBlock.Text = (startDay++).ToString();
+                    ((TextBlock)labels.Current).Opacity = .5;
+                    ((TextBlock)labels.Current).Text = (startDay++).ToString();
 #if DEBUG
-                    Console.WriteLine("Setting text... {0}", dayNumberTextBlock.Text);
+                    Console.WriteLine("Setting text... {0}", ((TextBlock)labels.Current).Text);
 #endif
                 } while (labels.MoveNext());
             }
@@ -343,6 +320,9 @@ namespace GUIProj1
             #endregion
         }
 
+        /// <summary>
+        /// Switches the day label order to Su - Sa or Mon - Su.
+        /// </summary>
         private void switchDayOrder()
         {
             if (lblsMonthNames == null)
@@ -371,6 +351,11 @@ namespace GUIProj1
             mondayFirst = !mondayFirst;
         }
 
+        /// <summary>
+        /// Selects a week in the month calendar grid.
+        /// </summary>
+        /// <param name="week">A Border object representing the week.</param>
+        /// <param name="index">The week index (0 - 5)</param>
         private void selectWeek(Border week, int index)
         {
 #if DEBUG
@@ -405,10 +390,12 @@ namespace GUIProj1
 
             foreach(Border value in unselectedWeeks)
                 monthViewWeekBorders[value] = false;
-
-            wkComboBox.SelectedIndex = index;
         }
 
+        /// <summary>
+        /// Selects a day in the month grid.
+        /// </summary>
+        /// <param name="dayNumber">The number of the day you want to select.</param>
         private void selectDay(int dayNumber)
         {
             foreach (TextBlock t in monthViewDayNumbers)
@@ -438,6 +425,10 @@ namespace GUIProj1
             }
         }
 
+        /// <summary>
+        /// Calculates the week via the current date.
+        /// </summary>
+        /// <returns>The 1st, 2nd, ..., or 6th week</returns>
         private int getWeekInMonth() {
 
             int dayOffset = 0;
@@ -456,6 +447,10 @@ namespace GUIProj1
             return wk;
         }
 
+        /// <summary>
+        /// Gets the week of the currently selected day in the month calendar grid.
+        /// </summary>
+        /// <returns>The week of the month in which the selected day exists.</returns>
         private int getWeekOfSelectedDay()
         {
             int dayOffset = mondayFirst ? getFirstDayOfMonthOffset() - 1 :
@@ -473,6 +468,10 @@ namespace GUIProj1
             return wk;
         }
 
+        /// <summary>
+        /// Gets the grid offset of the of the first day of the selected month.
+        /// </summary>
+        /// <returns>The grid offset of the first day of the selected month.</returns>
         private int getFirstDayOfMonthOffset() {
 
             DateTime first =
@@ -495,6 +494,132 @@ namespace GUIProj1
             default:
                 return 0;
             }
+        }
+
+        /// <summary>
+        /// Uses the DateTime.DaysInMonth function.
+        /// </summary>
+        /// <returns>The days in the currently selected month.</returns>
+        private int getDaysInCurrentMonth()
+        {
+            return DateTime.DaysInMonth(Int32.Parse((string)yrComboBox.SelectedValue), moComboBox.SelectedIndex + 1);
+        }
+
+        /// <summary>
+        /// Uses the DateTime.DaysInMonth function.
+        /// </summary>
+        /// <returns>The days in the month of today's date.</returns>
+        private int getCurrentDaysInMonth()
+        {
+            return DateTime.DaysInMonth(DateTime.Now.Year,DateTime.Now.Month);
+        }
+
+        /// <summary>
+        /// Uses the datetime.daysinmonth function.
+        /// </summary>
+        /// <param name="month">Integer argument specifying what month of the currently selected year.</param>
+        /// <returns>The days in month "month".</returns>
+        private int getDaysInMonth(int month)
+        {
+            return DateTime.DaysInMonth(Int32.Parse((string)yrComboBox.SelectedValue), month);
+        }
+
+        /// <summary>
+        /// Uses the datetime.daysinmonth function.
+        /// </summary>
+        /// <param name="year">The desired year as a string.</param>
+        /// <param name="month">Integer argument specifying what month.</param>
+        /// <returns>The days in "month" of "year".</returns>
+        private int getDaysInMonth(string year, int month)
+        {
+            return DateTime.DaysInMonth(Int32.Parse((string)year), month);
+        }
+
+        /// <summary>
+        /// Uses the datetime.daysinmonth function.
+        /// </summary>
+        /// <param name="year">The desired year.</param>
+        /// <param name="month">The desired month.</param>
+        /// <returns>Days in the "month" of "year"</returns>
+        private int getDaysInMonth(int year, int month)
+        {
+            return DateTime.DaysInMonth(year, month);
+        }
+
+        /// <summary>
+        /// Gets the number of days in the previous to the selected month.
+        /// </summary>
+        /// <returns>Days in the previous month.</returns>
+        private int getDaysInPreviousMonth()
+        {
+            if (moComboBox.SelectedIndex == 0)
+                return getDaysInMonth(Int32.Parse((string)yrComboBox.SelectedValue) - 1, 12);
+            else
+                return getDaysInMonth((string)yrComboBox.SelectedValue, moComboBox.SelectedIndex);
+        }
+
+        /// <summary>
+        /// If someone tried to select a week where the day is in 
+        /// the next month, try to move to the next month.
+        /// </summary>
+        /// <param name="newDay">The day of the next month to select.</param>
+        private void selectWeekOfPreviousMonth(int newDay)
+        {
+            dayComboBox.SelectedIndex = newDay + getDaysInPreviousMonth();
+#if DEBUG
+            Console.WriteLine("\n##SELECTPREVMONTH##\nTrying to select previous month...\n");
+            Console.WriteLine("Current day index: {0}",dayComboBox.SelectedIndex);
+#endif
+            if (moComboBox.SelectedIndex == 0)
+            {
+                if (yrComboBox.SelectedIndex == 0)
+                {
+                    // TODO make it dynamically add and remove years.
+#if DEBUG
+                    Console.WriteLine("Unsupported operation; Calendar does not go back that far.");
+#endif
+                    rStatBarTxt.Text = "Calendar does not go back that far.";
+                    return;
+                }
+                else
+                {
+                    moComboBox.SelectedIndex = 11;
+                    yrComboBox.SelectedIndex--;
+                }
+            }
+            else
+                moComboBox.SelectedIndex--;
+            moCalGridContainer.ScrollToBottom();
+        }
+
+        /// <summary>
+        /// If someone tries to select a week where the day is in 
+        /// the next month, we try to move to the next month.
+        /// </summary>
+        /// <param name="day">Day of the next month to select.</param>
+        private void selectWeekOfNextMonth(int day)
+        {
+            dayComboBox.SelectedIndex = day;
+#if DEBUG
+            Console.WriteLine("\n##SELECTNEXTMONTH##\nTrying to select next month....\n");
+#endif
+            if (yrComboBox.SelectedIndex == yrComboBox.Items.Count - 1)
+            {
+                // TODO make it dynamically add and remove years.
+#if DEBUG
+                Console.WriteLine("Unsupported operation; You have reached the end of the calendar.");
+#endif
+                rStatBarTxt.Text = "You have reached the end of the calendar.";
+                return;
+            }
+            else if (moComboBox.SelectedIndex == moComboBox.Items.Count - 1)
+            {
+                moComboBox.SelectedIndex = 0;
+                ++yrComboBox.SelectedIndex;
+            }
+            else
+                moComboBox.SelectedIndex++;
+            moCalGridContainer.ScrollToTop();
         }
 
         #endregion
@@ -929,6 +1054,10 @@ namespace GUIProj1
 
         private void moComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+#if DEBUG
+            Console.WriteLine("\n##MONTHCOMBOBOX##\nMonth combo box modified....");
+            Console.WriteLine("Selected month index: {0}", moComboBox.SelectedIndex);
+#endif
             if (yrComboBox.SelectedValue != null &&
                 ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
                  (getFirstDayOfMonthOffset() > 4 && !mondayFirst)))
@@ -938,84 +1067,60 @@ namespace GUIProj1
 
             if (yrComboBox.SelectedValue != null)
             {
-                selectWeek(monthViewWeekBorders.ElementAt(getWeekOfSelectedDay() - 1).Key, getWeekOfSelectedDay() - 1);
                 populateMonthViewDayLabels();
-                resetDayItemCollection();
+
+                int daySelect = resetDayItemCollection();
+
+                if (daySelect + 1 >= getDaysInCurrentMonth())
+                    dayComboBox.SelectedIndex = getDaysInCurrentMonth() - 1;
+                else
+                    dayComboBox.SelectedIndex = daySelect;
             }
         }
 
         private void wkComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 #if DEBUG
-            Console.WriteLine("Week combo box modified....");
+            Console.WriteLine("\n##WEEKCOMBOBOX##\nWeek combo box modified....");
+            Console.WriteLine("Selected week index: {0}", wkComboBox.SelectedIndex);
 #endif
-            selectWeek
-               (monthViewWeekBorders.ElementAt(wkComboBox.SelectedIndex).Key,
-                                                     wkComboBox.SelectedIndex);
-            int daysInSelectedMonth = DateTime.DaysInMonth
-                                        (Int32.Parse
-                                            ((string)yrComboBox.SelectedValue),
-                                                    moComboBox.SelectedIndex + 1);
-            int daysInPreviousMonth = DateTime.DaysInMonth
-                                        (Int32.Parse
-                                            ((string)yrComboBox.SelectedValue),
-                                                    moComboBox.SelectedIndex);
-
             int wkDelta = wkComboBox.SelectedIndex - (getWeekOfSelectedDay() - 1);
             int daysToShift = wkDelta * 7;
             int newDay = daysToShift + dayComboBox.SelectedIndex;
 #if DEBUG
-            Console.WriteLine("Week delta: {0}\nDays to shift:{1}\nNew Day: {2}",
-                                                      wkDelta, daysToShift, newDay);
+            Console.WriteLine("Days in currently selected month: " +
+                              "{1}\nDays in previous month: {0}",
+                              getDaysInPreviousMonth(), getDaysInCurrentMonth());
+
+            Console.WriteLine("Week delta: {0}\nDays to shift:{1}" +
+                              "\nNew Day: {2}", wkDelta, daysToShift, newDay);
 #endif
             if (newDay >= 0 &&
-                newDay < daysInSelectedMonth)
+                newDay < getDaysInCurrentMonth())
+            {
                 dayComboBox.SelectedIndex += daysToShift;
+
+                selectWeek(monthViewWeekBorders.
+                            ElementAt(wkComboBox.SelectedIndex).Key,
+                                            wkComboBox.SelectedIndex);
+            }
             else if (newDay < 0)
             {
-                dayComboBox.SelectedIndex = newDay + daysInPreviousMonth;
-
-                if (moComboBox.SelectedIndex == 0)
-                {
-                    if (yrComboBox.SelectedIndex == 0)
-                    {
-                        // TODO make it dynamically add and remove years.
-#if DEBUG
-                        Console.WriteLine("Unsupported operation; Calendar does not go back that far.");
-#else
-                        rStatBarTxt.Text = "Calendar does not go back that far.";
-#endif
-                        return;
-                    }
-                    else
-                    {
-                        moComboBox.SelectedIndex = 11;
-                        --yrComboBox.SelectedIndex;
-                    }
-                }
-                else if (moComboBox.SelectedIndex == moComboBox.Items.Count - 1)
-                {
-                    if (yrComboBox.SelectedIndex == yrComboBox.Items.Count - 1)
-                    {
-                        // TODO make it dynamically add and remove years.
-#if DEBUG
-                        Console.WriteLine("Unsupported operation; You have reached the end of the calendar.");
-#else
-                        rStatBarTxt.Text = "You have reached the end of the calendar.";
-#endif
-                        return;
-                    }
-                    else
-                    {
-                        moComboBox.SelectedIndex = 0;
-                        ++yrComboBox.SelectedIndex;
-                    }
-                }
-                else
-                    --moComboBox.SelectedIndex;
+                selectWeekOfPreviousMonth(newDay);
+                selectWeek(monthViewWeekBorders.
+                              ElementAt(getWeekOfSelectedDay() - 1).Key,
+                                              getWeekOfSelectedDay() - 1);
             }
-            else
+            else if (newDay > dayComboBox.Items.Count)
+            {
+                int dayOfNextMonth = newDay - dayComboBox.Items.Count;
+                selectWeekOfNextMonth(dayOfNextMonth);
+                selectWeek(monthViewWeekBorders.
+                           ElementAt(getWeekOfSelectedDay() - 1).Key,
+                                           getWeekOfSelectedDay() - 1);
+            }
 #if DEBUG
+            else
                 Console.WriteLine("\nNew day out of range...");
 #endif
         }
@@ -1023,18 +1128,23 @@ namespace GUIProj1
         private void dayComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 #if DEBUG
-            Console.WriteLine("Day combo box modified....");
+            Console.WriteLine("\n##DAYCOMBOBOX##\nDay combo box modified....");
             Console.WriteLine("Selected day index: {0}", dayComboBox.SelectedIndex);
 #endif
             selectDay(dayComboBox.SelectedIndex + 1);
 
             if(moComboBox.SelectedValue != null  &&
-                yrComboBox.SelectedValue != null   )
+                yrComboBox.SelectedValue != null &&
+                !isCalledFromSelectWeekOfPrevMonth())
                 wkComboBox.SelectedIndex = getWeekOfSelectedDay() - 1;
         }
 
         private void yrComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+#if DEBUG
+            Console.WriteLine("\n##YEARCOMBOBOX##\nYear combo box modified....");
+            Console.WriteLine("Selected year index: {0}", yrComboBox.SelectedIndex);
+#endif
             if (moComboBox.SelectedValue != null &&
                 ((getFirstDayOfMonthOffset() == 0 && mondayFirst) ||
                  (getFirstDayOfMonthOffset() > 4 && !mondayFirst)))
@@ -1044,7 +1154,8 @@ namespace GUIProj1
 
             if (moComboBox.SelectedValue != null)
             {
-                selectWeek(monthViewWeekBorders.ElementAt(getWeekInMonth() - 1).Key, getWeekInMonth() - 1);
+                selectWeek(monthViewWeekBorders.ElementAt(getWeekOfSelectedDay() - 1).Key,
+                                                                getWeekOfSelectedDay() - 1);
                 populateMonthViewDayLabels();
             }
 
@@ -1304,6 +1415,10 @@ namespace GUIProj1
 
         #region Miscellaneous Functions
 
+        /// <summary>
+        /// String representation of this object.
+        /// </summary>
+        /// <returns>A string representation of this object.</returns>
         public override string ToString()
         {
             // TODO Write some string stuff.
@@ -1311,6 +1426,12 @@ namespace GUIProj1
         }
 
         /* Ryan */
+        /// <summary>
+        /// Accepts a dependency object and searches for objects of type T.
+        /// </summary>
+        /// <typeparam name="T">The type you would like to search for.</typeparam>
+        /// <param name="depObj">The object of which to search its visual tree.</param>
+        /// <returns>An enumerable object collection; elements are of type T.</returns>
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj)
             where T : DependencyObject
         {
@@ -1330,6 +1451,54 @@ namespace GUIProj1
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Examines a stack trace for certain signs of runaway 
+        /// recursion and tries to stop it.
+        /// </summary>
+        /// <returns>Whether it found signs of runaway recursion.</returns>
+        private bool isCalledFromSelectWeekOfPrevMonth()
+        {
+#if DEBUG
+            Console.WriteLine("Checking stack trace for recursion...");
+#endif
+            StackTrace trace = new StackTrace();
+
+            StackFrame[] frames = trace.GetFrames();
+
+            StackFrame prev = frames[0];
+
+            foreach (StackFrame frame in frames)
+            {
+#if DEBUG
+                Console.WriteLine("Previous stack trace method invocation: {0}", prev.GetMethod().Name);
+                Console.WriteLine("Current stack trace method invocation: {0}", frame.GetMethod().Name);
+#endif
+                if (frame.GetMethod().Name.Equals("wkComboBox_SelectionChanged") &&
+                     (prev.GetMethod().Name.Equals("selectWeekOfPreviousMonth") ||
+                       prev.GetMethod().Name.Equals("selectWeekOfNextMonth")))
+                {
+#if DEBUG
+                    Console.WriteLine("\nFound expected runaway indirect recursion at stack frame:\n{0}" +
+                                      "Method: {1}\nLine:Column in <file>: {2}:{3} in {4}\nInstance" +
+                                      " type: {5}\nJIT Native Offset: {6}\nMSIL JIT Offset: {7}\nHash:" +
+                                      " {8}", frame, frame.GetMethod(), frame.GetFileLineNumber(), frame.
+                                      GetFileColumnNumber(), frame.GetFileName(), frame.GetType(),
+                                      frame.GetNativeOffset(), frame.GetILOffset(), frame.GetHashCode());
+#endif
+                    return true;
+                }
+                else if (frame.GetMethod().Name.Equals("moComboBox_SelectionChanged"))
+                    return false;
+                else if (frame.GetMethod().Name.Equals("wkComboBox_SelectionChanged"))
+                    return false;
+                else if (frame.GetMethod().Name.Equals("yrComboBox_SelectionChanged"))
+                    return false;
+                prev = frame;
+            }
+
+            return false;
         }
 
         #endregion
