@@ -1,0 +1,7 @@
+.vs/
+**/obj/
+**/bin/**/app.publish/
+**/bin/**/iPlan.*
+**/Backup
+**/UpgradeLog.htm
+*.user
